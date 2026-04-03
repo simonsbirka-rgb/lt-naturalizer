@@ -185,7 +185,7 @@ describe('computeStats', () => {
 
   // Function word ratio
   it('computes function word ratio', () => {
-    const text = 'The cat is in the box with the hat on the mat.';
+    const text = 'Katė ir šuo yra ant kilimo su kepure ir kaspinu.';
     const stats = computeStats(text);
     expect(stats.functionWordRatio).toBeGreaterThan(0);
     expect(stats.functionWordRatio).toBeLessThan(1);

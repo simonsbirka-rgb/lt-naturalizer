@@ -130,52 +130,51 @@ describe('formatting', () => {
 // ─── Individual Pattern Detection ────────────────────────
 
 describe('pattern detection', () => {
-  // 1. Significance inflation
-  it('detects significance inflation', () => {
+  // 1. Lexical calques
+  it('detects lexical calques', () => {
     const text =
-      'This moment marks a pivotal shift in the evolution of technology, setting the stage for a key turning point.';
+      'Pasinerkime į šią temą. Svarbu pažymėti, kad neabejotinai verta atkreipti dėmesį į naujoves.';
     const result = analyze(text, { patternsToCheck: [1] });
     expect(result.findings.length).toBeGreaterThan(0);
     expect(result.findings[0].patternId).toBe(1);
   });
 
-  // 2. Notability name-dropping
-  it('detects notability name-dropping', () => {
-    const text = 'She maintains an active social media presence with millions of followers.';
+  // 2. SVO Tyranny
+  it('detects SVO tyranny', () => {
+    const text = 'Mes turime suprasti, kad technologijos tobulėja. Jis mano, kad tai svarbu.';
     const result = analyze(text, { patternsToCheck: [2] });
     expect(result.findings.length).toBeGreaterThan(0);
   });
 
-  // 3. Superficial -ing analyses
-  it('detects superficial -ing analyses', () => {
+  // 3. Passive voice overload
+  it('detects passive voice overload', () => {
     const text =
-      "The building uses modern materials, showcasing the architect's vision and reflecting the community's values.";
+      'Buvo pastebėta, kad sistema veikia gerai. Šioje srityje yra daroma daug pažangos. Yra tikimasi, kad rezultatai gerės.';
     const result = analyze(text, { patternsToCheck: [3] });
     expect(result.findings.length).toBeGreaterThan(0);
   });
 
-  // 4. Promotional language
-  it('detects promotional language', () => {
+  // 4. Nominalization
+  it('detects nominalization', () => {
     const text =
-      'Nestled in the heart of downtown, this stunning venue boasts breathtaking views and renowned cuisine.';
+      'Priėmėme sprendimą dėl investicijų. Reikia vykdyti tobulinimą šioje srityje.';
     const result = analyze(text, { patternsToCheck: [4] });
-    expect(result.findings.length).toBeGreaterThan(0);
-    expect(result.totalMatches).toBeGreaterThanOrEqual(3);
-  });
-
-  // 5. Vague attributions
-  it('detects vague attributions', () => {
-    const text =
-      'Experts believe this is important. Industry reports suggest continued growth. Studies show improvement.';
-    const result = analyze(text, { patternsToCheck: [5] });
     expect(result.findings.length).toBeGreaterThan(0);
     expect(result.totalMatches).toBeGreaterThanOrEqual(2);
   });
 
-  // 6. Formulaic challenges
-  it('detects formulaic challenges', () => {
+  // 5. Genitive chains
+  it('detects genitive chains', () => {
     const text =
-      'Despite its challenges, the city continues to thrive. Despite these obstacles, the future outlook remains positive.';
+      'Įmonės plėtros strategijos įgyvendinimo plano optimizavimas yra sudėtingas procesas.';
+    const result = analyze(text, { patternsToCheck: [5] });
+    expect(result.findings.length).toBeGreaterThan(0);
+  });
+
+  // 6. Lack of particles
+  it('detects lack of particles', () => {
+    const text =
+      'Technologijos tobulėja kiekvienais metais. Sistemos veikia efektyviai ir patikimai. Rezultatai gerėja nuosekliai. Komandos dirba produktyviai ir sėkmingai. Projektai baigiami laiku ir pagal planą. Naujovės diegiamos nuosekliai ir metodiškai. Klientai vertina paslaugas teigiamai ir palankiai. Rinka auga stabiliai ir nuosekliai. Investicijos didėja kasmet ir reguliariai. Inovacijos skatinamos nuolat ir aktyviai. Partneriai prisijungia reguliariai ir noriai. Procesai automatizuojami sėkmingai ir efektyviai. Duomenys analizuojami tiksliai ir kruopščiai. Sprendimai priimami greitai ir apgalvotai.';
     const result = analyze(text, { patternsToCheck: [6] });
     expect(result.findings.length).toBeGreaterThan(0);
   });
@@ -183,35 +182,10 @@ describe('pattern detection', () => {
   // 7. AI vocabulary
   it('detects AI vocabulary words', () => {
     const text =
-      'Additionally, this showcases the vibrant tapestry of the evolving landscape, a testament to enduring innovation.';
+      'Pasinerkime į šią temą. Svarbu pažymėti, kad neabejotinai reikia tyrinėti galimybes ir atskleisti potencialą.';
     const result = analyze(text, { patternsToCheck: [7] });
     expect(result.findings.length).toBeGreaterThan(0);
     expect(result.totalMatches).toBeGreaterThanOrEqual(4);
-  });
-
-  // 8. Copula avoidance
-  it('detects copula avoidance', () => {
-    const text =
-      'The gallery serves as a space for art. The building boasts over 3000 square feet. It functions as a hub.';
-    const result = analyze(text, { patternsToCheck: [8] });
-    expect(result.findings.length).toBeGreaterThan(0);
-    expect(result.totalMatches).toBeGreaterThanOrEqual(2);
-  });
-
-  // 9. Negative parallelisms
-  it('detects negative parallelisms', () => {
-    const text =
-      "It's not just a tool, it's a revolution. Not only does it save time but also transforms workflows.";
-    const result = analyze(text, { patternsToCheck: [9] });
-    expect(result.findings.length).toBeGreaterThan(0);
-  });
-
-  // 10. Rule of three
-  it('detects rule of three with abstract nouns', () => {
-    const text =
-      'The event promotes innovation, inspiration, and collaboration for increased motivation, dedication, and education.';
-    const result = analyze(text, { patternsToCheck: [10] });
-    expect(result.findings.length).toBeGreaterThan(0);
   });
 
   // 13. Em dash overuse

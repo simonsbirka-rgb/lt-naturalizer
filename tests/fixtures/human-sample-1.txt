@@ -1,9 +1,9 @@
-I keep going back and forth on AI coding tools. Last week I mass-accepted a bunch of Copilot suggestions in a config file and didn't notice until two days later that one of them referenced a package we'd already ripped out.
+Vis grįžtu prie to paties klausimo dėl AI programavimo įrankių. Praėjusią savaitę priėmiau krūvą Copilot pasiūlymų konfigūracijos faile ir tik po dviejų dienų pastebėjau, kad vienas iš jų nurodė paketą, kurį jau seniai buvome išmetę.
 
-The thing is, they're genuinely useful for boilerplate. Test scaffolding, repetitive CRUD endpoints, config files you've written a hundred times before. I wrote a React form component last month that took maybe ten minutes with Copilot where it would've taken thirty without. Fine.
+Žinot, juk iš tiesų jie naudingi šablonams. Testų paruošimas, pasikartojantys CRUD endpoint'ai, konfigūracijos failai, kuriuos esi rašęs šimtą kartų. Praėjusį mėnesį parašiau React formos komponentą — turbūt per dešimt minučių su Copilot, kai be jo būtų užtrukę pusvalandį. Gerai.
 
-But I've also watched a junior dev on my team accept suggestions for three weeks straight and end up with code that worked, passed CI, and was completely unmaintainable. Nobody caught it until code review, and by then it was a 2000-line PR.
+Bet gi mačiau, kaip vienas jaunesnis kolega tris savaites iš eilės priėminėjo pasiūlymus ir galiausiai turėjo kodą, kuris veikė, praėjo CI, bet buvo visiškai neprižiūrimas. Niekas to nepastebėjo iki code review, o tada jau buvo 2000 eilučių PR.
 
-The productivity numbers are squishy. GitHub says 30% of suggestions get accepted, but that's not the same as 30% improvement. Some of those accepted suggestions still need editing. The Uplevel study from last year found basically no difference in PR throughput between teams with and without Copilot.
+Produktyvumo skaičiai abejotini. GitHub sako, kad 30% pasiūlymų priimama, bet tai ne tas pats kas 30% pagerėjimas. Kai kuriuos priimtus pasiūlymus vis tiek reikia redaguoti.
 
-I still use it. I just don't trust it.
+Vis dar naudoju. Tiesiog nepasitikiu.

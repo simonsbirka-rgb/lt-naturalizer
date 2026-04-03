@@ -188,11 +188,11 @@ describe('score bounds', () => {
   it('maximum AI text does not exceed 100', () => {
     const text = `Great question! Here is a comprehensive overview.
 
-Additionally, this serves as a testament to the transformative tapestry of the evolving landscape. In today's rapidly evolving digital age, these groundbreaking tools — nestled at the forefront of innovation — are showcasing the vibrant interplay of technology, highlighting its pivotal role and underscoring the crucial importance of seamless synergy.
+Pasinerkime į šią temą. Svarbu pažymėti, kad šiuolaikiniame skaitmeniniame amžiuje — nuolat besikeičiančiame kraštovaizdyje — priemonės yra daroma vis geriau. Neabejotinai, verta atkreipti dėmesį. Mes turime suprasti, kad buvo pastebėta daug naujovių.
 
-Experts believe it plays a crucial role. Studies show improvement. Industry reports suggest growth. Despite challenges, the ecosystem continues to thrive. It's not just a tool, it's a revolution.
+Priėmėme sprendimą vykdyti tobulinimą. Tai padeda įgalinti komandas ir išlaisvinti potencialą. Yra tikimasi, kad rezultatai gerės. Ji sako, kad Jis mano, kad progresas neišvengiamas.
 
-In order to help, due to the fact that you asked, at this point in time, it is important to note that the future looks bright. Exciting times lie ahead. I hope this helps! Let me know if you'd like me to expand.`;
+It could potentially be true. In order to help, due to the fact that you asked, at this point in time, the future looks bright. Exciting times lie ahead. I hope this helps! Let me know if you'd like me to expand.`;
 
     const s = score(text);
     expect(s).toBeLessThanOrEqual(100);

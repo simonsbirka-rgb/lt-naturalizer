@@ -111,269 +111,138 @@ function scanPhrases(text, phrases, tierFilter = null) {
   return results;
 }
 
-// ─── Significance / Promotional Phrase Lists ─────────────
-// (Kept here for patterns that need inline regex arrays)
-
-const SIGNIFICANCE_PHRASES = [
-  /marking a pivotal/gi,
-  /pivotal moment/gi,
-  /pivotal role/gi,
-  /key role/gi,
-  /crucial role/gi,
-  /vital role/gi,
-  /significant role/gi,
-  /is a testament/gi,
-  /stands as a testament/gi,
-  /serves as a testament/gi,
-  /serves as a reminder/gi,
-  /reflects broader/gi,
-  /broader trends/gi,
-  /broader movement/gi,
-  /evolving landscape/gi,
-  /evolving world/gi,
-  /setting the stage for/gi,
-  /marking a shift/gi,
-  /key turning point/gi,
-  /indelible mark/gi,
-  /deeply rooted/gi,
-  /focal point/gi,
-  /symbolizing its ongoing/gi,
-  /enduring legacy/gi,
-  /lasting impact/gi,
-  /contributing to the/gi,
-  /underscores the importance/gi,
-  /highlights the significance/gi,
-  /represents a shift/gi,
-  /shaping the future/gi,
-  /the evolution of/gi,
-  /rich tapestry/gi,
-  /rich heritage/gi,
-  /stands as a beacon/gi,
-  /marks a milestone/gi,
-  /paving the way/gi,
-  /charting a course/gi,
-];
-
-const PROMOTIONAL_WORDS = [
-  /\bnestled\b/gi,
-  /\bin the heart of\b/gi,
-  /\bbreathtaking\b/gi,
-  /\bmust-visit\b/gi,
-  /\bstunning\b/gi,
-  /\brenowned\b/gi,
-  /\bnatural beauty\b/gi,
-  /\brich cultural heritage\b/gi,
-  /\brich history\b/gi,
-  /\bcommitment to\b/gi,
-  /\bexemplifies\b/gi,
-  /\bworld-class\b/gi,
-  /\bstate-of-the-art\b/gi,
-  /\bgame-changing\b/gi,
-  /\bgame changer\b/gi,
-  /\bunparalleled\b/gi,
-  /\bprofound\b/gi,
-  /\bbest-in-class\b/gi,
-  /\btrailblazing\b/gi,
-  /\bvisionary\b/gi,
-  /\bcutting-edge\b/gi,
-  /\bworldwide recognition\b/gi,
-];
-
-const VAGUE_ATTRIBUTION_PHRASES = [
-  /\bexperts (believe|argue|say|suggest|note|agree|contend|have noted)\b/gi,
-  /\bindustry (reports|observers|experts|analysts|leaders|insiders)\b/gi,
-  /\bobservers have (cited|noted|pointed out)\b/gi,
-  /\bsome critics argue\b/gi,
-  /\bsome experts (say|believe|suggest)\b/gi,
-  /\bseveral sources\b/gi,
-  /\baccording to reports\b/gi,
-  /\bwidely (regarded|considered|recognized|acknowledged)\b/gi,
-  /\bit is widely (known|believed|accepted)\b/gi,
-  /\bmany (experts|scholars|researchers|analysts) (believe|argue|suggest)\b/gi,
-  /\bstudies (show|suggest|indicate|have shown)\b/gi,
-  /\bresearch (shows|suggests|indicates|has shown)\b/gi,
-  /\bsources close to\b/gi,
-  /\bpeople familiar with\b/gi,
-];
-
-const CHALLENGES_PHRASES = [
-  /despite (its|these|the|their) (challenges|setbacks|obstacles|difficulties|limitations)/gi,
-  /faces (several|many|numerous|various) challenges/gi,
-  /continues to thrive/gi,
-  /continues to grow/gi,
-  /future (outlook|prospects) (remain|look|appear)/gi,
-  /challenges and (future|legacy|opportunities)/gi,
-  /despite these (challenges|hurdles|obstacles)/gi,
-  /overcoming (obstacles|challenges|adversity)/gi,
-  /weather(ing|ed) the storm/gi,
-];
-
-const COPULA_AVOIDANCE = [
-  /\bserves as( a)?\b/gi,
-  /\bstands as( a)?\b/gi,
-  /\bmarks a\b/gi,
-  /\brepresents a\b/gi,
-  /\bboasts (a|an|over|more)\b/gi,
-  /\bfeatures (a|an|over|more)\b/gi,
-  /\boffers (a|an)\b/gi,
-  /\bfunctions as\b/gi,
-  /\bacts as( a)?\b/gi,
-  /\boperates as( a)?\b/gi,
-];
-
 // ─── Pattern Definitions ─────────────────────────────────
 
 const patterns = [
-  // ── CONTENT PATTERNS (1-6) ──────────────────────────────
+  // ── LITHUANIAN AI PATTERNS (1-6) ──────────────────────────────
 
   {
     id: 1,
-    name: 'Significance inflation',
+    name: 'Lexical calques',
     category: 'content',
     description:
-      'Inflated claims about significance, legacy, or broader trends. LLMs puff up importance of mundane things.',
-    weight: 4,
+      'Literal translations of English idioms that sound unnatural in Lithuanian.',
+    weight: 5,
     detect(text) {
       const results = [];
-      for (const regex of SIGNIFICANCE_PHRASES) {
-        results.push(
-          ...findMatches(
-            text,
-            regex,
-            'Remove inflated significance claim. State concrete facts instead.',
-            'high',
-          ),
-        );
-      }
+      
+      // Delve/Explore family
+      results.push(...findMatches(text, /pasinerkime į/gi, 'Replace with: pažiūrėkime', 'high'));
+      results.push(...findMatches(text, /panagrinėkime/gi, 'Replace with: pažiūrėk', 'high'));
+      results.push(...findMatches(text, /tyrinėti/gi, 'Replace with: pažvelgti', 'high'));
+      results.push(...findMatches(text, /atskleisti/gi, 'Replace with: parodyti', 'high'));
+      
+      // Crucial/Important family
+      results.push(...findMatches(text, /svarbu pažymėti/gi, 'Remove — just state the fact', 'high'));
+      results.push(...findMatches(text, /verta atkreipti dėmesį/gi, 'Remove — just state the fact', 'high'));
+      results.push(...findMatches(text, /neabejotinai/gi, 'Replace with: tikrai', 'high'));
+      
+      // "In today's world" clichés
+      results.push(...findMatches(text, /nuolat besikeičiančiame kraštovaizdyje/gi, 'Replace with: dabar', 'high'));
+      results.push(...findMatches(text, /šiuolaikiniame skaitmeniniame amžiuje/gi, 'Replace with: dabar', 'high'));
+      
+      // Melodramatic verbs
+      results.push(...findMatches(text, /išlaisvinti potencialą/gi, 'Replace with: padėti geriau', 'high'));
+      results.push(...findMatches(text, /įgalinti/gi, 'Replace with: padėti', 'high'));
+      
       return results;
     },
   },
 
   {
     id: 2,
-    name: 'Notability name-dropping',
-    category: 'content',
+    name: 'SVO Tyranny',
+    category: 'language',
     description:
-      'Listing media outlets or sources to claim notability without providing context or specific claims.',
-    weight: 3,
+      'Strict Subject-Verb-Object word order ignoring natural Lithuanian word order flexibility.',
+    weight: 4,
     detect(text) {
-      const mediaList =
-        /\b(cited|featured|covered|mentioned|reported|published|recognized|highlighted) (in|by) .{0,20}(The New York Times|BBC|CNN|The Washington Post|The Guardian|Wired|Forbes|Reuters|Bloomberg|Financial Times|The Verge|TechCrunch|The Hindu|Al Jazeera|Time|Newsweek|The Economist|Nature|Science).{0,100}(,\s*(and\s+)?(The New York Times|BBC|CNN|The Washington Post|The Guardian|Wired|Forbes|Reuters|Bloomberg|Financial Times|The Verge|TechCrunch|The Hindu|Al Jazeera|Time|Newsweek|The Economist|Nature|Science))+/gi;
-      const results = findMatches(
-        text,
-        mediaList,
-        'Instead of listing outlets, cite one specific claim from one source.',
-        'high',
-      );
-      results.push(
-        ...findMatches(
-          text,
-          /\bactive social media presence\b/gi,
-          'Remove — not meaningful without specific context.',
-          'high',
-        ),
-      );
-      results.push(
-        ...findMatches(
-          text,
-          /\bwritten by a leading expert\b/gi,
-          'Name the expert and their specific credential.',
-          'medium',
-        ),
-      );
-      results.push(
-        ...findMatches(
-          text,
-          /\bhas been (featured|recognized|acknowledged) (by|in)\b/gi,
-          'Cite the specific feature with a concrete claim.',
-          'medium',
-        ),
-      );
+      const results = [];
+      
+      // Unnecessary pronoun usage (Lithuanian drops pronouns since verb endings indicate subject)
+      results.push(...findMatches(text, /Mes turime suprasti, kad/gi, 'Remove "Mes" — use: Turime suprasti, kad', 'high'));
+      results.push(...findMatches(text, /Jis mano, kad/gi, 'Remove "Jis" — use: Mano, kad', 'high'));
+      results.push(...findMatches(text, /Ji sako, kad/gi, 'Remove "Ji" — use: Sako, kad', 'high'));
+      
       return results;
     },
   },
 
   {
     id: 3,
-    name: 'Superficial -ing analyses',
-    category: 'content',
-    description: 'Tacking "-ing" participial phrases onto sentences to fake depth.',
+    name: 'Passive voice overload',
+    category: 'language',
+    description:
+      'AI translates English passive voice directly into Lithuanian passive participles instead of using natural reflexive verbs or active voice.',
     weight: 4,
     detect(text) {
-      const ingPhrases =
-        /,\s*(highlighting|underscoring|emphasizing|ensuring|reflecting|symbolizing|contributing to|cultivating|fostering|encompassing|showcasing|demonstrating|illustrating|representing|signaling|indicating|solidifying|reinforcing|cementing|underscoring|bolstering|reaffirming|illuminating|epitomizing)\b[^.]{5,}/gi;
-      return findMatches(
-        text,
-        ingPhrases,
-        'Remove trailing -ing phrase. If the point matters, give it its own sentence with specifics.',
-        'high',
-      );
+      const results = [];
+      
+      results.push(...findMatches(text, /yra daroma/gi, 'Replace with: darosi', 'high'));
+      results.push(...findMatches(text, /buvo pastebėta/gi, 'Replace with: pastebima', 'high'));
+      results.push(...findMatches(text, /yra tikimasi/gi, 'Replace with: tikimasi', 'high'));
+      
+      return results;
     },
   },
 
   {
     id: 4,
-    name: 'Promotional language',
-    category: 'content',
-    description: 'Ad-copy language that sounds like a tourism brochure or press release.',
-    weight: 3,
+    name: 'Nominalization (Daiktavardėjimas)',
+    category: 'language',
+    description:
+      'AI turns actions into nouns. Instead of verbs, it uses noun phrases like "priėmėme sprendimą" instead of "mes nusprendėme".',
+    weight: 4,
     detect(text) {
       const results = [];
-      for (const regex of PROMOTIONAL_WORDS) {
-        results.push(
-          ...findMatches(
-            text,
-            regex,
-            'Replace promotional language with neutral, factual description.',
-            'high',
-          ),
-        );
-      }
+      
+      results.push(...findMatches(text, /priėmėme sprendimą/gi, 'Replace with: mes nusprendėme', 'high'));
+      results.push(...findMatches(text, /vykdyti tobulinimą/gi, 'Replace with: tobulinti', 'high'));
+      
       return results;
     },
   },
 
   {
     id: 5,
-    name: 'Vague attributions',
-    category: 'content',
-    description: 'Attributing claims to unnamed experts, industry reports, or vague authorities.',
-    weight: 4,
+    name: 'Genitive chains',
+    category: 'language',
+    description:
+      'Stacking nouns in the genitive case (kilmininkas) creating bureaucratic, unnatural sentences.',
+    weight: 3,
     detect(text) {
-      const results = [];
-      for (const regex of VAGUE_ATTRIBUTION_PHRASES) {
-        results.push(
-          ...findMatches(
-            text,
-            regex,
-            "Name the specific source, study, or person. If you can't, remove the claim.",
-            'high',
-          ),
-        );
-      }
-      return results;
+      // Match 3+ consecutive words ending in common Lithuanian genitive suffixes
+      const genitiveChain = /(?:\S+(?:ės|io|ų|os)\s+){2,}\S+(?:ės|io|ų|os|imo|imo)\b/gi;
+      return findMatches(text, genitiveChain, 'Rewrite using verbs instead of stacked genitive nouns', 'high');
     },
   },
 
   {
     id: 6,
-    name: 'Formulaic challenges',
-    category: 'content',
-    description: 'Boilerplate "Despite challenges... continues to thrive" sections.',
+    name: 'Lack of particles (Dalelytės)',
+    category: 'style',
+    description:
+      'AI generated text is almost entirely devoid of natural Lithuanian particles like juk, gi, vis dėlto, bene, turbūt.',
     weight: 3,
     detect(text) {
-      const results = [];
-      for (const regex of CHALLENGES_PHRASES) {
-        results.push(
-          ...findMatches(
-            text,
-            regex,
-            'Replace with specific challenges and concrete outcomes.',
-            'high',
-          ),
-        );
+      const particles = ['juk', 'gi', 'vis dėlto', 'bene', 'turbūt', 'gal', 'na'];
+      const particleCount = particles.reduce((count, p) => {
+        const regex = new RegExp(`(?:^|\\s)${p}(?:\\s|$|[.,;!?:])`, 'gi');
+        return count + countMatches(text, regex);
+      }, 0);
+      
+      const words = wordCount(text);
+      if (words > 50 && particleCount === 0) {
+        return [{
+          match: 'No particles found',
+          index: 0,
+          line: 1,
+          column: 1,
+          suggestion: 'Add natural Lithuanian particles (juk, gi, turbūt, etc.) to make text sound more human',
+          confidence: 'medium',
+        }];
       }
-      return results;
+      return [];
     },
   },
 
@@ -384,7 +253,7 @@ const patterns = [
     name: 'AI vocabulary',
     category: 'language',
     description:
-      'Words and phrases that appear far more frequently in AI-generated text. 500+ words tracked across 3 tiers.',
+      'Words and phrases that appear far more frequently in AI-generated Lithuanian text.',
     weight: 5,
     detect(text) {
       const results = [];
@@ -411,202 +280,8 @@ const patterns = [
         }
       }
 
-      // AI phrases (from vocabulary.js)
-      results.push(
-        ...scanPhrases(
-          text,
-          AI_PHRASES.filter(
-            (p) =>
-              p.fix &&
-              !p.fix.startsWith('(remove') &&
-              !['to', 'because', 'now', 'if', 'can', 'first', 'finally'].includes(p.fix),
-          ),
-        ),
-      );
-
-      return results;
-    },
-  },
-
-  {
-    id: 8,
-    name: 'Copula avoidance',
-    category: 'language',
-    description:
-      'Using "serves as", "functions as", "boasts" instead of simple "is", "has", "are".',
-    weight: 3,
-    detect(text) {
-      const results = [];
-      for (const regex of COPULA_AVOIDANCE) {
-        results.push(
-          ...findMatches(text, regex, 'Use simple "is", "are", or "has" instead.', 'high'),
-        );
-      }
-      return results;
-    },
-  },
-
-  {
-    id: 9,
-    name: 'Negative parallelisms',
-    category: 'language',
-    description:
-      '"It\'s not just X, it\'s Y" or "Not only X but Y" constructions — overused by LLMs.',
-    weight: 3,
-    detect(text) {
-      const negParallel =
-        /\b(it'?s|this is) not (just|merely|only|simply) .{3,60}(,|;|—)\s*(it'?s|this is|but)\b/gi;
-      const notOnly = /\bnot only .{3,60} but (also )?\b/gi;
-      return [
-        ...findMatches(
-          text,
-          negParallel,
-          'Rewrite directly. State what the thing IS, not what it "isn\'t just".',
-          'high',
-        ),
-        ...findMatches(
-          text,
-          notOnly,
-          'Simplify. Remove the "not only...but also" frame.',
-          'medium',
-        ),
-      ];
-    },
-  },
-
-  {
-    id: 10,
-    name: 'Rule of three',
-    category: 'language',
-    description: 'Forcing ideas into groups of three. LLMs love triads that sound "comprehensive".',
-    weight: 2,
-    detect(text) {
-      // Abstract noun triads
-      const buzzyTriad =
-        /\b(\w+tion|\w+ity|\w+ment|\w+ness|\w+ance|\w+ence),\s+(\w+tion|\w+ity|\w+ment|\w+ness|\w+ance|\w+ence),\s+and\s+(\w+tion|\w+ity|\w+ment|\w+ness|\w+ance|\w+ence)\b/gi;
-      const results = findMatches(
-        text,
-        buzzyTriad,
-        'Rule of three with abstract nouns. Pick the one or two that actually matter.',
-        'medium',
-      );
-
-      // Buzzy adjective triads
-      const buzzAdj = [
-        'seamless',
-        'intuitive',
-        'powerful',
-        'innovative',
-        'dynamic',
-        'robust',
-        'comprehensive',
-        'cutting-edge',
-        'scalable',
-        'agile',
-        'efficient',
-        'effective',
-        'engaging',
-        'impactful',
-        'meaningful',
-        'transformative',
-        'sustainable',
-        'resilient',
-        'inclusive',
-        'accessible',
-      ];
-      const adjPattern = buzzAdj.join('|');
-      const adjTriad = new RegExp(
-        `\\b(${adjPattern}),\\s+(${adjPattern}),\\s+and\\s+(${adjPattern})\\b`,
-        'gi',
-      );
-      results.push(
-        ...findMatches(
-          text,
-          adjTriad,
-          'Buzzy adjective triad. Pick one and make it specific.',
-          'medium',
-        ),
-      );
-
-      return results;
-    },
-  },
-
-  {
-    id: 11,
-    name: 'Synonym cycling',
-    category: 'language',
-    description:
-      'Referring to the same thing by different names in consecutive sentences to avoid repetition.',
-    weight: 2,
-    detect(text) {
-      const synonymSets = [
-        ['protagonist', 'main character', 'central figure', 'hero', 'lead character', 'lead'],
-        ['company', 'firm', 'organization', 'enterprise', 'corporation', 'establishment', 'entity'],
-        ['city', 'metropolis', 'urban center', 'municipality', 'locale', 'township'],
-        ['building', 'structure', 'edifice', 'facility', 'complex', 'establishment'],
-        ['tool', 'instrument', 'mechanism', 'apparatus', 'device', 'utility'],
-        ['country', 'nation', 'state', 'republic', 'sovereign state'],
-        ['problem', 'challenge', 'issue', 'obstacle', 'hurdle', 'difficulty'],
-        ['solution', 'approach', 'methodology', 'framework', 'strategy', 'paradigm'],
-      ];
-
-      const results = [];
-      const sentences = text.split(/[.!?]+/).filter((s) => s.trim().length > 0);
-
-      for (const synonyms of synonymSets) {
-        for (let i = 0; i < sentences.length - 1; i++) {
-          const found = [];
-          for (let j = i; j < Math.min(i + 4, sentences.length); j++) {
-            const lower = sentences[j].toLowerCase();
-            for (const syn of synonyms) {
-              if (lower.includes(syn) && !found.includes(syn)) {
-                found.push(syn);
-              }
-            }
-          }
-          if (found.length >= 3) {
-            results.push({
-              match: `Synonym cycling: ${found.join(' → ')}`,
-              index: text.indexOf(sentences[i]),
-              line: text.substring(0, text.indexOf(sentences[i])).split('\n').length,
-              column: 1,
-              suggestion: `Pick one term and stick with it. Found "${found.join('", "')}" used as synonyms in nearby sentences.`,
-              confidence: 'medium',
-            });
-            break;
-          }
-        }
-      }
-      return results;
-    },
-  },
-
-  {
-    id: 12,
-    name: 'False ranges',
-    category: 'language',
-    description: '"From X to Y" where X and Y aren\'t on a meaningful scale.',
-    weight: 2,
-    detect(text) {
-      const doubleRange = /\bfrom .{3,40} to .{3,40},\s*from .{3,40} to .{3,40}/gi;
-      const results = findMatches(
-        text,
-        doubleRange,
-        "False range — X and Y probably aren't on a meaningful scale. Just list the topics.",
-        'high',
-      );
-
-      const abstractRange =
-        /\bfrom (the )?(dawn|birth|inception|beginning|advent|emergence|rise|earliest) .{3,60} to (the )?(modern|current|present|contemporary|latest|cutting-edge|digital|future)/gi;
-      results.push(
-        ...findMatches(
-          text,
-          abstractRange,
-          "Unnecessarily broad range. Be specific about what you're actually covering.",
-          'medium',
-        ),
-      );
+      // AI phrases
+      results.push(...scanPhrases(text, AI_PHRASES));
 
       return results;
     },
@@ -691,14 +366,14 @@ const patterns = [
       let m;
       while ((m = headingRegex.exec(text)) !== null) {
         const heading = m[1].trim();
-        const words = heading.split(/\s+/);
-        if (words.length >= 3) {
+        const hWords = heading.split(/\s+/);
+        if (hWords.length >= 3) {
           const skipWords =
             /^(I|AI|API|CLI|URL|HTML|CSS|JS|TS|NPM|NYC|USA|UK|EU|LLM|GPT|SaaS|IoT|CEO|CTO|VP|PR|HR|IT|UI|UX)\b/;
-          const capitalizedCount = words.filter(
+          const capitalizedCount = hWords.filter(
             (w) => /^[A-Z]/.test(w) && !skipWords.test(w),
           ).length;
-          if (capitalizedCount / words.length > 0.7) {
+          if (capitalizedCount / hWords.length > 0.7) {
             const lineNum = text.substring(0, m.index).split('\n').length;
             results.push({
               match: m[0],
@@ -763,7 +438,6 @@ const patterns = [
       'Leftover chatbot phrases: "I hope this helps!", "Let me know if...", "Here is an overview".',
     weight: 5,
     detect(text) {
-      // Use the phrase-level detection from vocabulary.js
       return scanPhrases(
         text,
         AI_PHRASES.filter(
@@ -978,9 +652,4 @@ module.exports = {
   TIER_2,
   TIER_3,
   AI_PHRASES,
-  SIGNIFICANCE_PHRASES,
-  PROMOTIONAL_WORDS,
-  VAGUE_ATTRIBUTION_PHRASES,
-  CHALLENGES_PHRASES,
-  COPULA_AVOIDANCE,
 };

@@ -153,7 +153,8 @@ function calculatePatternScore(findings, words) {
  * Composite score combining pattern detection and statistical analysis.
  *
  * Pattern score is the primary signal (70% weight).
- * Uniformity score adds statistical evidence (30% weight).
+ * Uniformity score adds statistical evidence (15% weight).
+ * Lithuanian nominalization/genitive metrics add specific linguistic evidence (15% weight).
  * But only when both are present — stats alone aren't enough.
  */
 function calculateCompositeScore(patternScore, uniformityScore, findings) {
@@ -162,8 +163,18 @@ function calculateCompositeScore(patternScore, uniformityScore, findings) {
   // If no patterns detected, uniformity alone isn't enough to accuse
   if (findings.length === 0) return Math.min(Math.round(uniformityScore * 0.15), 15);
 
-  // Weighted blend: patterns dominate, stats supplement
-  const blended = patternScore * 0.7 + uniformityScore * 0.3;
+  // Calculate Lithuanian specific linguistic metrics
+  const nominalizationCount = findings.reduce((sum, f) => {
+    if (f.patternId === 4 || f.patternId === 5) {
+      return sum + f.matchCount;
+    }
+    return sum;
+  }, 0);
+  
+  const nominalizationScore = Math.min(nominalizationCount * 5, 100);
+
+  // Weighted blend: patterns dominate, stats and linguistic metrics supplement
+  const blended = patternScore * 0.7 + uniformityScore * 0.15 + nominalizationScore * 0.15;
   return Math.min(Math.round(blended), 100);
 }
 
