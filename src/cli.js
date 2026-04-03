@@ -85,7 +85,7 @@ const args = process.argv.slice(2);
 const command = args[0];
 
 const flags = {
-  json: args.includes('--json'),
+  json: args.includes('--json') || args.includes('--format=json'),
   verbose: args.includes('--verbose') || args.includes('-v'),
   autofix: args.includes('--autofix'),
   help: args.includes('--help') || args.includes('-h'),
