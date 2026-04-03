@@ -1,14 +1,17 @@
-# humanizer
+# lt-naturalizer (Lithuanian AI Humanizer)
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Tests](https://img.shields.io/badge/tests-128%20passing-brightgreen)
 ![Node >= 18](https://img.shields.io/badge/node-%3E%3D18-brightgreen)
 
-Detect and remove signs of AI-generated writing. Makes text sound natural and human.
+**De-Englishing the LLM:** Developing parameters to restore native syntactic flexibility, reduce nominalization, and eliminate lexical calques in automated Lithuanian text generation.
 
-An [OpenClaw](https://github.com/nichochar/openclaw) skill and standalone CLI tool that scans text for **24 AI writing patterns** using **500+ vocabulary terms** and **statistical text analysis** (burstiness, type-token ratio, readability metrics) — then provides actionable suggestions to fix them.
+This tool scans Lithuanian text for the three pillars of the "Lithuanian AI accent":
+1. **Lexical Calques & Semantic Clichés** (e.g., "Pasinerkime į", "Nuolat besikeičiančiame kraštovaizdyje")
+2. **Syntactic Englishisms** (SVO rigidity, passive voice overload, pronoun overuse)
+3. **Bureaucratic Register Bleed** (Nominalization / "Daiktavardėjimas", genitive chains)
 
-Based on [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), [Copyleaks stylistic fingerprint research](https://arxiv.org/abs/2503.01659), and [blader/humanizer](https://github.com/blader/humanizer).
+*Forked and adapted from [ai-humanizer](https://github.com/brandonwise/humanizer).*
 
 ## Install
 
