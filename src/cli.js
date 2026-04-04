@@ -17,10 +17,10 @@
  * @module cli
  */
 
-const fs = require('fs');
-const { analyze, score, formatMarkdown, formatJSON } = require('./analyzer');
-const { humanize, formatSuggestions } = require('./humanizer');
-const { computeStats } = require('./stats');
+const fs = require("fs");
+const { analyze, score, formatMarkdown, formatJSON } = require("./analyzer");
+const { humanize, formatSuggestions } = require("./humanizer");
+const { computeStats } = require("./stats");
 
 // ─── Tiny Color Helper (no chalk dependency) ─────────────
 
@@ -73,10 +73,10 @@ function scoreBadge(s) {
  * @returns {string} Human-readable label
  */
 function scoreLabel(s) {
-  if (s <= 19) return 'Mostly human-sounding';
-  if (s <= 44) return 'Lightly AI-touched';
-  if (s <= 69) return 'Moderately AI-influenced';
-  return 'Heavily AI-generated';
+  if (s <= 19) return "Mostly human-sounding";
+  if (s <= 44) return "Lightly AI-touched";
+  if (s <= 69) return "Moderately AI-influenced";
+  return "Heavily AI-generated";
 }
 
 // ─── CLI Arg Parsing ─────────────────────────────────────
@@ -85,10 +85,10 @@ const args = process.argv.slice(2);
 const command = args[0];
 
 const flags = {
-  json: args.includes('--json') || args.includes('--format=json'),
-  verbose: args.includes('--verbose') || args.includes('-v'),
-  autofix: args.includes('--autofix'),
-  help: args.includes('--help') || args.includes('-h'),
+  json: args.includes("--json") || args.includes("--format=json"),
+  verbose: args.includes("--verbose") || args.includes("-v"),
+  autofix: args.includes("--autofix"),
+  help: args.includes("--help") || args.includes("-h"),
   file: null,
   patterns: null,
   threshold: null,
@@ -98,48 +98,56 @@ const flags = {
 };
 
 // Parse -f / --file flag
-const fileIdx = args.indexOf('-f') !== -1 ? args.indexOf('-f') : args.indexOf('--file');
+const fileIdx =
+  args.indexOf("-f") !== -1 ? args.indexOf("-f") : args.indexOf("--file");
 if (fileIdx !== -1 && args[fileIdx + 1]) {
   flags.file = args[fileIdx + 1];
 }
 
 // Parse positional file argument (command <file>)
-if (!flags.file && args[1] && !args[1].startsWith('-')) {
-  const commands = ['analyze', 'score', 'humanize', 'report', 'suggest', 'stats'];
+if (!flags.file && args[1] && !args[1].startsWith("-")) {
+  const commands = [
+    "analyze",
+    "score",
+    "humanize",
+    "report",
+    "suggest",
+    "stats",
+  ];
   if (!commands.includes(args[1])) {
     flags.file = args[1];
   }
 }
 
 // Parse --patterns flag (comma-separated pattern IDs)
-const patIdx = args.indexOf('--patterns');
+const patIdx = args.indexOf("--patterns");
 if (patIdx !== -1 && args[patIdx + 1]) {
   flags.patterns = args[patIdx + 1]
-    .split(',')
+    .split(",")
     .map(Number)
     .filter((n) => n > 0);
 }
 
 // Parse --threshold flag
-const threshIdx = args.indexOf('--threshold');
+const threshIdx = args.indexOf("--threshold");
 if (threshIdx !== -1 && args[threshIdx + 1]) {
   flags.threshold = parseInt(args[threshIdx + 1], 10);
 }
 
 // Parse --config flag
-const configIdx = args.indexOf('--config');
+const configIdx = args.indexOf("--config");
 if (configIdx !== -1 && args[configIdx + 1]) {
   flags.config = args[configIdx + 1];
 }
 
 // Parse --sensitivity flag
-const sensIdx = args.indexOf('--sensitivity');
+const sensIdx = args.indexOf("--sensitivity");
 if (sensIdx !== -1 && args[sensIdx + 1]) {
   flags.sensitivity = args[sensIdx + 1];
 }
 
 // Parse --mode flag
-const modeIdx = args.indexOf('--mode');
+const modeIdx = args.indexOf("--mode");
 if (modeIdx !== -1 && args[modeIdx + 1]) {
   flags.mode = args[modeIdx + 1];
 }
@@ -151,20 +159,20 @@ if (modeIdx !== -1 && args[modeIdx + 1]) {
  */
 function showHelp() {
   console.log(`
-${color.bold('humanizer')} — Detect and remove AI writing patterns
+${color.bold("humanizer")} — Detect and remove AI writing patterns
 
-${color.bold('Usage:')}
+${color.bold("Usage:")}
   humanizer <command> [file] [options]
 
-${color.bold('Commands:')}
-  ${color.cyan('analyze')}      Full analysis report with pattern matches
-  ${color.cyan('score')}        Quick score (0-100, higher = more AI-like)
-  ${color.cyan('humanize')}     Humanization suggestions with guidance
-  ${color.cyan('report')}       Full markdown report (for piping to files)
-  ${color.cyan('suggest')}      Show only suggestions, grouped by priority
-  ${color.cyan('stats')}        Show statistical text analysis only
+${color.bold("Commands:")}
+  ${color.cyan("analyze")}      Full analysis report with pattern matches
+  ${color.cyan("score")}        Quick score (0-100, higher = more AI-like)
+  ${color.cyan("humanize")}     Humanization suggestions with guidance
+  ${color.cyan("report")}       Full markdown report (for piping to files)
+  ${color.cyan("suggest")}      Show only suggestions, grouped by priority
+  ${color.cyan("stats")}        Show statistical text analysis only
 
-${color.bold('Options:')}
+${color.bold("Options:")}
   -f, --file <path>       Read text from file (otherwise reads stdin)
   --json                  Output as JSON
   --verbose, -v           Show all matches (not just top 5 per pattern)
@@ -176,26 +184,26 @@ ${color.bold('Options:')}
   --mode <mode>           Set mode (business, academic, casual, standard)
   --help, -h              Show this help
 
-${color.bold('Examples:')}
-  ${color.gray('# Quick score')}
+${color.bold("Examples:")}
+  ${color.gray("# Quick score")}
   echo "This is a testament to..." | humanizer score
 
-  ${color.gray('# Analyze a file')}
+  ${color.gray("# Analyze a file")}
   humanizer analyze essay.txt
 
-  ${color.gray('# Full markdown report')}
+  ${color.gray("# Full markdown report")}
   humanizer report article.txt > report.md
 
-  ${color.gray('# Just suggestions')}
+  ${color.gray("# Just suggestions")}
   humanizer suggest article.txt
 
-  ${color.gray('# Statistical analysis')}
+  ${color.gray("# Statistical analysis")}
   humanizer stats essay.txt
 
-  ${color.gray('# Humanize with auto-fixes')}
+  ${color.gray("# Humanize with auto-fixes")}
   humanizer humanize --autofix -f article.txt
 
-${color.bold('Score badges:')}
+${color.bold("Score badges:")}
   🟢 0-25    Mostly human-sounding
   🟡 26-50   Lightly AI-touched
   🟠 51-75   Moderately AI-influenced
@@ -214,26 +222,32 @@ function readInput() {
   return new Promise((resolve, reject) => {
     if (flags.file) {
       try {
-        const text = fs.readFileSync(flags.file, 'utf-8');
+        const text = fs.readFileSync(flags.file, "utf-8");
         resolve(text);
       } catch (err) {
-        reject(new Error(`Could not read file: ${flags.file} (${err.message})`));
+        reject(
+          new Error(`Could not read file: ${flags.file} (${err.message})`),
+        );
       }
       return;
     }
 
     if (process.stdin.isTTY) {
-      reject(new Error('No input. Pipe text or use -f <file>. Run with --help for usage.'));
+      reject(
+        new Error(
+          "No input. Pipe text or use -f <file>. Run with --help for usage.",
+        ),
+      );
       return;
     }
 
-    let data = '';
-    process.stdin.setEncoding('utf-8');
-    process.stdin.on('data', (chunk) => {
+    let data = "";
+    process.stdin.setEncoding("utf-8");
+    process.stdin.on("data", (chunk) => {
       data += chunk;
     });
-    process.stdin.on('end', () => resolve(data));
-    process.stdin.on('error', reject);
+    process.stdin.on("end", () => resolve(data));
+    process.stdin.on("error", reject);
   });
 }
 
@@ -248,42 +262,44 @@ function readInput() {
 function formatStatsReport(stats) {
   const lines = [];
 
-  lines.push('');
-  lines.push(color.bold('  ┌──────────────────────────────────────────────┐'));
-  lines.push(color.bold('  │          TEXT STATISTICS ANALYSIS             │'));
-  lines.push(color.bold('  └──────────────────────────────────────────────┘'));
-  lines.push('');
+  lines.push("");
+  lines.push(color.bold("  ┌──────────────────────────────────────────────┐"));
+  lines.push(color.bold("  │          TEXT STATISTICS ANALYSIS             │"));
+  lines.push(color.bold("  └──────────────────────────────────────────────┘"));
+  lines.push("");
 
-  lines.push(color.bold('  ── Sentences ──────────────────────────────────'));
+  lines.push(color.bold("  ── Sentences ──────────────────────────────────"));
   lines.push(`    Count:            ${stats.sentenceCount}`);
   lines.push(`    Avg length:       ${stats.avgSentenceLength} words`);
   lines.push(`    Std deviation:    ${stats.sentenceLengthStdDev}`);
-  lines.push(`    Burstiness:       ${stats.burstiness}  ${burstLabel(stats.burstiness)}`);
-  lines.push('');
+  lines.push(
+    `    Burstiness:       ${stats.burstiness}  ${burstLabel(stats.burstiness)}`,
+  );
+  lines.push("");
 
-  lines.push(color.bold('  ── Vocabulary ─────────────────────────────────'));
+  lines.push(color.bold("  ── Vocabulary ─────────────────────────────────"));
   lines.push(`    Total words:      ${stats.wordCount}`);
   lines.push(`    Unique words:     ${stats.uniqueWordCount}`);
   lines.push(
     `    Type-token ratio: ${stats.typeTokenRatio}  ${ttrLabel(stats.typeTokenRatio, stats.wordCount)}`,
   );
   lines.push(`    Avg word length:  ${stats.avgWordLength}`);
-  lines.push('');
+  lines.push("");
 
-  lines.push(color.bold('  ── Structure ──────────────────────────────────'));
+  lines.push(color.bold("  ── Structure ──────────────────────────────────"));
   lines.push(`    Paragraphs:       ${stats.paragraphCount}`);
   lines.push(`    Avg para length:  ${stats.avgParagraphLength} words`);
   lines.push(`    Trigram repeat:   ${stats.trigramRepetition}`);
-  lines.push('');
+  lines.push("");
 
-  lines.push(color.bold('  ── Readability ────────────────────────────────'));
+  lines.push(color.bold("  ── Readability ────────────────────────────────"));
   lines.push(`    Score:            ${stats.readabilityScore}`);
   lines.push(
     `    Function words:   ${stats.functionWordRatio} (${(stats.functionWordRatio * 100).toFixed(1)}%)`,
   );
-  lines.push('');
+  lines.push("");
 
-  return lines.join('\n');
+  return lines.join("\n");
 }
 
 /**
@@ -293,10 +309,10 @@ function formatStatsReport(stats) {
  * @returns {string}
  */
 function burstLabel(b) {
-  if (b >= 0.7) return color.green('(high — human-like)');
-  if (b >= 0.45) return color.yellow('(moderate)');
-  if (b >= 0.25) return color.yellow('(low — somewhat uniform)');
-  return color.red('(very low — AI-like)');
+  if (b >= 0.7) return color.green("(high — human-like)");
+  if (b >= 0.45) return color.yellow("(moderate)");
+  if (b >= 0.25) return color.yellow("(low — somewhat uniform)");
+  return color.red("(very low — AI-like)");
 }
 
 /**
@@ -307,10 +323,10 @@ function burstLabel(b) {
  * @returns {string}
  */
 function ttrLabel(ttr, wc) {
-  if (wc < 100) return color.gray('(too short to assess)');
-  if (ttr >= 0.6) return color.green('(high — diverse)');
-  if (ttr >= 0.45) return color.yellow('(moderate)');
-  return color.red('(low — repetitive)');
+  if (wc < 100) return color.gray("(too short to assess)");
+  if (ttr >= 0.6) return color.green("(high — diverse)");
+  if (ttr >= 0.45) return color.yellow("(moderate)");
+  return color.red("(low — repetitive)");
 }
 
 // ─── Colored Report Formatter ────────────────────────────
@@ -324,11 +340,11 @@ function ttrLabel(ttr, wc) {
 function formatColoredReport(result) {
   const lines = [];
 
-  lines.push('');
-  lines.push(color.bold('  ┌──────────────────────────────────────────────┐'));
-  lines.push(color.bold('  │        AI WRITING PATTERN ANALYSIS           │'));
-  lines.push(color.bold('  └──────────────────────────────────────────────┘'));
-  lines.push('');
+  lines.push("");
+  lines.push(color.bold("  ┌──────────────────────────────────────────────┐"));
+  lines.push(color.bold("  │        AI WRITING PATTERN ANALYSIS           │"));
+  lines.push(color.bold("  └──────────────────────────────────────────────┘"));
+  lines.push("");
 
   // Score bar with color
   const filled = Math.round(result.score / 5);
@@ -340,61 +356,68 @@ function formatColoredReport(result) {
         : result.score <= 75
           ? color.magenta
           : color.red;
-  const bar = barColor('█'.repeat(filled)) + color.dim('░'.repeat(20 - filled));
+  const bar = barColor("█".repeat(filled)) + color.dim("░".repeat(20 - filled));
   lines.push(`  Score: ${scoreBadge(result.score)}  [${bar}]`);
   lines.push(
     `  ${color.dim(`Words: ${result.wordCount}  |  Matches: ${result.totalMatches}  |  Pattern: ${result.patternScore}  |  Uniformity: ${result.uniformityScore}`)}`,
   );
-  lines.push('');
+  lines.push("");
   lines.push(`  ${result.summary}`);
-  lines.push('');
+  lines.push("");
 
   // Statistics
   if (result.stats) {
     const s = result.stats;
-    lines.push(color.bold('  ── Statistics ──────────────────────────────────'));
+    lines.push(
+      color.bold("  ── Statistics ──────────────────────────────────"),
+    );
     lines.push(`  Burstiness: ${s.burstiness}  ${burstLabel(s.burstiness)}`);
     lines.push(
       `  Type-token ratio: ${s.typeTokenRatio}  ${ttrLabel(s.typeTokenRatio, s.wordCount)}`,
     );
     lines.push(`  Trigram repetition: ${s.trigramRepetition}`);
     lines.push(`  Readability Score: ${s.readabilityScore}`);
-    lines.push('');
+    lines.push("");
   }
 
   // Category breakdown
-  lines.push(color.bold('  ── Categories ──────────────────────────────────'));
+  lines.push(color.bold("  ── Categories ──────────────────────────────────"));
   for (const [, data] of Object.entries(result.categories)) {
     if (data.matches > 0) {
       lines.push(
-        `  ${color.cyan(data.label)}: ${data.matches} matches ${color.dim(`(${data.patternsDetected.join(', ')})`)}`,
+        `  ${color.cyan(data.label)}: ${data.matches} matches ${color.dim(`(${data.patternsDetected.join(", ")})`)}`,
       );
     }
   }
-  lines.push('');
+  lines.push("");
 
   // Findings detail
   if (result.findings.length > 0) {
-    lines.push(color.bold('  ── Findings ──────────────────────────────────'));
+    lines.push(color.bold("  ── Findings ──────────────────────────────────"));
     for (const finding of result.findings) {
       if (flags.threshold && finding.weight < flags.threshold) continue;
 
-      lines.push('');
+      lines.push("");
       const weightColor =
-        finding.weight >= 4 ? color.red : finding.weight >= 2 ? color.yellow : color.blue;
+        finding.weight >= 4
+          ? color.red
+          : finding.weight >= 2
+            ? color.yellow
+            : color.blue;
       lines.push(
         `  ${weightColor(`[${finding.patternId}]`)} ${color.bold(finding.patternName)} ${color.dim(`(×${finding.matchCount}, weight: ${finding.weight})`)}`,
       );
       lines.push(`      ${color.dim(finding.description)}`);
       for (const match of finding.matches) {
-        const loc = match.line ? `L${match.line}` : '';
+        const loc = match.line ? `L${match.line}` : "";
         const preview =
-          typeof match.match === 'string'
-            ? match.match.substring(0, 80) + (match.match.length > 80 ? '...' : '')
-            : '';
+          typeof match.match === "string"
+            ? match.match.substring(0, 80) +
+              (match.match.length > 80 ? "..." : "")
+            : "";
         lines.push(`      ${color.dim(loc)}: "${preview}"`);
         if (match.suggestion) {
-          lines.push(`            ${color.green('→')} ${match.suggestion}`);
+          lines.push(`            ${color.green("→")} ${match.suggestion}`);
         }
       }
       if (finding.truncated) {
@@ -405,9 +428,9 @@ function formatColoredReport(result) {
     }
   }
 
-  lines.push('');
-  lines.push(color.dim('  ──────────────────────────────────────────────'));
-  return lines.join('\n');
+  lines.push("");
+  lines.push(color.dim("  ──────────────────────────────────────────────"));
+  return lines.join("\n");
 }
 
 // ─── Grouped Suggestions Formatter ───────────────────────
@@ -421,58 +444,78 @@ function formatColoredReport(result) {
 function formatGroupedSuggestions(result) {
   const lines = [];
 
-  lines.push('');
-  lines.push(color.bold(`  Score: ${scoreBadge(result.score)}  (${scoreLabel(result.score)})`));
-  lines.push(`  ${color.dim(`${result.totalIssues} issues found in ${result.wordCount} words`)}`);
-  lines.push('');
+  lines.push("");
+  lines.push(
+    color.bold(
+      `  Score: ${scoreBadge(result.score)}  (${scoreLabel(result.score)})`,
+    ),
+  );
+  lines.push(
+    `  ${color.dim(`${result.totalIssues} issues found in ${result.wordCount} words`)}`,
+  );
+  lines.push("");
 
   if (result.critical.length > 0) {
-    lines.push(color.red(color.bold('  ━━ CRITICAL (remove these first) ━━━━━━━━━━━━')));
+    lines.push(
+      color.red(color.bold("  ━━ CRITICAL (remove these first) ━━━━━━━━━━━━")),
+    );
     for (const s of result.critical) {
-      lines.push(`  ${color.red('●')} L${s.line}: ${color.bold(s.pattern)}`);
+      lines.push(`  ${color.red("●")} L${s.line}: ${color.bold(s.pattern)}`);
       lines.push(`    ${color.dim(truncate(s.text, 60))}`);
-      lines.push(`    ${color.green('→')} ${s.suggestion}`);
+      lines.push(`    ${color.green("→")} ${s.suggestion}`);
     }
-    lines.push('');
+    lines.push("");
   }
 
   if (result.important.length > 0) {
-    lines.push(color.yellow(color.bold('  ━━ IMPORTANT (noticeable AI patterns) ━━━━━━━')));
+    lines.push(
+      color.yellow(
+        color.bold("  ━━ IMPORTANT (noticeable AI patterns) ━━━━━━━"),
+      ),
+    );
     for (const s of result.important) {
-      lines.push(`  ${color.yellow('●')} L${s.line}: ${color.bold(s.pattern)}`);
+      lines.push(`  ${color.yellow("●")} L${s.line}: ${color.bold(s.pattern)}`);
       lines.push(`    ${color.dim(truncate(s.text, 60))}`);
-      lines.push(`    ${color.green('→')} ${s.suggestion}`);
+      lines.push(`    ${color.green("→")} ${s.suggestion}`);
     }
-    lines.push('');
+    lines.push("");
   }
 
   if (result.minor.length > 0) {
-    lines.push(color.blue(color.bold('  ━━ MINOR (subtle tells) ━━━━━━━━━━━━━━━━━━━━')));
+    lines.push(
+      color.blue(color.bold("  ━━ MINOR (subtle tells) ━━━━━━━━━━━━━━━━━━━━")),
+    );
     for (const s of result.minor) {
-      lines.push(`  ${color.blue('●')} L${s.line}: ${color.bold(s.pattern)}`);
+      lines.push(`  ${color.blue("●")} L${s.line}: ${color.bold(s.pattern)}`);
       lines.push(`    ${color.dim(truncate(s.text, 60))}`);
-      lines.push(`    ${color.green('→')} ${s.suggestion}`);
+      lines.push(`    ${color.green("→")} ${s.suggestion}`);
     }
-    lines.push('');
+    lines.push("");
   }
 
   if (result.guidance.length > 0) {
-    lines.push(color.cyan(color.bold('  ━━ GUIDANCE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')));
+    lines.push(
+      color.cyan(color.bold("  ━━ GUIDANCE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")),
+    );
     for (const tip of result.guidance) {
-      lines.push(`  ${color.cyan('•')} ${tip}`);
+      lines.push(`  ${color.cyan("•")} ${tip}`);
     }
-    lines.push('');
+    lines.push("");
   }
 
   if (result.styleTips && result.styleTips.length > 0) {
-    lines.push(color.magenta(color.bold('  ━━ STYLE TIPS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')));
+    lines.push(
+      color.magenta(
+        color.bold("  ━━ STYLE TIPS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"),
+      ),
+    );
     for (const t of result.styleTips) {
-      lines.push(`  ${color.magenta('◦')} ${t.tip}`);
+      lines.push(`  ${color.magenta("◦")} ${t.tip}`);
     }
-    lines.push('');
+    lines.push("");
   }
 
-  return lines.join('\n');
+  return lines.join("\n");
 }
 
 /**
@@ -483,7 +526,7 @@ function formatGroupedSuggestions(result) {
  * @returns {string}
  */
 function truncate(str, len) {
-  if (typeof str !== 'string') return '';
+  if (typeof str !== "string") return "";
   return str.length > len ? `${str.substring(0, len)}...` : str;
 }
 
@@ -507,7 +550,7 @@ async function main() {
   }
 
   if (!text.trim()) {
-    console.error(color.red('Error: Empty input.'));
+    console.error(color.red("Error: Empty input."));
     process.exit(1);
   }
 
@@ -520,7 +563,7 @@ async function main() {
   if (flags.mode) opts.mode = flags.mode;
 
   switch (command) {
-    case 'analyze': {
+    case "analyze": {
       const result = analyze(text, opts);
       if (flags.json) {
         console.log(formatJSON(result));
@@ -530,7 +573,7 @@ async function main() {
       break;
     }
 
-    case 'score': {
+    case "score": {
       const s = score(text);
       if (flags.json) {
         console.log(JSON.stringify({ score: s }));
@@ -540,28 +583,35 @@ async function main() {
       break;
     }
 
-    case 'humanize': {
-      const result = humanize(text, { autofix: flags.autofix, verbose: flags.verbose });
+    case "humanize": {
+      const result = humanize(text, {
+        autofix: flags.autofix,
+        verbose: flags.verbose,
+      });
       if (flags.json) {
         console.log(JSON.stringify(result, null, 2));
       } else {
         console.log(formatSuggestions(result));
         if (flags.autofix && result.autofix) {
-          console.log(`\n${color.bold('── AUTO-FIXED TEXT ──────────────────────────────')}\n`);
+          console.log(
+            `\n${color.bold("── AUTO-FIXED TEXT ──────────────────────────────")}\n`,
+          );
           console.log(result.autofix.text);
-          console.log(`\n${color.dim('════════════════════════════════════════════════')}`);
+          console.log(
+            `\n${color.dim("════════════════════════════════════════════════")}`,
+          );
         }
       }
       break;
     }
 
-    case 'report': {
+    case "report": {
       const result = analyze(text, { ...opts, verbose: true });
       console.log(formatMarkdown(result));
       break;
     }
 
-    case 'suggest': {
+    case "suggest": {
       const result = humanize(text, { verbose: flags.verbose });
       if (flags.json) {
         console.log(JSON.stringify(result, null, 2));
@@ -571,7 +621,7 @@ async function main() {
       break;
     }
 
-    case 'stats': {
+    case "stats": {
       const stats = computeStats(text);
       if (flags.json) {
         console.log(JSON.stringify(stats, null, 2));
@@ -582,7 +632,9 @@ async function main() {
     }
 
     default:
-      console.error(color.red(`Unknown command: ${command}. Run with --help for usage.`));
+      console.error(
+        color.red(`Unknown command: ${command}. Run with --help for usage.`),
+      );
       process.exit(1);
   }
 }

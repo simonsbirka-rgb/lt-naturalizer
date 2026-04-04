@@ -13,7 +13,7 @@
  *   - Paragraph structure statistics
  */
 
-const { FUNCTION_WORDS } = require('./vocabulary');
+const { FUNCTION_WORDS } = require("./vocabulary");
 
 // ─── Sentence Splitting ─────────────────────────────────
 
@@ -24,13 +24,16 @@ const { FUNCTION_WORDS } = require('./vocabulary');
 function splitSentences(text) {
   // Handle common abbreviations that shouldn't split
   const cleaned = text
-    .replace(/\b(Mr|Mrs|Ms|Dr|Prof|Sr|Jr|etc|vs|approx|dept|est|vol)\./gi, '$1\u2024') // temp replace
-    .replace(/\b([A-Z])\./g, '$1\u2024') // initials: "J. K. Rowling"
-    .replace(/\b(\d+)\./g, '$1\u2024'); // numbered lists
+    .replace(
+      /\b(Mr|Mrs|Ms|Dr|Prof|Sr|Jr|etc|vs|approx|dept|est|vol)\./gi,
+      "$1\u2024",
+    ) // temp replace
+    .replace(/\b([A-Z])\./g, "$1\u2024") // initials: "J. K. Rowling"
+    .replace(/\b(\d+)\./g, "$1\u2024"); // numbered lists
 
   const sentences = cleaned
     .split(/(?<=[.!?])\s+(?=[A-Z"'\u201C])|(?<=[.!?])$/)
-    .map((s) => s.replace(/\u2024/g, '.').trim())
+    .map((s) => s.replace(/\u2024/g, ".").trim())
     .filter((s) => s.length > 0);
 
   return sentences;
@@ -44,7 +47,7 @@ function splitSentences(text) {
 function tokenize(text) {
   return text
     .toLowerCase()
-    .replace(/[^\w\s'-]/g, ' ')
+    .replace(/[^\w\s'-]/g, " ")
     .split(/\s+/)
     .filter((w) => w.length > 0);
 }
@@ -56,7 +59,7 @@ function tokenize(text) {
  * @returns {object}    — Statistics object
  */
 function computeStats(text) {
-  if (!text || typeof text !== 'string' || text.trim().length === 0) {
+  if (!text || typeof text !== "string" || text.trim().length === 0) {
     return emptyStats();
   }
 
@@ -75,7 +78,9 @@ function computeStats(text) {
   const avgWordLength = words.reduce((sum, w) => sum + w.length, 0) / wordCount;
 
   // ── Sentence-level stats ────────────────────────────
-  const sentenceLengths = sentences.map((s) => tokenize(s).length).filter((n) => n > 0);
+  const sentenceLengths = sentences
+    .map((s) => tokenize(s).length)
+    .filter((n) => n > 0);
   const sentenceCount = sentenceLengths.length;
 
   let avgSentenceLength = 0;
@@ -84,26 +89,34 @@ function computeStats(text) {
   let burstiness = 0;
 
   if (sentenceCount > 1) {
-    avgSentenceLength = sentenceLengths.reduce((a, b) => a + b, 0) / sentenceCount;
+    avgSentenceLength =
+      sentenceLengths.reduce((a, b) => a + b, 0) / sentenceCount;
 
     // Standard deviation
     const variance =
-      sentenceLengths.reduce((sum, len) => sum + Math.pow(len - avgSentenceLength, 2), 0) /
-      sentenceCount;
+      sentenceLengths.reduce(
+        (sum, len) => sum + Math.pow(len - avgSentenceLength, 2),
+        0,
+      ) / sentenceCount;
     sentenceLengthStdDev = Math.sqrt(variance);
 
     // Coefficient of variation (std dev / mean) — our burstiness proxy
-    sentenceLengthVariation = avgSentenceLength > 0 ? sentenceLengthStdDev / avgSentenceLength : 0;
+    sentenceLengthVariation =
+      avgSentenceLength > 0 ? sentenceLengthStdDev / avgSentenceLength : 0;
 
     // Burstiness: based on consecutive sentence length differences
     // High burstiness = human (lots of variation between consecutive sentences)
     // Low burstiness = AI (uniform sentence length throughout)
     let consecutiveDiffSum = 0;
     for (let i = 1; i < sentenceLengths.length; i++) {
-      consecutiveDiffSum += Math.abs(sentenceLengths[i] - sentenceLengths[i - 1]);
+      consecutiveDiffSum += Math.abs(
+        sentenceLengths[i] - sentenceLengths[i - 1],
+      );
     }
-    const avgConsecutiveDiff = consecutiveDiffSum / (sentenceLengths.length - 1);
-    burstiness = avgSentenceLength > 0 ? avgConsecutiveDiff / avgSentenceLength : 0;
+    const avgConsecutiveDiff =
+      consecutiveDiffSum / (sentenceLengths.length - 1);
+    burstiness =
+      avgSentenceLength > 0 ? avgConsecutiveDiff / avgSentenceLength : 0;
   } else if (sentenceCount === 1) {
     avgSentenceLength = sentenceLengths[0];
   }
@@ -120,10 +133,21 @@ function computeStats(text) {
   const paragraphCount = paragraphs.length;
   const avgParagraphLength =
     paragraphCount > 0
-      ? paragraphs.reduce((sum, p) => sum + tokenize(p).length, 0) / paragraphCount
+      ? paragraphs.reduce((sum, p) => sum + tokenize(p).length, 0) /
+        paragraphCount
       : 0;
 
-  // Readability (Flesch-Kincaid) removed — English-only formula不适用于 Lithuanian
+  // Readability (Flesch-Kincaid) removed — English-only formula not applicable for Lithuanian
+  // Using a simplified Lithuanian readability proxy based on syllables and sentence length
+  const totalSyllables = words.reduce(
+    (sum, w) => sum + estimateLithuanianSyllables(w),
+    0,
+  );
+  const avgSyllablesPerWord = totalSyllables / wordCount;
+
+  // A simple proxy formula (higher = harder to read/more academic)
+  // Normal text ~10-12, academic/formal > 14
+  const readabilityScore = avgSentenceLength * 0.5 + avgSyllablesPerWord * 5;
 
   return {
     wordCount,
@@ -139,6 +163,7 @@ function computeStats(text) {
     functionWordRatio: round(functionWordRatio),
     trigramRepetition: round(trigramRepetition),
     avgParagraphLength: round(avgParagraphLength),
+    readabilityScore: round(readabilityScore),
     sentenceLengths,
   };
 }
@@ -153,7 +178,7 @@ function computeNgramRepetition(words, n) {
 
   const ngrams = {};
   for (let i = 0; i <= words.length - n; i++) {
-    const gram = words.slice(i, i + n).join(' ');
+    const gram = words.slice(i, i + n).join(" ");
     ngrams[gram] = (ngrams[gram] || 0) + 1;
   }
 
@@ -168,11 +193,11 @@ function computeNgramRepetition(words, n) {
  * Estimate syllable count for a word (Lithuanian heuristic).
  */
 function estimateLithuanianSyllables(word) {
-  word = word.toLowerCase().replace(/[^a-ząčęėįšųūž]/g, '');
+  word = word.toLowerCase().replace(/[^a-ząčęėįšųūž]/g, "");
   if (word.length === 0) return 1;
 
   // Lithuanian diphthongs that are typically single syllables
-  const diphthongs = ['ai', 'au', 'ei', 'eu', 'oi', 'ou', 'ui', 'ie', 'uo'];
+  const diphthongs = ["ai", "au", "ei", "eu", "oi", "ou", "ui", "ie", "uo"];
   let count = 0;
 
   let i = 0;
@@ -256,6 +281,7 @@ function emptyStats() {
     functionWordRatio: 0,
     trigramRepetition: 0,
     avgParagraphLength: 0,
+    readabilityScore: 0,
     sentenceLengths: [],
   };
 }

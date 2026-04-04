@@ -4,59 +4,59 @@
  * Empty text, single word, unicode, non-English, very long text.
  */
 
-import { describe, it, expect } from 'vitest';
-import { analyze, score } from '../src/analyzer.js';
-import { computeStats } from '../src/stats.js';
+import { describe, it, expect } from "vitest";
+import { analyze, score } from "../src/analyzer.js";
+import { computeStats } from "../src/stats.js";
 
 // ─── Empty / Minimal Input ───────────────────────────────
 
-describe('empty and minimal input', () => {
-  it('handles empty string', () => {
-    const result = analyze('');
+describe("empty and minimal input", () => {
+  it("handles empty string", () => {
+    const result = analyze("");
     expect(result.score).toBe(0);
     expect(result.totalMatches).toBe(0);
     expect(result.wordCount).toBe(0);
   });
 
-  it('handles whitespace-only string', () => {
-    const result = analyze('   \n\n\t  ');
+  it("handles whitespace-only string", () => {
+    const result = analyze("   \n\n\t  ");
     expect(result.score).toBe(0);
   });
 
-  it('handles null', () => {
+  it("handles null", () => {
     const result = analyze(null);
     expect(result.score).toBe(0);
   });
 
-  it('handles undefined', () => {
+  it("handles undefined", () => {
     const result = analyze(undefined);
     expect(result.score).toBe(0);
   });
 
-  it('handles single word — score is low', () => {
-    const result = analyze('hello');
+  it("handles single word — score is low", () => {
+    const result = analyze("hello");
     expect(result.score).toBeLessThanOrEqual(15);
     expect(result.wordCount).toBe(1);
   });
 
-  it('handles single character — score is low', () => {
-    const result = analyze('x');
+  it("handles single character — score is low", () => {
+    const result = analyze("x");
     expect(result.score).toBeLessThanOrEqual(15);
   });
 
-  it('handles number-only input — score is low', () => {
-    const result = analyze('12345');
+  it("handles number-only input — score is low", () => {
+    const result = analyze("12345");
     expect(result.score).toBeLessThanOrEqual(15);
   });
 
-  it('statistics handles empty string', () => {
-    const stats = computeStats('');
+  it("statistics handles empty string", () => {
+    const stats = computeStats("");
     expect(stats.sentenceCount).toBe(0);
     expect(stats.wordCount).toBe(0);
   });
 
-  it('statistics handles single word', () => {
-    const stats = computeStats('hello');
+  it("statistics handles single word", () => {
+    const stats = computeStats("hello");
     expect(stats.wordCount).toBe(1);
     expect(stats.typeTokenRatio).toBe(1);
   });
@@ -64,68 +64,68 @@ describe('empty and minimal input', () => {
 
 // ─── Unicode & Special Characters ────────────────────────
 
-describe('unicode and special characters', () => {
-  it('handles emoji text', () => {
-    const result = analyze('🎉 Hello world! 🚀 Great day! ✅ Done!');
+describe("unicode and special characters", () => {
+  it("handles emoji text", () => {
+    const result = analyze("🎉 Hello world! 🚀 Great day! ✅ Done!");
     expect(result.score).toBeGreaterThanOrEqual(0);
     expect(result.score).toBeLessThanOrEqual(100);
   });
 
-  it('handles Chinese text', () => {
-    const result = analyze('这是一个测试。人工智能正在改变世界。');
+  it("handles Chinese text", () => {
+    const result = analyze("这是一个测试。人工智能正在改变世界。");
     expect(result.score).toBeGreaterThanOrEqual(0);
   });
 
-  it('handles Japanese text', () => {
-    const result = analyze('これはテストです。AIは世界を変えています。');
+  it("handles Japanese text", () => {
+    const result = analyze("これはテストです。AIは世界を変えています。");
     expect(result.score).toBeGreaterThanOrEqual(0);
   });
 
-  it('handles Arabic text', () => {
-    const result = analyze('هذا اختبار. الذكاء الاصطناعي يغير العالم.');
+  it("handles Arabic text", () => {
+    const result = analyze("هذا اختبار. الذكاء الاصطناعي يغير العالم.");
     expect(result.score).toBeGreaterThanOrEqual(0);
   });
 
-  it('handles mixed unicode and ASCII', () => {
-    const text = 'The café is très bien. Über cool. Naïve approach.';
+  it("handles mixed unicode and ASCII", () => {
+    const text = "The café is très bien. Über cool. Naïve approach.";
     const result = analyze(text);
     expect(result.score).toBeGreaterThanOrEqual(0);
   });
 
-  it('handles HTML entities', () => {
-    const result = analyze('This &amp; that &lt;tag&gt; content.');
+  it("handles HTML entities", () => {
+    const result = analyze("This &amp; that &lt;tag&gt; content.");
     expect(result.score).toBeGreaterThanOrEqual(0);
   });
 
-  it('handles special whitespace characters', () => {
-    const result = analyze('Hello\u00A0world\u2003test\u200Bhidden');
+  it("handles special whitespace characters", () => {
+    const result = analyze("Hello\u00A0world\u2003test\u200Bhidden");
     expect(result.score).toBeGreaterThanOrEqual(0);
   });
 
-  it('statistics handles non-English gracefully', () => {
-    const stats = computeStats('这是一个测试。人工智能正在改变世界。');
+  it("statistics handles non-English gracefully", () => {
+    const stats = computeStats("这是一个测试。人工智能正在改变世界。");
     expect(stats.sentenceCount).toBeGreaterThanOrEqual(0);
   });
 });
 
 // ─── Very Long Text ──────────────────────────────────────
 
-describe('very long text', () => {
-  it('handles 1000 identical sentences', () => {
-    const text = Array(1000).fill('The cat sat on the mat.').join(' ');
+describe("very long text", () => {
+  it("handles 1000 identical sentences", () => {
+    const text = Array(1000).fill("The cat sat on the mat.").join(" ");
     const result = analyze(text);
     expect(result.score).toBeGreaterThanOrEqual(0);
     expect(result.score).toBeLessThanOrEqual(100);
   });
 
-  it('handles text with thousands of newlines', () => {
-    const text = Array(500).fill('Line of text.\n').join('');
+  it("handles text with thousands of newlines", () => {
+    const text = Array(500).fill("Line of text.\n").join("");
     const result = analyze(text);
     expect(result.score).toBeGreaterThanOrEqual(0);
   });
 
-  it('statistics handles very long text', () => {
-    const text = Array(500).fill('The cat sat on the mat.').join(' ');
+  it("statistics handles very long text", () => {
+    const text = Array(500).fill("The cat sat on the mat.").join(" ");
     const stats = computeStats(text);
     expect(stats.wordCount).toBeGreaterThan(100);
     expect(stats.typeTokenRatio).toBeLessThan(0.1);
@@ -134,33 +134,33 @@ describe('very long text', () => {
 
 // ─── Malformed Input ─────────────────────────────────────
 
-describe('malformed input', () => {
-  it('handles text with only punctuation — score is low', () => {
-    const result = analyze('...!!!???---');
+describe("malformed input", () => {
+  it("handles text with only punctuation — score is low", () => {
+    const result = analyze("...!!!???---");
     expect(result.score).toBeLessThanOrEqual(15);
   });
 
-  it('handles extremely long single word', () => {
-    const word = 'a'.repeat(10000);
+  it("handles extremely long single word", () => {
+    const word = "a".repeat(10000);
     const result = analyze(word);
     expect(result.score).toBeGreaterThanOrEqual(0);
   });
 
-  it('handles text with excessive whitespace', () => {
-    const result = analyze('Hello     world     this     is     spaced');
+  it("handles text with excessive whitespace", () => {
+    const result = analyze("Hello     world     this     is     spaced");
     expect(result.wordCount).toBeGreaterThanOrEqual(4);
   });
 
-  it('handles markdown-heavy text', () => {
+  it("handles markdown-heavy text", () => {
     const text =
-      '# Heading\n\n**bold** _italic_ ~~strike~~ `code`\n\n- item 1\n- item 2\n- item 3\n\n> blockquote\n\n```\ncode block\n```';
+      "# Heading\n\n**bold** _italic_ ~~strike~~ `code`\n\n- item 1\n- item 2\n- item 3\n\n> blockquote\n\n```\ncode block\n```";
     const result = analyze(text);
     expect(result.score).toBeGreaterThanOrEqual(0);
   });
 
-  it('handles text with URLs', () => {
+  it("handles text with URLs", () => {
     const text =
-      'Check out https://example.com and http://test.org/path?query=1&foo=bar for more info.';
+      "Check out https://example.com and http://test.org/path?query=1&foo=bar for more info.";
     const result = analyze(text);
     expect(result.score).toBeGreaterThanOrEqual(0);
   });
@@ -168,14 +168,14 @@ describe('malformed input', () => {
 
 // ─── Score Bounds ────────────────────────────────────────
 
-describe('score bounds', () => {
-  it('score is always 0-100', () => {
+describe("score bounds", () => {
+  it("score is always 0-100", () => {
     const inputs = [
-      '',
-      'hello',
-      'The cat sat.',
-      'Additionally, this serves as a testament.',
-      'Great question! I hope this helps! Let me know!',
+      "",
+      "hello",
+      "The cat sat.",
+      "Additionally, this serves as a testament.",
+      "Great question! I hope this helps! Let me know!",
     ];
 
     for (const input of inputs) {
@@ -185,7 +185,7 @@ describe('score bounds', () => {
     }
   });
 
-  it('maximum AI text does not exceed 100', () => {
+  it("maximum AI text does not exceed 100", () => {
     const text = `Great question! Here is a comprehensive overview.
 
 Pasinerkime į šią temą. Svarbu pažymėti, kad šiuolaikiniame skaitmeniniame amžiuje — nuolat besikeičiančiame kraštovaizdyje — priemonės yra daroma vis geriau. Neabejotinai, verta atkreipti dėmesį. Mes turime suprasti, kad buvo pastebėta daug naujovių.
