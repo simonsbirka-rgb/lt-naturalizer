@@ -9,7 +9,7 @@ import {
   computeNgramRepetition,
   splitSentences,
   tokenize,
-  estimateSyllables,
+  estimateLithuanianSyllables,
 } from '../src/stats.js';
 
 // ─── Tokenize ────────────────────────────────────────────
@@ -59,20 +59,21 @@ describe('splitSentences', () => {
 
 // ─── Syllable Estimation ─────────────────────────────────
 
-describe('estimateSyllables', () => {
+describe('estimateLithuanianSyllables', () => {
   it('counts single-syllable words', () => {
-    expect(estimateSyllables('cat')).toBe(1);
-    expect(estimateSyllables('the')).toBe(1);
+    expect(estimateLithuanianSyllables('namas')).toBe(2);
+    expect(estimateLithuanianSyllables('aš')).toBe(1);
   });
 
-  it('counts multi-syllable words', () => {
-    expect(estimateSyllables('beautiful')).toBeGreaterThanOrEqual(2);
-    expect(estimateSyllables('computer')).toBeGreaterThanOrEqual(2);
+  it('counts multi-syllable words with lithuanian vowels and diphthongs', () => {
+    expect(estimateLithuanianSyllables('ąžuolas')).toBeGreaterThanOrEqual(3);
+    expect(estimateLithuanianSyllables('kompiuteris')).toBeGreaterThanOrEqual(4);
+    expect(estimateLithuanianSyllables('pasaulis')).toBe(3); // pa-sau-lis
   });
 
   it('returns at least 1 for any word', () => {
-    expect(estimateSyllables('a')).toBeGreaterThanOrEqual(1);
-    expect(estimateSyllables('xyz')).toBeGreaterThanOrEqual(1);
+    expect(estimateLithuanianSyllables('a')).toBeGreaterThanOrEqual(1);
+    expect(estimateLithuanianSyllables('xyz')).toBeGreaterThanOrEqual(1);
   });
 });
 
@@ -108,7 +109,7 @@ describe('computeStats', () => {
     expect(stats).toHaveProperty('burstiness');
     expect(stats).toHaveProperty('typeTokenRatio');
     expect(stats).toHaveProperty('functionWordRatio');
-    expect(stats).toHaveProperty('fleschKincaid');
+    expect(stats).toHaveProperty('readabilityScore');
     expect(stats).toHaveProperty('paragraphCount');
     expect(stats).toHaveProperty('trigramRepetition');
   });
@@ -176,11 +177,11 @@ describe('computeStats', () => {
   });
 
   // Readability
-  it('computes Flesch-Kincaid grade level', () => {
-    const text = 'The cat sat on the mat. The dog ate the bone. The bird flew away.';
+  it('computes Readability Score', () => {
+    const text = 'Namas buvo didelis. Šuo lojo garsiai. Katė miegojo ant kilimo.';
     const stats = computeStats(text);
-    expect(stats.fleschKincaid).toBeDefined();
-    expect(typeof stats.fleschKincaid).toBe('number');
+    expect(stats.readabilityScore).toBeDefined();
+    expect(typeof stats.readabilityScore).toBe('number');
   });
 
   // Function word ratio

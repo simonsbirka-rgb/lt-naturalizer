@@ -124,8 +124,8 @@ function computeStats(text) {
       : 0;
 
   // ── Readability (Flesch-Kincaid Grade Level approximation) ──
-  const syllableCount = words.reduce((sum, w) => sum + estimateSyllables(w), 0);
-  const fleschKincaid =
+  const syllableCount = words.reduce((sum, w) => sum + estimateLithuanianSyllables(w), 0);
+  const readabilityScore =
     sentenceCount > 0
       ? 0.39 * (wordCount / sentenceCount) + 11.8 * (syllableCount / wordCount) - 15.59
       : 0;
@@ -144,7 +144,7 @@ function computeStats(text) {
     functionWordRatio: round(functionWordRatio),
     trigramRepetition: round(trigramRepetition),
     avgParagraphLength: round(avgParagraphLength),
-    fleschKincaid: round(fleschKincaid),
+    readabilityScore: round(readabilityScore),
     sentenceLengths,
   };
 }
@@ -171,20 +171,28 @@ function computeNgramRepetition(words, n) {
 }
 
 /**
- * Estimate syllable count for a word (English heuristic).
+ * Estimate syllable count for a word (Lithuanian heuristic).
  */
-function estimateSyllables(word) {
-  word = word.toLowerCase().replace(/[^a-z]/g, '');
-  if (word.length <= 3) return 1;
+function estimateLithuanianSyllables(word) {
+  word = word.toLowerCase().replace(/[^a-ząčęėįšųūž]/g, '');
+  if (word.length === 0) return 1;
 
-  // Count vowel groups
-  const vowelGroups = word.match(/[aeiouy]+/g);
-  let count = vowelGroups ? vowelGroups.length : 1;
+  // Lithuanian diphthongs that are typically single syllables
+  const diphthongs = ['ai', 'au', 'ei', 'eu', 'oi', 'ou', 'ui', 'ie', 'uo'];
+  let count = 0;
 
-  // Subtract silent e
-  if (word.endsWith('e') && !word.endsWith('le')) count--;
-  // Add for -ed that creates syllable
-  if (word.endsWith('ed') && word.length > 3 && !/[aeiouy]ed$/.test(word)) count--;
+  let i = 0;
+  while (i < word.length) {
+    if (i < word.length - 1 && diphthongs.includes(word.substring(i, i + 2))) {
+      count++;
+      i += 2;
+    } else if (/[aeiyouąęėįųū]/.test(word[i])) {
+      count++;
+      i++;
+    } else {
+      i++;
+    }
+  }
 
   return Math.max(count, 1);
 }
@@ -254,7 +262,7 @@ function emptyStats() {
     functionWordRatio: 0,
     trigramRepetition: 0,
     avgParagraphLength: 0,
-    fleschKincaid: 0,
+    readabilityScore: 0,
     sentenceLengths: [],
   };
 }
@@ -271,5 +279,5 @@ module.exports = {
   computeNgramRepetition,
   splitSentences,
   tokenize,
-  estimateSyllables,
+  estimateLithuanianSyllables,
 };
