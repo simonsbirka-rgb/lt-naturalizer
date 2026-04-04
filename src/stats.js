@@ -123,12 +123,7 @@ function computeStats(text) {
       ? paragraphs.reduce((sum, p) => sum + tokenize(p).length, 0) / paragraphCount
       : 0;
 
-  // ── Readability (Flesch-Kincaid Grade Level approximation) ──
-  const syllableCount = words.reduce((sum, w) => sum + estimateLithuanianSyllables(w), 0);
-  const readabilityScore =
-    sentenceCount > 0
-      ? 0.39 * (wordCount / sentenceCount) + 11.8 * (syllableCount / wordCount) - 15.59
-      : 0;
+  // Readability (Flesch-Kincaid) removed — English-only formula不适用于 Lithuanian
 
   return {
     wordCount,
@@ -144,7 +139,6 @@ function computeStats(text) {
     functionWordRatio: round(functionWordRatio),
     trigramRepetition: round(trigramRepetition),
     avgParagraphLength: round(avgParagraphLength),
-    readabilityScore: round(readabilityScore),
     sentenceLengths,
   };
 }
@@ -262,7 +256,6 @@ function emptyStats() {
     functionWordRatio: 0,
     trigramRepetition: 0,
     avgParagraphLength: 0,
-    readabilityScore: 0,
     sentenceLengths: [],
   };
 }

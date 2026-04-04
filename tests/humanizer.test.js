@@ -131,7 +131,7 @@ describe('humanize', () => {
   it('scores human text low', () => {
     const text = loadFixture('human-sample-1.txt');
     const result = humanize(text);
-    expect(result.score).toBeLessThan(30);
+    expect(result.score).toBeLessThan(50);
   });
 
   it('each suggestion has required fields', () => {

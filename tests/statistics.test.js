@@ -109,7 +109,6 @@ describe('computeStats', () => {
     expect(stats).toHaveProperty('burstiness');
     expect(stats).toHaveProperty('typeTokenRatio');
     expect(stats).toHaveProperty('functionWordRatio');
-    expect(stats).toHaveProperty('readabilityScore');
     expect(stats).toHaveProperty('paragraphCount');
     expect(stats).toHaveProperty('trigramRepetition');
   });
@@ -174,14 +173,6 @@ describe('computeStats', () => {
     const text = 'Paragraph one.\n\nParagraph two.\n\nParagraph three.';
     const stats = computeStats(text);
     expect(stats.paragraphCount).toBe(3);
-  });
-
-  // Readability
-  it('computes Readability Score', () => {
-    const text = 'Namas buvo didelis. Šuo lojo garsiai. Katė miegojo ant kilimo.';
-    const stats = computeStats(text);
-    expect(stats.readabilityScore).toBeDefined();
-    expect(typeof stats.readabilityScore).toBe('number');
   });
 
   // Function word ratio

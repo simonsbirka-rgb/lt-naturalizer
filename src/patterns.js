@@ -212,8 +212,9 @@ const patterns = [
     weight: 3,
     detect(text) {
       // Match 3+ consecutive words ending in common Lithuanian genitive suffixes
-      const genitiveChain = /(?:\S+(?:ės|io|ų|os)\s+){2,}\S+(?:ės|io|ų|os|imo|imo)\b/gi;
-      return findMatches(text, genitiveChain, 'Rewrite using verbs instead of stacked genitive nouns', 'high');
+      // Extended suffix set: -o, -io, -ių, -os, -umo, -ymo, -stės, -ijos, -tybės, -tavimo
+      const genitiveChain = /(?:\S+(?:o|io|i\u0173|os|umo|ymo|st\u0117s|ijos|tyb\u0117s|tavimo|es)\s+){2,}\S+(?:o|io|i\u0173|os|umo|ymo|st\u0117s|ijos|tyb\u0117s|tavimo|es)\b/gi;
+      return findMatches(text, genitiveChain, 'Rewrite using verbs instead of stacked genitive nouns (kilminink\u0173 virtin\u0117)', 'high');
     },
   },
 
@@ -428,142 +429,128 @@ const patterns = [
     },
   },
 
-  // ── COMMUNICATION PATTERNS (19-21) ─────────────────────
+  // ── NEW LITHUANIAN PATTERNS (25-30) ──────────────────
+  // Patterns 19-24 removed (English-only chatbot/filler patterns)
 
   {
-    id: 19,
-    name: 'Chatbot artifacts',
-    category: 'communication',
+    id: 25,
+    name: 'Indirect mood misuse',
+    category: 'language',
     description:
-      'Leftover chatbot phrases: "I hope this helps!", "Let me know if...", "Here is an overview".',
-    weight: 5,
-    detect(text) {
-      return scanPhrases(
-        text,
-        AI_PHRASES.filter(
-          (p) => p.fix === '(remove)' || p.fix === '(remove — start with the content)',
-        ),
-      );
-    },
-  },
-
-  {
-    id: 20,
-    name: 'Cutoff disclaimers',
-    category: 'communication',
-    description: 'AI knowledge-cutoff disclaimers left in text.',
+      'Using indicative after reporting verbs instead of evidential (netiesioginė nuosaka).',
     weight: 4,
     detect(text) {
-      return scanPhrases(
-        text,
-        AI_PHRASES.filter(
-          (p) =>
-            p.fix === '(remove)' &&
-            (p.pattern.source.includes('training') ||
-              p.pattern.source.includes('details are') ||
-              p.pattern.source.includes('available')),
-        ),
-      );
+      const results = [];
+      const re = /\b(?:sako|sak\u0117|ra\u0161o|ra\u0161\u0117|teigia|teig\u0117|prane\u0161a|prane\u0161\u0117)\b/gi;
+      let m;
+      while ((m = re.exec(text)) !== null) {
+        const after = text.substring(m.index, m.index + 120);
+        if (/\bkad\b[^.]{0,50}?\b(?:buvo|buvome)\b/.test(after) && !/\b\w+(?:\u0117s|\u0119s)\b/.test(after.substring(0, after.indexOf('buvo') > -1 ? after.indexOf('buvo') : 40))) {
+          results.push({
+            match: m[0] + '...buvo',
+            index: m.index, line: 0, column: 0,
+            suggestion: 'Naudok netiesiogin\u0119 nuosak\u0105: vietoj "kad jis buvo" sakyk "kad jis b\u016bt\u0173 buv\u0119s"',
+            confidence: 'medium',
+          });
+        }
+      }
+      return results;
     },
   },
 
   {
-    id: 21,
-    name: 'Sycophantic tone',
-    category: 'communication',
+    id: 26,
+    name: 'Aspect confusion',
+    category: 'language',
     description:
-      'Overly positive, people-pleasing language: "Great question!", "You\'re absolutely right!".',
-    weight: 4,
+      'Imperfective verbs used where perfective prefix required.',
+    weight: 3,
     detect(text) {
-      return scanPhrases(
-        text,
-        AI_PHRASES.filter(
-          (p) =>
-            p.fix &&
-            (p.fix.includes('(remove)') || p.fix.includes('address the substance')) &&
-            (p.pattern.source.includes('question') ||
-              p.pattern.source.includes('point') ||
-              p.pattern.source.includes('right') ||
-              p.pattern.source.includes('observation')),
-        ),
-      );
+      const cues = ['vis\u0105', 'visi\u0161kai', 'pabaig\u0117', 'u\u017ebaig\u0117', 'i\u0161 karto', 'per valand', 'per met', 'baig\u0117'];
+      const stems = ['skaito', 'skaityti', 'daryti', 'mokosi', 'ra\u0161o', 'dirba', 'tvarko', 'kuria'];
+      const results = [];
+      const words = text.split(/\s+/);
+      for (let i = 0; i < words.length; i++) {
+        const w = words[i].toLowerCase().replace(/[^\w\u0119\u0161\u016b\u017e\u0105\u010d\u0117\u012f\u016b]/g, '');
+        if (cues.some(c => c.includes(w) || w.includes(c))) {
+          for (let j = i + 1; j <= Math.min(i + 10, words.length - 1); j++) {
+            const v = words[j].toLowerCase().replace(/[^\w\u0119\u0161\u016b\u017e\u0105\u010d\u0117\u012f\u016b]/g, '');
+            if (stems.some(s => v === s || v.startsWith(s))) {
+              const px = v.includes('skait') ? 'perskait\u0117' : v.includes('dar') ? 'padar\u0117' : v.includes('ra\u0161') ? 'para\u0161\u0117' : 'perf.';
+              results.push({ match: v, suggestion: 'Aspektas: vietoj "' + v + '" naudok perfektyv\u0105 (pvz., ' + px + ')', confidence: 'low' });
+            }
+          }
+        }
+      }
+      return results;
     },
   },
 
-  // ── FILLER & HEDGING (22-24) ────────────────────────────
-
   {
-    id: 22,
-    name: 'Filler phrases',
-    category: 'filler',
+    id: 27,
+    name: 'Article hallucination',
+    category: 'language',
     description:
-      'Wordy filler that can be shortened: "in order to" → "to", "due to the fact that" → "because".',
+      'Using "vienas" as indefinite article like English "a/an".',
     weight: 3,
     detect(text) {
-      return scanPhrases(
-        text,
-        AI_PHRASES.filter(
-          (p) =>
-            p.fix &&
-            !p.fix.startsWith('(') &&
-            [
-              'to',
-              'because',
-              'now',
-              'if',
-              'can',
-              'to / for',
-              'first',
-              'finally',
-              'for / regarding',
-              'because / since',
-            ].includes(p.fix),
-        ),
-      );
+      return findMatches(text, /\bvienas\s+\w+(?:\s+(?:yra|buvo|bus|turi|tur\u0117jo))?\b/gi, 'Pa\u0161alink "vienas" nebent rei\u0161kia skai\u010di\u0173 "one". LT neturi artikli\u0173.', 'medium');
     },
   },
 
   {
-    id: 23,
-    name: 'Excessive hedging',
-    category: 'filler',
-    description: 'Stacking qualifiers: "could potentially possibly", "might arguably perhaps".',
-    weight: 3,
+    id: 28,
+    name: 'Preposition overuse',
+    category: 'language',
+    description:
+      'Prepositions (apie, d\u0117l, per, su) where case suffix alone would suffice.',
+    weight: 2,
     detect(text) {
-      return scanPhrases(
-        text,
-        AI_PHRASES.filter(
-          (p) =>
-            p.fix &&
-            (p.fix.includes('could') ||
-              p.fix.includes('might') ||
-              p.fix.includes('may') ||
-              p.fix.includes('perhaps') ||
-              p.fix.includes('maybe')),
-        ),
-      );
+      return findMatches(text, /\b(?:apie|d\u0117l|per|su)\s+\w+/gi, 'Ar prielinksnis b\u016btinas? Da\u017enai u\u017etinka linksnis.', 'low');
     },
   },
 
   {
-    id: 24,
-    name: 'Generic conclusions',
-    category: 'filler',
-    description: 'Vague upbeat endings: "The future looks bright", "Exciting times lie ahead".',
-    weight: 3,
+    id: 29,
+    name: 'Word order rigidity',
+    category: 'style',
+    description:
+      'Strict SVO without topicalization. LT naturally varies word order.',
+    weight: 2,
     detect(text) {
-      return scanPhrases(
-        text,
-        AI_PHRASES.filter(
-          (p) =>
-            p.fix &&
-            (p.fix.includes('specific fact') ||
-              p.fix.includes('concrete') ||
-              p.fix.includes('cite evidence') ||
-              p.fix.includes('what you do know') ||
-              p.fix.includes('what happens next')),
-        ),
-      );
+      const sents = text.split(/(?<=[.!?])\s+/);
+      let svo = 0, fronted = 0;
+      for (const s of sents) {
+        const fw = s.toLowerCase().split(/\s+/).slice(0, 2);
+        if (['a\u0161', 'tu', 'mes', 'j\u016bs', 'jis', 'ji', 'jie', 'jos'].includes(fw[0]) && fw[1] && /(ti|o|a|a|e|y)$/.test(fw[1])) svo++;
+        if (/^(vakar|ryte|vakare|namie|mieste|\u0161iandien|rytoj|anksti)\b/i.test(s)) fronted++;
+      }
+      if (sents.length >= 3 && (svo / sents.length) > 0.6 && fronted === 0) {
+        return [{ match: 'SVO standumas', suggestion: 'Keisk \u017eod\u017ei\u0173 tvark\u0105: LT da\u017enai keliamos aplinkyb\u0117s ("Vakar a\u0161" vietoj "A\u0161 vakar")', confidence: 'low' }];
+      }
+      return [];
+    },
+  },
+
+  {
+    id: 30,
+    name: 'Register mixing',
+    category: 'style',
+    description:
+      'Formal bureaucratic terms mixed with informal particles in same paragraph.',
+    weight: 2,
+    detect(text) {
+      const paras = text.split(/\n\s*\n/);
+      const results = [];
+      for (let i = 0; i < paras.length; i++) {
+        const p = paras[i].toLowerCase();
+        const formal = ['optimizavimas', 'efektyvinimas', 'strategija', 'implementavimas', 'platforma', 'ekosistema', 'proces\u0173', 'veiklos', 'tobulinimas', 'savitarna'].some(w => p.includes(w));
+        const informal = /\b(?:gi|juk|d\u0117lto|bene|turb\u016bt|gal|na)\b/.test(p);
+        if (formal && informal) {
+          results.push({ match: 'registro mai\u0161ymas', suggestion: 'Laikykit\u0117s vieno registro: formalas ARBA neformalus pastraipoje.', confidence: 'low' });
+        }
+      }
+      return results;
     },
   },
 ];
