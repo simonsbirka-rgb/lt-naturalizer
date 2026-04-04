@@ -1,0 +1,63 @@
+{
+  "human_sources": [
+    {
+      "type": "news",
+      "sources": ["15min.lt", "Delfi.lt", "Lietuvos rytas"],
+      "years": [2019, 2020, 2021]
+    },
+    {
+      "type": "literary",
+      "sources": [
+        "National Library digital collections",
+        "Vilnius University publications"
+      ]
+    },
+    {
+      "type": "forum",
+      "sources": [
+        "Reddit.lt",
+        "discussion boards",
+        "authentic user-generated content"
+      ]
+    },
+    {
+      "type": "administrative",
+      "sources": ["Government documents", "official communications"]
+    }
+  ],
+  "ai_prompts": [
+    "Explain the concept of artificial intelligence in Lithuanian, focusing on technological aspects",
+    "Describe the benefits of remote work in Lithuania from a professional perspective",
+    "Discuss the importance of education reform in Lithuania and its impact on society",
+    "Write about the Lithuanian winter and its cultural significance",
+    "Analyze the current state of technology in Lithuania and future trends"
+  ],
+  "particle_list": [
+    "gi",
+    "juk",
+    "na",
+    "bent",
+    "gal",
+    "bene",
+    "vis dėlto",
+    "turbūt",
+    "mat",
+    "jau",
+    "štai",
+    "taigi",
+    "tad",
+    "taip pat",
+    "be to",
+    "iš tiesų",
+    "tiesa",
+    "aišku",
+    "žinoma",
+    "beje"
+  ],
+  "copula_forms": ["yra", "buvo", "bus"],
+  "sample_size": 20,
+  "confidence_level": 0.95,
+  "significance_threshold": 0.05,
+  "detection_accuracy_target": 0.9,
+  "false_positive_rate_target": 0.05
+}

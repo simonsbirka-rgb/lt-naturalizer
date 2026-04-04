@@ -1,0 +1,55 @@
+{
+  "summary": {
+    "human_corpus_size": 23,
+    "ai_corpus_size": 20,
+    "total_samples": 43
+  },
+  "particle_analysis": {
+    "human_mean": 3.4900311285801875,
+    "human_std": 3.316964643586396,
+    "ai_mean": 0.6097560975609756,
+    "ai_std": 2.6578652094760207,
+    "t_statistic": 3.0376443230731396,
+    "p_value": 0.004135623171700005,
+    "significant": true
+  },
+  "copula_analysis": {
+    "human_mean": 15.985244458402487,
+    "human_std": 5.680707631616599,
+    "ai_mean": 30.703761306436157,
+    "ai_std": 13.327197345778867,
+    "t_statistic": -4.703749290689471,
+    "p_value": 2.893089845154556e-05,
+    "significant": true
+  },
+  "vocabulary_analysis": {
+    "ttr": {
+      "human_mean": 0.5728772753089878,
+      "ai_mean": 0.8677250567182311,
+      "t_statistic": -6.376125695154986,
+      "p_value": 1.2620800281654005e-07,
+      "significant": true
+    },
+    "hapax_legomena": {
+      "human_mean": 0.4129489954706232,
+      "ai_mean": 0.7879533954289777,
+      "t_statistic": -6.671275590013092,
+      "p_value": 4.808000034367941e-08,
+      "significant": true
+    }
+  },
+  "morphology_analysis": {
+    "genitive_chains": {
+      "human_mean": 1250.2173913043478,
+      "ai_mean": 77.25,
+      "t_statistic": 3.41283986739968,
+      "p_value": 0.0014585594209645298,
+      "significant": true
+    }
+  },
+  "conclusions": [
+    "Human text uses significantly more particles (3.49 vs 0.61 per 1000 words)",
+    "AI text uses significantly more copula (30.70 vs 15.99 per 1000 words)",
+    "Significant difference in Type-Token Ratio detected"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "basic_validation": {
+    "true_positives": 20,
+    "true_negatives": 2,
+    "false_positives": 21,
+    "false_negatives": 0,
+    "accuracy": 0.5116,
+    "precision": 0.4878,
+    "recall": 1.0,
+    "f1_score": 0.6557
+  },
+  "cross_validation": {
+    "folds": [
+      {
+        "accuracy": 0.75,
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1_score": 0.8571
+      },
+      {
+        "accuracy": 0.625,
+        "precision": 0.5714,
+        "recall": 1.0,
+        "f1_score": 0.7273
+      },
+      {
+        "accuracy": 0.375,
+        "precision": 0.375,
+        "recall": 1.0,
+        "f1_score": 0.5455
+      },
+      {
+        "accuracy": 0.125,
+        "precision": 0.125,
+        "recall": 1.0,
+        "f1_score": 0.2222
+      },
+      {
+        "accuracy": 0.625,
+        "precision": 0.5714,
+        "recall": 1.0,
+        "f1_score": 0.7273
+      }
+    ],
+    "average_accuracy": 0.5,
+    "average_f1": 0.6159
+  },
+  "current_thresholds": {
+    "particle_threshold": 1.0,
+    "copula_threshold": 10.0,
+    "vocabulary_richness_min": 0.3
+  },
+  "corpus_stats": {
+    "human_texts": 23,
+    "ai_texts": 20,
+    "total_texts": 43
+  }
+}

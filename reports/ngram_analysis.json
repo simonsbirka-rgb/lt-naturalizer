@@ -1,0 +1,1572 @@
+{
+  "corpus_stats": {
+    "human_total_tokens": 28778,
+    "ai_total_tokens": 1565
+  },
+  "top_3grams": {
+    "human": [
+      {
+        "ngram": "lietuvos didžiosios kunigaikštijos",
+        "count": 20,
+        "freq_per_1000": 0.695
+      },
+      {
+        "ngram": "pr m e",
+        "count": 15,
+        "freq_per_1000": 0.5212
+      },
+      {
+        "ngram": "tūkst kv metrų",
+        "count": 12,
+        "freq_per_1000": 0.417
+      },
+      {
+        "ngram": "kartą per mėnesį",
+        "count": 9,
+        "freq_per_1000": 0.3127
+      },
+      {
+        "ngram": "abiejų tautų respublikos",
+        "count": 9,
+        "freq_per_1000": 0.3127
+      },
+      {
+        "ngram": "6 rezultatyvius perdavimus",
+        "count": 9,
+        "freq_per_1000": 0.3127
+      },
+      {
+        "ngram": "iki xix a",
+        "count": 8,
+        "freq_per_1000": 0.278
+      },
+      {
+        "ngram": "lietuvos krepšinio lygoje",
+        "count": 8,
+        "freq_per_1000": 0.278
+      },
+      {
+        "ngram": "krepšinio lygoje lkl",
+        "count": 8,
+        "freq_per_1000": 0.278
+      },
+      {
+        "ngram": "3 4 dvit",
+        "count": 8,
+        "freq_per_1000": 0.278
+      },
+      {
+        "ngram": "atliko 6 rezultatyvius",
+        "count": 8,
+        "freq_per_1000": 0.278
+      },
+      {
+        "ngram": "mintys jau ne",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "jau ne čia",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "ne čia jei",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "čia jei atvirai",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "jei atvirai po",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "atvirai po pergalės",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "po pergalės lietuvos",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "pergalės lietuvos krepšinio",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "lygoje lkl sakė",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "lkl sakė vilniaus",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "sakė vilniaus ryto",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "vilniaus ryto vyriausiasis",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "ryto vyriausiasis treneris",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "vyriausiasis treneris giedrius",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "treneris giedrius žibėnas",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "giedrius žibėnas namuose",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "žibėnas namuose žaidę",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "namuose žaidę vilniečiai",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "žaidę vilniečiai 15",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "vilniečiai 15 8",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "15 8 šeštadienį",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "8 šeštadienį 105",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "šeštadienį 105 91",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "105 91 25",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "91 25 27",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "25 27 28",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "27 28 14",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "28 14 25",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "14 25 22",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "25 22 27",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "22 27 28",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "27 28 nugalėjo",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "28 nugalėjo kėdainių",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "nugalėjo kėdainių nevėžį",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "kėdainių nevėžį 7",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "nevėžį 7 16",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "7 16 ir",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "16 ir įsirašė",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      },
+      {
+        "ngram": "ir įsirašė trečiąją",
+        "count": 7,
+        "freq_per_1000": 0.2432
+      }
+    ],
+    "ai": [
+      {
+        "ngram": "svarbu paminėti kad",
+        "count": 10,
+        "freq_per_1000": 6.3898
+      },
+      {
+        "ngram": "svarbu užtikrinti kad",
+        "count": 6,
+        "freq_per_1000": 3.8339
+      },
+      {
+        "ngram": "plėtra yra būtina",
+        "count": 3,
+        "freq_per_1000": 1.9169
+      },
+      {
+        "ngram": "tampa vis svarbesnis",
+        "count": 3,
+        "freq_per_1000": 1.9169
+      },
+      {
+        "ngram": "vyriausybė įgyvendina įvairias",
+        "count": 3,
+        "freq_per_1000": 1.9169
+      },
+      {
+        "ngram": "be to vykdomos",
+        "count": 3,
+        "freq_per_1000": 1.9169
+      },
+      {
+        "ngram": "yra svarbi lietuvos",
+        "count": 3,
+        "freq_per_1000": 1.9169
+      },
+      {
+        "ngram": "atsinaujinančių energijos šaltinių",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "be to vykdomi",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "yra būtina šalies",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "yra viena iš",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "viena iš svarbiausių",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "problemos sprendimas reikalauja",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "naujos technologijos leidžia",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "paslaugos tampa vis",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "užtikrinti kad visi",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "investicijos į švietimą",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "vilnius ir kaunas",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "ateities perspektyvos atrodo",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "į šią sritį",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "dalis šalis turi",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "yra svarbi šalies",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "ateiciai investicijos į",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "be to lietuvos",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "turi gerą potencialą",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "gerą potencialą augti",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "paminėti kad tvarus",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "plėtra yra svarbi",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "svarbi lietuvos ekonomikos",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "ši darbo forma",
+        "count": 2,
+        "freq_per_1000": 1.278
+      },
+      {
+        "ngram": "energetika yra strategiškai",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "yra strategiškai svarbi",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "strategiškai svarbi sritis",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "svarbi sritis lietuvos",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "sritis lietuvos ekonomikai",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "lietuvos ekonomikai šalis",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "ekonomikai šalis siekia",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "šalis siekia energetinės",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "siekia energetinės nepriklausomybės",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "energetinės nepriklausomybės plėtodama",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "nepriklausomybės plėtodama atsinaujinančių",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "plėtodama atsinaujinančių energijos",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "energijos šaltinių gamybą",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "šaltinių gamybą vėjo",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "gamybą vėjo ir",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "vėjo ir saulės",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "ir saulės elektrinių",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "saulės elektrinių skaičius",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "elektrinių skaičius kasmet",
+        "count": 1,
+        "freq_per_1000": 0.639
+      },
+      {
+        "ngram": "skaičius kasmet didėja",
+        "count": 1,
+        "freq_per_1000": 0.639
+      }
+    ]
+  },
+  "ai_specific_3grams": [
+    {
+      "ngram": "plėtra yra būtina",
+      "ai_count": 3,
+      "human_count": 0,
+      "ai_freq_per_1000": 1.9169,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "svarbu paminėti kad",
+      "ai_count": 10,
+      "human_count": 0,
+      "ai_freq_per_1000": 6.3898,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "tampa vis svarbesnis",
+      "ai_count": 3,
+      "human_count": 0,
+      "ai_freq_per_1000": 1.9169,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "svarbu užtikrinti kad",
+      "ai_count": 6,
+      "human_count": 0,
+      "ai_freq_per_1000": 3.8339,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "vyriausybė įgyvendina įvairias",
+      "ai_count": 3,
+      "human_count": 0,
+      "ai_freq_per_1000": 1.9169,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "be to vykdomos",
+      "ai_count": 3,
+      "human_count": 0,
+      "ai_freq_per_1000": 1.9169,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "yra svarbi lietuvos",
+      "ai_count": 3,
+      "human_count": 0,
+      "ai_freq_per_1000": 1.9169,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    }
+  ],
+  "human_specific_3grams": [
+    {
+      "ngram": "nuo xix a",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "duomenys rodo kad",
+      "human_count": 5,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1737,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "etnografinio regiono pavadinimas",
+      "human_count": 4,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.139,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "iki xix a",
+      "human_count": 8,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.278,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "xix a vidurio",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "nuo xiii a",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "nuo xiv a",
+      "human_count": 4,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.139,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "lietuvos etnografinis regionas",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "m kovo 11",
+      "human_count": 4,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.139,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "kovo 11 d",
+      "human_count": 4,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.139,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "lietuvos didžiojoje kunigaikštystėje",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "iki xiii a",
+      "human_count": 4,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.139,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "xiii a vidurio",
+      "human_count": 4,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.139,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "xviii a pabaigos",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "nuo xviii a",
+      "human_count": 4,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.139,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "greitas sprendimas išleisti",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "sprendimas išleisti nedidelę",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "išleisti nedidelę sumą",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "nedidelę sumą ir",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "sumą ir jausmas",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "ir jausmas kad",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "jausmas kad šį",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "kad šį kartą",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "šį kartą galima",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "kartą galima taip",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "galima taip dažnai",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "taip dažnai prasideda",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "dažnai prasideda spontaniški",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "prasideda spontaniški pirkiniai",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "spontaniški pirkiniai kurie",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "pirkiniai kurie ilgainiui",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "kurie ilgainiui gali",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "ilgainiui gali virsti",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "gali virsti įpročiu",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "virsti įpročiu artėjant",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "įpročiu artėjant velykoms",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "artėjant velykoms kai",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "velykoms kai parduotuvėse",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "kai parduotuvėse gausu",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "parduotuvėse gausu akcijų",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "gausu akcijų dekoracijų",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "akcijų dekoracijų ir",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "dekoracijų ir šventinių",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "ir šventinių pasiūlymų",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "šventinių pasiūlymų spontaniškų",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "pasiūlymų spontaniškų išlaidų",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "spontaniškų išlaidų pagunda",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "išlaidų pagunda dar",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "pagunda dar labiau",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "dar labiau sustiprėja",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "labiau sustiprėja seb",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "sustiprėja seb banko",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "seb banko užsakymu",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "banko užsakymu atliktas",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "užsakymu atliktas tyrimas",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "atliktas tyrimas atskleidžia",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "tyrimas atskleidžia aiškią",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "atskleidžia aiškią tendenciją",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "aiškią tendenciją spontaniški",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "tendenciją spontaniški pirkiniai",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "spontaniški pirkiniai yra",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "pirkiniai yra daugelio",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "yra daugelio kasdienybės",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "daugelio kasdienybės dalis",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "kasdienybės dalis tyrimo",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "dalis tyrimo duomenys",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "tyrimo duomenys rodo",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "rodo kad tik",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "kad tik apie",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "tik apie 20",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "apie 20 proc",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "20 proc gyventojų",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "proc gyventojų teigia",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "gyventojų teigia niekada",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "teigia niekada neperkantys",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "niekada neperkantys spontaniškai",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "neperkantys spontaniškai o",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "spontaniškai o likusieji",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "o likusieji bent",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "likusieji bent retkarčiais",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "bent retkarčiais įsigyja",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "retkarčiais įsigyja prekių",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "įsigyja prekių neplanuotai",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "prekių neplanuotai dažniausiai",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "neplanuotai dažniausiai tokie",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "dažniausiai tokie pirkiniai",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "tokie pirkiniai atliekami",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "pirkiniai atliekami kartą",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "atliekami kartą per",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "kartą per mėnesį",
+      "human_count": 9,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.3127,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "per mėnesį taip",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "mėnesį taip nurodo",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "taip nurodo apie",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "nurodo apie 30",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "apie 30 proc",
+      "human_count": 6,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.2085,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "30 proc respondentų",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "proc respondentų o",
+      "human_count": 6,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.2085,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "respondentų o dar",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "o dar 18",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    },
+    {
+      "ngram": "dar 18 proc",
+      "human_count": 3,
+      "ai_count": 0,
+      "human_freq_per_1000": 0.1042,
+      "ai_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "human_only"
+    }
+  ],
+  "ai_specific_2grams": [
+    {
+      "ngram": "plėtra yra",
+      "ai_count": 6,
+      "human_count": 0,
+      "ai_freq_per_1000": 3.8339,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "investicijos į",
+      "ai_count": 7,
+      "human_count": 0,
+      "ai_freq_per_1000": 4.4728,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "svarbu paminėti",
+      "ai_count": 10,
+      "human_count": 0,
+      "ai_freq_per_1000": 6.3898,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "paminėti kad",
+      "ai_count": 10,
+      "human_count": 0,
+      "ai_freq_per_1000": 6.3898,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "tampa vis",
+      "ai_count": 6,
+      "human_count": 0,
+      "ai_freq_per_1000": 3.8339,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "svarbu užtikrinti",
+      "ai_count": 6,
+      "human_count": 0,
+      "ai_freq_per_1000": 3.8339,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "užtikrinti kad",
+      "ai_count": 6,
+      "human_count": 0,
+      "ai_freq_per_1000": 3.8339,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "yra svarbi",
+      "ai_count": 5,
+      "human_count": 0,
+      "ai_freq_per_1000": 3.1949,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "dirbtinis intelektas",
+      "ai_count": 5,
+      "human_count": 0,
+      "ai_freq_per_1000": 3.1949,
+      "human_freq_per_1000": 0,
+      "ratio": "infinity",
+      "type": "ai_only"
+    },
+    {
+      "ngram": "be to",
+      "ai_count": 21,
+      "human_count": 9,
+      "ai_freq_per_1000": 13.4185,
+      "human_freq_per_1000": 0.3127,
+      "ratio": 42.91,
+      "type": "ai_overused"
+    }
+  ],
+  "ai_specific_4grams": []
+}
