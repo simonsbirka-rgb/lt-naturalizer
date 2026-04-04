@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { analyze, score, formatReport, formatJSON, formatMarkdown } from '../src/analyzer.js';
+import { analyze, analyzeBatch, score, formatReport, formatJSON, formatMarkdown } from '../src/analyzer.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -52,6 +52,14 @@ describe('analyze', () => {
     const text = loadFixture('ai-sample-1.txt');
     const result = analyze(text);
     expect(result.score).toBeGreaterThan(50);
+  });
+
+  it('handles options for sensitivity and mode', () => {
+    const text = loadFixture('ai-sample-1.txt');
+    const resultHigh = analyze(text, { sensitivity: 'high', mode: 'standard' });
+    const resultLow = analyze(text, { sensitivity: 'low', mode: 'business' });
+    // Assuming 'business' mode and 'low' sensitivity reduce the penalty
+    expect(resultLow.patternScore).toBeLessThan(resultHigh.patternScore);
   });
 
   it('detects multiple categories in AI text', () => {
@@ -291,6 +299,19 @@ describe('pattern detection', () => {
 });
 
 // ─── AI Sample Full Analysis ─────────────────────────────
+
+describe('batch analysis', () => {
+  it('processes multiple texts', () => {
+    const texts = [
+      loadFixture('ai-sample-1.txt'),
+      loadFixture('human-sample-1.txt')
+    ];
+    const results = analyzeBatch(texts, { sensitivity: 'medium' });
+    expect(results).toHaveLength(2);
+    expect(results[0].score).toBeGreaterThan(50);
+    expect(results[1].score).toBeLessThan(25);
+  });
+});
 
 describe('full AI sample analysis', () => {
   it('detects many patterns in ai-sample-1.txt', () => {

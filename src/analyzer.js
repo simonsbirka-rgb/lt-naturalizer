@@ -38,10 +38,12 @@ const CATEGORY_LABELS = {
  *   - patternsToCheck {number[]}  Only run specific pattern IDs
  *   - includeStats {boolean}  Include full text statistics (default: true)
  *   - config {object}       Custom config overrides
+ *   - sensitivity {string}  'low', 'medium', 'high'
+ *   - mode {string}         'business', 'academic', 'casual', 'standard'
  * @returns {object}     — Full analysis result
  */
 function analyze(text, opts = {}) {
-  const { verbose = false, patternsToCheck = null, includeStats = true } = opts;
+  const { verbose = false, patternsToCheck = null, includeStats = true, sensitivity = 'high', mode = 'standard' } = opts;
 
   if (!text || typeof text !== 'string') {
     return emptyResult();
@@ -91,7 +93,7 @@ function analyze(text, opts = {}) {
   }
 
   // ── Calculate composite score ──────────────────────
-  const patternScore = calculatePatternScore(findings, words);
+  const patternScore = calculatePatternScore(findings, words, { sensitivity, mode });
   const compositeScore = calculateCompositeScore(patternScore, uniformityScore, findings);
 
   // ── Build category summary ─────────────────────────
@@ -127,12 +129,26 @@ function analyze(text, opts = {}) {
  * Pattern-based score component (0-100).
  * Uses density, breadth, and category diversity.
  */
-function calculatePatternScore(findings, words) {
+function calculatePatternScore(findings, words, opts = {}) {
   if (words === 0 || findings.length === 0) return 0;
+
+  const { sensitivity = 'high', mode = 'standard' } = opts;
+
+  let sensitivityMultiplier = 1.0;
+  if (sensitivity === 'low') sensitivityMultiplier = 0.5;
+  else if (sensitivity === 'medium') sensitivityMultiplier = 0.75;
+  else if (sensitivity === 'high') sensitivityMultiplier = 1.0;
 
   let weightedTotal = 0;
   for (const f of findings) {
-    weightedTotal += f.matchCount * f.weight;
+    let weight = f.weight;
+    // Adjust weights based on mode. Business/academic text naturally has more formal patterns
+    if (mode === 'business' || mode === 'academic') {
+      if (f.category === 'style' || f.category === 'language' || f.category === 'filler') {
+         weight *= 0.7; // Reduce penalty for these categories in formal text
+      }
+    }
+    weightedTotal += f.matchCount * weight * sensitivityMultiplier;
   }
 
   // Density: weighted hits per 100 words (log scale)
@@ -140,11 +156,11 @@ function calculatePatternScore(findings, words) {
   const densityScore = Math.min(Math.log2(density + 1) * 13, 65);
 
   // Breadth: unique pattern types (max 20)
-  const breadthBonus = Math.min(findings.length * 2, 20);
+  const breadthBonus = Math.min(findings.length * 2 * sensitivityMultiplier, 20);
 
   // Category diversity (max 15)
   const categoriesHit = new Set(findings.map((f) => f.category)).size;
-  const categoryBonus = Math.min(categoriesHit * 3, 15);
+  const categoryBonus = Math.min(categoriesHit * 3 * sensitivityMultiplier, 15);
 
   return Math.min(Math.round(densityScore + breadthBonus + categoryBonus), 100);
 }
@@ -264,7 +280,7 @@ function formatReport(result) {
     );
     lines.push(`  Function word ratio: ${s.functionWordRatio}`);
     lines.push(`  Trigram repetition: ${s.trigramRepetition}`);
-    lines.push(`  Readability (FK grade): ${s.fleschKincaid}`);
+    lines.push(`  Readability Score: ${s.readabilityScore}`);
     lines.push('');
   }
 
@@ -346,7 +362,7 @@ function formatMarkdown(result) {
       `| Trigram repetition | ${s.trigramRepetition} | ${s.trigramRepetition > 0.1 ? 'High (AI-like)' : 'Normal'} |`,
     );
     lines.push(
-      `| Readability | FK grade ${s.fleschKincaid} | ${s.fleschKincaid > 12 ? 'Academic' : s.fleschKincaid > 8 ? 'Standard' : 'Easy'} |`,
+      `| Readability | Score ${s.readabilityScore} | ${s.readabilityScore > 12 ? 'Academic' : s.readabilityScore > 8 ? 'Standard' : 'Easy'} |`,
     );
     lines.push('');
   }
@@ -416,10 +432,22 @@ function emptyResult() {
   };
 }
 
+/**
+ * Analyze an array of texts.
+ *
+ * @param {string[]} texts
+ * @param {object} opts
+ * @returns {object[]}
+ */
+function analyzeBatch(texts, opts = {}) {
+  return texts.map(text => analyze(text, opts));
+}
+
 // ─── Exports ─────────────────────────────────────────────
 
 module.exports = {
   analyze,
+  analyzeBatch,
   score,
   calculatePatternScore,
   calculateCompositeScore,

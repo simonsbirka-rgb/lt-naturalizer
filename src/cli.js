@@ -93,6 +93,8 @@ const flags = {
   patterns: null,
   threshold: null,
   config: null,
+  sensitivity: null,
+  mode: null,
 };
 
 // Parse -f / --file flag
@@ -130,6 +132,18 @@ if (configIdx !== -1 && args[configIdx + 1]) {
   flags.config = args[configIdx + 1];
 }
 
+// Parse --sensitivity flag
+const sensIdx = args.indexOf('--sensitivity');
+if (sensIdx !== -1 && args[sensIdx + 1]) {
+  flags.sensitivity = args[sensIdx + 1];
+}
+
+// Parse --mode flag
+const modeIdx = args.indexOf('--mode');
+if (modeIdx !== -1 && args[modeIdx + 1]) {
+  flags.mode = args[modeIdx + 1];
+}
+
 // ─── Help ────────────────────────────────────────────────
 
 /**
@@ -158,6 +172,8 @@ ${color.bold('Options:')}
   --patterns <ids>        Only check specific pattern IDs (comma-separated)
   --threshold <n>         Only show patterns with weight above threshold
   --config <file>         Custom config file (JSON)
+  --sensitivity <level>   Set sensitivity level (low, medium, high)
+  --mode <mode>           Set mode (business, academic, casual, standard)
   --help, -h              Show this help
 
 ${color.bold('Examples:')}
@@ -261,7 +277,7 @@ function formatStatsReport(stats) {
   lines.push('');
 
   lines.push(color.bold('  ── Readability ────────────────────────────────'));
-  lines.push(`    Flesch-Kincaid:   ${stats.fleschKincaid} grade level`);
+  lines.push(`    Score:            ${stats.readabilityScore}`);
   lines.push(
     `    Function words:   ${stats.functionWordRatio} (${(stats.functionWordRatio * 100).toFixed(1)}%)`,
   );
@@ -342,7 +358,7 @@ function formatColoredReport(result) {
       `  Type-token ratio: ${s.typeTokenRatio}  ${ttrLabel(s.typeTokenRatio, s.wordCount)}`,
     );
     lines.push(`  Trigram repetition: ${s.trigramRepetition}`);
-    lines.push(`  Readability: ${s.fleschKincaid} grade level`);
+    lines.push(`  Readability Score: ${s.readabilityScore}`);
     lines.push('');
   }
 
@@ -499,6 +515,9 @@ async function main() {
     verbose: flags.verbose,
     patternsToCheck: flags.patterns,
   };
+
+  if (flags.sensitivity) opts.sensitivity = flags.sensitivity;
+  if (flags.mode) opts.mode = flags.mode;
 
   switch (command) {
     case 'analyze': {
