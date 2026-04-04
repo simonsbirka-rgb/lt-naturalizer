@@ -39,28 +39,22 @@ function autoFix(text) {
     fixes.push('Replaced curly single quotes with straight quotes');
   }
 
-  // Filler phrase replacements (unambiguous)
+  // Filler phrase replacements (unambiguous) - Lithuanian
   const safeFills = [
-    { from: /\bin order to\b/gi, to: 'to', label: '"in order to" → "to"' },
-    {
-      from: /\bdue to the fact that\b/gi,
-      to: 'because',
-      label: '"due to the fact that" → "because"',
-    },
-    { from: /\bat this point in time\b/gi, to: 'now', label: '"at this point in time" → "now"' },
-    { from: /\bin the event that\b/gi, to: 'if', label: '"in the event that" → "if"' },
-    { from: /\bhas the ability to\b/gi, to: 'can', label: '"has the ability to" → "can"' },
-    { from: /\bfor the purpose of\b/gi, to: 'to', label: '"for the purpose of" → "to"' },
-    { from: /\bfirst and foremost\b/gi, to: 'first', label: '"first and foremost" → "first"' },
-    {
-      from: /\bin light of the fact that\b/gi,
-      to: 'because',
-      label: '"in light of the fact that" → "because"',
-    },
-    { from: /\bin the realm of\b/gi, to: 'in', label: '"in the realm of" → "in"' },
-    { from: /\butilize\b/gi, to: 'use', label: '"utilize" → "use"' },
-    { from: /\butilizing\b/gi, to: 'using', label: '"utilizing" → "using"' },
-    { from: /\butilization\b/gi, to: 'use', label: '"utilization" → "use"' },
+    { from: /pasinerkime į/gi, to: 'pažiūrėkime', label: '"pasinerkime į" → "pažiūrėkime"' },
+    { from: /panagrinėkime/gi, to: 'pažiūrėk', label: '"panagrinėkime" → "pažiūrėk"' },
+    { from: /neabejotinai/gi, to: 'tikrai', label: '"neabejotinai" → "tikrai"' },
+    { from: /nuolat besikeičiančiame kraštovaizdyje/gi, to: 'dabar', label: '"nuolat besikeičiančiame kraštovaizdyje" → "dabar"' },
+    { from: /šiuolaikiniame skaitmeniniame amžiuje/gi, to: 'dabar', label: '"šiuolaikiniame skaitmeniniame amžiuje" → "dabar"' },
+    { from: /išlaisvinti potencialą/gi, to: 'padėti geriau', label: '"išlaisvinti potencialą" → "padėti geriau"' },
+    { from: /Mes turime suprasti, kad/gi, to: 'Turime suprasti, kad', label: '"Mes turime suprasti, kad" → "Turime suprasti, kad"' },
+    { from: /Jis mano, kad/gi, to: 'Mano, kad', label: '"Jis mano, kad" → "Mano, kad"' },
+    { from: /Ji sako, kad/gi, to: 'Sako, kad', label: '"Ji sako, kad" → "Sako, kad"' },
+    { from: /yra daroma/gi, to: 'darosi', label: '"yra daroma" → "darosi"' },
+    { from: /buvo pastebėta/gi, to: 'pastebima', label: '"buvo pastebėta" → "pastebima"' },
+    { from: /yra tikimasi/gi, to: 'tikimasi', label: '"yra tikimasi" → "tikimasi"' },
+    { from: /priėmėme sprendimą/gi, to: 'mes nusprendėme', label: '"priėmėme sprendimą" → "mes nusprendėme"' },
+    { from: /vykdyti tobulinimą/gi, to: 'tobulinti', label: '"vykdyti tobulinimą" → "tobulinti"' },
   ];
 
   for (const { from, to, label } of safeFills) {
@@ -70,12 +64,13 @@ function autoFix(text) {
     }
   }
 
-  // Chatbot artifact removal (start/end of text)
+  // Chatbot artifact removal (start/end of text) - Lithuanian
   const chatbotStart = [
-    /^(Here is|Here's) (a |an |the )?(comprehensive |brief |quick )?(overview|summary|breakdown|list|guide|explanation|look)[^.]*\.\s*/i,
-    /^(Of course|Certainly|Absolutely|Sure)!\s*/i,
-    /^(Great|Excellent|Good|Wonderful|Fantastic) question!\s*/i,
-    /^(That's|That is) a (great|excellent|good|wonderful|fantastic) (question|point)!\s*/i,
+    /^(Štai |Čia yra |Pateikiame )(išsami |trumpa |greita )?(apžvalga|santrauka|sąrašas|gidas|paaiškinimas|informacija)[^.]*\.\s*/i,
+    /^(Žinoma|Be abejo|Tikrai|Su malonumu)!\s*/i,
+    /^(Puikus|Geras|Įdomus) (klausimas|pastebėjimas)!\s*/i,
+    /^(Tai|Tai yra) (puikus|geras|įdomus) (klausimas|pastebėjimas)!\s*/i,
+    /^(Svarbu pažymėti, kad|Verta atkreipti dėmesį, kad)\s*/i,
   ];
   for (const regex of chatbotStart) {
     if (regex.test(result)) {
@@ -85,8 +80,8 @@ function autoFix(text) {
   }
 
   const chatbotEnd = [
-    /\s*(I hope this helps|Let me know if you('d| would) like|Feel free to|Don't hesitate to|Is there anything else)[^.]*[.!]\s*$/i,
-    /\s*Happy to help[.!]?\s*$/i,
+    /\s*(Tikiuosi, kad tai padės|Leiskite žinoti, jei|Nedvejokite|Ar galiu dar kuo nors padėti)[^.]*[.!]\s*$/i,
+    /\s*Džiaugiuosi galėdamas padėti[.!]?\s*$/i,
   ];
   for (const regex of chatbotEnd) {
     if (regex.test(result)) {

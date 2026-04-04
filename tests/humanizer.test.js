@@ -29,58 +29,60 @@ describe('autoFix', () => {
     expect(text).toBe("It's a fine day.");
   });
 
-  it('replaces "in order to" with "to"', () => {
-    const { text } = autoFix('In order to succeed, we must work hard.');
-    expect(text).toContain('to succeed');
-    expect(text).not.toContain('In order to');
+  it('replaces "pasinerkime į" with "pažiūrėkime"', () => {
+    const { text } = autoFix('Pasinerkime į šią temą ir suprasime.');
+    expect(text).toContain('pažiūrėkime');
+    expect(text).not.toContain('Pasinerkime į');
   });
 
-  it('replaces "due to the fact that" with "because"', () => {
-    const { text } = autoFix('We stopped due to the fact that it was raining.');
-    expect(text).toContain('because');
-    expect(text).not.toContain('due to the fact that');
+  it('replaces "neabejotinai" with "tikrai"', () => {
+    const { text } = autoFix('Tai neabejotinai padės.');
+    expect(text).toContain('tikrai');
+    expect(text).not.toContain('neabejotinai');
   });
 
-  it('replaces "at this point in time" with "now"', () => {
-    const { text } = autoFix('At this point in time, we are ready.');
-    expect(text).toContain('now');
+  it('replaces "šiuolaikiniame skaitmeniniame amžiuje" with "dabar"', () => {
+    const { text } = autoFix('Šiuolaikiniame skaitmeniniame amžiuje mes gyvename greitai.');
+    expect(text).toContain('dabar');
+    expect(text).not.toContain('Šiuolaikiniame skaitmeniniame amžiuje');
   });
 
-  it('replaces "in the event that" with "if"', () => {
-    const { text } = autoFix('In the event that you need help, call us.');
-    expect(text).toContain('if');
-    expect(text).not.toContain('In the event that');
+  it('replaces "išlaisvinti potencialą" with "padėti geriau"', () => {
+    const { text } = autoFix('Turime išlaisvinti potencialą savo komandoje.');
+    expect(text).toContain('padėti geriau');
+    expect(text).not.toContain('išlaisvinti potencialą');
   });
 
-  it('replaces "has the ability to" with "can"', () => {
-    const { text } = autoFix('The system has the ability to process data.');
-    expect(text).toContain('can');
+  it('replaces "Jis mano, kad" with "Mano, kad"', () => {
+    const { text } = autoFix('Jis mano, kad tai veikia.');
+    expect(text).toContain('Mano, kad');
+    expect(text).not.toContain('Jis mano, kad');
   });
 
   it('removes chatbot opening artifacts', () => {
-    const { text, fixes } = autoFix('Great question! Here is the answer to your question.');
-    expect(text).not.toContain('Great question!');
+    const { text, fixes } = autoFix('Tai puikus klausimas! Atsakymas yra paprastas.');
+    expect(text).not.toContain('puikus klausimas!');
     expect(fixes.some((f) => f.includes('chatbot'))).toBe(true);
   });
 
   it('removes chatbot closing artifacts', () => {
-    const { text, fixes } = autoFix('The answer is 42. I hope this helps!');
-    expect(text).not.toContain('I hope this helps');
+    const { text, fixes } = autoFix('Atsakymas yra 42. Tikiuosi, kad tai padės!');
+    expect(text).not.toContain('Tikiuosi, kad tai padės');
     expect(fixes.some((f) => f.includes('chatbot'))).toBe(true);
   });
 
   it('handles text with no fixable issues', () => {
-    const { text, fixes } = autoFix('The cat sat on the mat.');
-    expect(text).toBe('The cat sat on the mat.');
+    const { text, fixes } = autoFix('Katinas sėdi ant kilimėlio.');
+    expect(text).toBe('Katinas sėdi ant kilimėlio.');
     expect(fixes.length).toBe(0);
   });
 
   it('applies multiple fixes in one pass', () => {
     const input =
-      'Great question! In order to help, due to the fact that you asked, here\u2019s the answer. I hope this helps!';
+      'Tai puikus klausimas! Pasinerkime į šią temą ir suprasime. Tai\u2019s gerai. Tikiuosi, kad tai padės!';
     const { text, fixes } = autoFix(input);
     expect(fixes.length).toBeGreaterThanOrEqual(3);
-    expect(text).not.toContain('In order to');
+    expect(text).not.toContain('Pasinerkime į');
     expect(text).not.toContain('\u2019');
   });
 });
@@ -114,10 +116,10 @@ describe('humanize', () => {
   });
 
   it('returns autofix results when requested', () => {
-    const text = 'In order to help, I hope this helps!';
+    const text = 'Tai puikus klausimas! Pasinerkime į šią temą ir suprasime.';
     const result = humanize(text, { autofix: true });
     expect(result.autofix).not.toBeNull();
-    expect(result.autofix.text).not.toContain('In order to');
+    expect(result.autofix.text).not.toContain('Pasinerkime į');
     expect(result.autofix.fixes.length).toBeGreaterThan(0);
   });
 
