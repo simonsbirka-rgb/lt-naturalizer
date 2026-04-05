@@ -1,0 +1,4382 @@
+[
+  {
+    "sentence": "Saulė šviečia ryškiai.",
+    "tokens": [
+      "Saulė",
+      "šviečia",
+      "ryškiai",
+      "."
+    ],
+    "morphology": [
+      {
+        "token": "Saulė",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "šviečia",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "ryškiai",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Plur"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      }
+    ],
+    "lemmas": [
+      "saulė",
+      "šviesti",
+      "ryškis",
+      "."
+    ],
+    "pos": [
+      "NOUN",
+      "VERB",
+      "NOUN",
+      "PUNCT"
+    ],
+    "syntax": {
+      "root": "šviečia",
+      "edges": [
+        {
+          "head": "šviečia",
+          "dep": "Saulė",
+          "relation": "nsubj"
+        },
+        {
+          "head": "šviečia",
+          "dep": "ryškiai",
+          "relation": "nsubj"
+        },
+        {
+          "head": "šviečia",
+          "dep": ".",
+          "relation": "punct"
+        }
+      ]
+    },
+    "spell_errors": []
+  },
+  {
+    "sentence": "Čia yra ąžuolas, ėda, įvairovė, švilpimas, ūkininkas, žąsis.",
+    "tokens": [
+      "Čia",
+      "yra",
+      "ąžuolas",
+      ",",
+      "ėda",
+      ",",
+      "įvairovė",
+      ",",
+      "švilpimas",
+      ",",
+      "ūkininkas",
+      ",",
+      "žąsis",
+      "."
+    ],
+    "morphology": [
+      {
+        "token": "Čia",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "yra",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "ąžuolas",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "ėda",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "įvairovė",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "švilpimas",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "ūkininkas",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "žąsis",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      }
+    ],
+    "lemmas": [
+      "čia",
+      "būti",
+      "ąžuolas",
+      ",",
+      "ėsti",
+      ",",
+      "įvairovė",
+      ",",
+      "švilpimas",
+      ",",
+      "ūkininkas",
+      ",",
+      "žąsis",
+      "."
+    ],
+    "pos": [
+      "ADV",
+      "AUX",
+      "NOUN",
+      "PUNCT",
+      "VERB",
+      "PUNCT",
+      "NOUN",
+      "PUNCT",
+      "NOUN",
+      "PUNCT",
+      "NOUN",
+      "PUNCT",
+      "NOUN",
+      "PUNCT"
+    ],
+    "syntax": {
+      "root": "ąžuolas",
+      "edges": [
+        {
+          "head": "ąžuolas",
+          "dep": "Čia",
+          "relation": "advmod"
+        },
+        {
+          "head": "ąžuolas",
+          "dep": "yra",
+          "relation": "csubj"
+        },
+        {
+          "head": "ėda",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "ąžuolas",
+          "dep": "ėda",
+          "relation": "conj"
+        },
+        {
+          "head": "įvairovė",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "ąžuolas",
+          "dep": "įvairovė",
+          "relation": "conj"
+        },
+        {
+          "head": "švilpimas",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "ąžuolas",
+          "dep": "švilpimas",
+          "relation": "conj"
+        },
+        {
+          "head": "ūkininkas",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "ąžuolas",
+          "dep": "ūkininkas",
+          "relation": "conj"
+        },
+        {
+          "head": "žąsis",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "ąžuolas",
+          "dep": "žąsis",
+          "relation": "conj"
+        },
+        {
+          "head": "ąžuolas",
+          "dep": ".",
+          "relation": "punct"
+        }
+      ]
+    },
+    "spell_errors": []
+  },
+  {
+    "sentence": "Kai lietus sustoja, mes einame į parką ir valgome arbata.",
+    "tokens": [
+      "Kai",
+      "lietus",
+      "sustoja",
+      ",",
+      "mes",
+      "einame",
+      "į",
+      "parką",
+      "ir",
+      "valgome",
+      "arbata",
+      "."
+    ],
+    "morphology": [
+      {
+        "token": "Kai",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "lietus",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "sustoja",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "mes",
+        "gender": "",
+        "case": "Nom",
+        "number": "Plur"
+      },
+      {
+        "token": "einame",
+        "gender": "",
+        "case": "",
+        "number": "Plur"
+      },
+      {
+        "token": "į",
+        "gender": "",
+        "case": "Acc",
+        "number": ""
+      },
+      {
+        "token": "parką",
+        "gender": "Masc",
+        "case": "Acc",
+        "number": "Sing"
+      },
+      {
+        "token": "ir",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "valgome",
+        "gender": "",
+        "case": "",
+        "number": "Plur"
+      },
+      {
+        "token": "arbata",
+        "gender": "Fem",
+        "case": "Ins",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      }
+    ],
+    "lemmas": [
+      "kai",
+      "lietus",
+      "sustoti",
+      ",",
+      "aš",
+      "eiti",
+      "į",
+      "parkas",
+      "ir",
+      "valgyti",
+      "arbata",
+      "."
+    ],
+    "pos": [
+      "SCONJ",
+      "NOUN",
+      "VERB",
+      "PUNCT",
+      "PRON",
+      "VERB",
+      "ADP",
+      "NOUN",
+      "CCONJ",
+      "VERB",
+      "NOUN",
+      "PUNCT"
+    ],
+    "syntax": {
+      "root": "einame",
+      "edges": [
+        {
+          "head": "sustoja",
+          "dep": "Kai",
+          "relation": "mark"
+        },
+        {
+          "head": "sustoja",
+          "dep": "lietus",
+          "relation": "nsubj"
+        },
+        {
+          "head": "einame",
+          "dep": "sustoja",
+          "relation": "advcl"
+        },
+        {
+          "head": "sustoja",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "einame",
+          "dep": "mes",
+          "relation": "nsubj"
+        },
+        {
+          "head": "parką",
+          "dep": "į",
+          "relation": "case"
+        },
+        {
+          "head": "einame",
+          "dep": "parką",
+          "relation": "obl:arg"
+        },
+        {
+          "head": "valgome",
+          "dep": "ir",
+          "relation": "cc"
+        },
+        {
+          "head": "einame",
+          "dep": "valgome",
+          "relation": "conj"
+        },
+        {
+          "head": "valgome",
+          "dep": "arbata",
+          "relation": "obl:arg"
+        },
+        {
+          "head": "einame",
+          "dep": ".",
+          "relation": "punct"
+        }
+      ]
+    },
+    "spell_errors": [
+      {
+        "token": "arbata",
+        "suggestion": "arbatą"
+      }
+    ]
+  },
+  {
+    "sentence": "2026-04-05 yra penktadienis, o 12345 yra skaičius.",
+    "tokens": [
+      "2026-04-05",
+      "yra",
+      "penktadienis",
+      ",",
+      "o",
+      "12345",
+      "yra",
+      "skaičius",
+      "."
+    ],
+    "morphology": [
+      {
+        "token": "2026-04-05",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "yra",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "penktadienis",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "o",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "12345",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "yra",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "skaičius",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      }
+    ],
+    "lemmas": [
+      "2026-04-05",
+      "būti",
+      "penktadienis",
+      ",",
+      "o",
+      "12345",
+      "būti",
+      "skaičius",
+      "."
+    ],
+    "pos": [
+      "NUM",
+      "AUX",
+      "NOUN",
+      "PUNCT",
+      "CCONJ",
+      "NUM",
+      "AUX",
+      "NOUN",
+      "PUNCT"
+    ],
+    "syntax": {
+      "root": "penktadienis",
+      "edges": [
+        {
+          "head": "penktadienis",
+          "dep": "2026-04-05",
+          "relation": "nummod"
+        },
+        {
+          "head": "penktadienis",
+          "dep": "yra",
+          "relation": "cop"
+        },
+        {
+          "head": "skaičius",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "skaičius",
+          "dep": "o",
+          "relation": "cc"
+        },
+        {
+          "head": "skaičius",
+          "dep": "12345",
+          "relation": "nummod"
+        },
+        {
+          "head": "skaičius",
+          "dep": "yra",
+          "relation": "cop"
+        },
+        {
+          "head": "penktadienis",
+          "dep": "skaičius",
+          "relation": "conj"
+        },
+        {
+          "head": "penktadienis",
+          "dep": ".",
+          "relation": "punct"
+        }
+      ]
+    },
+    "spell_errors": []
+  },
+  {
+    "sentence": "Kompiuteris veikia su Windows 10 ir Wi-Fi ryšiu.",
+    "tokens": [
+      "Kompiuteris",
+      "veikia",
+      "su",
+      "Windows",
+      "10",
+      "ir",
+      "Wi-Fi",
+      "ryšiu",
+      "."
+    ],
+    "morphology": [
+      {
+        "token": "Kompiuteris",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "veikia",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "su",
+        "gender": "",
+        "case": "Ins",
+        "number": ""
+      },
+      {
+        "token": "Windows",
+        "gender": "Fem",
+        "case": "Ins",
+        "number": "Sing"
+      },
+      {
+        "token": "10",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "ir",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Wi-Fi",
+        "gender": "Masc",
+        "case": "Ins",
+        "number": "Sing"
+      },
+      {
+        "token": "ryšiu",
+        "gender": "Masc",
+        "case": "Ins",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      }
+    ],
+    "lemmas": [
+      "kompiuteris",
+      "veikti",
+      "su",
+      "Windas",
+      "10",
+      "ir",
+      "Wi-us",
+      "ryšys",
+      "."
+    ],
+    "pos": [
+      "NOUN",
+      "VERB",
+      "ADP",
+      "NOUN",
+      "NUM",
+      "CCONJ",
+      "ADJ",
+      "NOUN",
+      "PUNCT"
+    ],
+    "syntax": {
+      "root": "veikia",
+      "edges": [
+        {
+          "head": "veikia",
+          "dep": "Kompiuteris",
+          "relation": "nsubj"
+        },
+        {
+          "head": "Windows",
+          "dep": "su",
+          "relation": "case"
+        },
+        {
+          "head": "veikia",
+          "dep": "Windows",
+          "relation": "obl:arg"
+        },
+        {
+          "head": "veikia",
+          "dep": "10",
+          "relation": "obl"
+        },
+        {
+          "head": "Wi-Fi",
+          "dep": "ir",
+          "relation": "cc"
+        },
+        {
+          "head": "10",
+          "dep": "Wi-Fi",
+          "relation": "conj"
+        },
+        {
+          "head": "veikia",
+          "dep": "ryšiu",
+          "relation": "obl:arg"
+        },
+        {
+          "head": "veikia",
+          "dep": ".",
+          "relation": "punct"
+        }
+      ]
+    },
+    "spell_errors": []
+  },
+  {
+    "sentence": " ",
+    "tokens": [],
+    "morphology": [],
+    "lemmas": [],
+    "pos": [],
+    "syntax": {
+      "root": null,
+      "edges": []
+    },
+    "spell_errors": []
+  },
+  {
+    "sentence": "",
+    "tokens": [],
+    "morphology": [],
+    "lemmas": [],
+    "pos": [],
+    "syntax": {
+      "root": null,
+      "edges": []
+    },
+    "spell_errors": []
+  },
+  {
+    "sentence": "Lietuva yra valstybė Europos rytuose, Baltijos jūros pietrytinėje pakrantėje. Valstybės plotas – 65 300 km². Šiaurėje ribojasi su Latvija, rytuose ir pietuose – su Baltarusija, pietvakariuose – su Lenkija ir Rusija. Vakaruose turi apie 90 km ilgio Baltijos jūros pakrantę, iš kurios Kuršių nerijoje yra apie 50 km, o Lietuvos žemyninėje dalyje – apie 40 km. Lietuvos sostinė ir didžiausias miestas – Vilnius. Kiti didieji šalies miestai – Kaunas, Klaipėda, Šiauliai, Panevėžys. Lietuvos teritorija administraciškai skirstoma į 10 apskričių, 60 savivaldybių ir 546 seniūnijas. Pagrindinė ir valstybinė kalba – lietuvių kalba. Lietuvos gyventojų skaičius pagal 2021 m. surašymą siekė 2 810 118. Etninė sudėtis: lietuviai (84,6 %), lenkai (6,5 %), rusai (5,0 %), baltarusiai (1,0 %), ukrainiečiai (0,5 %), žydai (0,1 %). Lietuva yra Jungtinių Tautų, Europos Sąjungos, Šengeno erdvės, NATO, Europos Tarybos, EBPO ir kitų tarptautinių organizacijų narė. Lietuvos istorija prasideda XI a., kai pirmą kartą paminėtas Lietuvos vardas. XIII a. susikūrė Lietuvos Didžioji Kunigaikštystė, kuri XV a. buvo viena didžiausių valstybių Europoje. XVI a. Lietuva ir Lenkija susijungė į Abiejų Tautų Respubliką. XVIII a. pabaigoje Lietuvą okupavo Rusijos imperija. Nepriklausomybė atkurta 1918 m. vasario 16 d. Po Antrojo pasaulinio karo Lietuvą okupavo Sovietų Sąjunga. Nepriklausomybė atkurta 1990 m. kovo 11 d.",
+    "tokens": [
+      "Lietuva",
+      "yra",
+      "valstybė",
+      "Europos",
+      "rytuose",
+      ",",
+      "Baltijos",
+      "jūros",
+      "pietrytinėje",
+      "pakrantėje",
+      ".",
+      "Valstybės",
+      "plotas",
+      "–",
+      "65",
+      "300",
+      "km²",
+      ".",
+      "Šiaurėje",
+      "ribojasi",
+      "su",
+      "Latvija",
+      ",",
+      "rytuose",
+      "ir",
+      "pietuose",
+      "–",
+      "su",
+      "Baltarusija",
+      ",",
+      "pietvakariuose",
+      "–",
+      "su",
+      "Lenkija",
+      "ir",
+      "Rusija",
+      ".",
+      "Vakaruose",
+      "turi",
+      "apie",
+      "90",
+      "km",
+      "ilgio",
+      "Baltijos",
+      "jūros",
+      "pakrantę",
+      ",",
+      "iš",
+      "kurios",
+      "Kuršių",
+      "nerijoje",
+      "yra",
+      "apie",
+      "50",
+      "km",
+      ",",
+      "o",
+      "Lietuvos",
+      "žemyninėje",
+      "dalyje",
+      "–",
+      "apie",
+      "40",
+      "km",
+      ".",
+      "Lietuvos",
+      "sostinė",
+      "ir",
+      "didžiausias",
+      "miestas",
+      "–",
+      "Vilnius",
+      ".",
+      "Kiti",
+      "didieji",
+      "šalies",
+      "miestai",
+      "–",
+      "Kaunas",
+      ",",
+      "Klaipėda",
+      ",",
+      "Šiauliai",
+      ",",
+      "Panevėžys",
+      ".",
+      "Lietuvos",
+      "teritorija",
+      "administraciškai",
+      "skirstoma",
+      "į",
+      "10",
+      "apskričių",
+      ",",
+      "60",
+      "savivaldybių",
+      "ir",
+      "546",
+      "seniūnijas",
+      ".",
+      "Pagrindinė",
+      "ir",
+      "valstybinė",
+      "kalba",
+      "–",
+      "lietuvių",
+      "kalba",
+      ".",
+      "Lietuvos",
+      "gyventojų",
+      "skaičius",
+      "pagal",
+      "2021",
+      "m",
+      ".",
+      "surašymą",
+      "siekė",
+      "2",
+      "810",
+      "118",
+      ".",
+      "Etninė",
+      "sudėtis",
+      ":",
+      "lietuviai",
+      "(",
+      "84,6",
+      "%",
+      ")",
+      ",",
+      "lenkai",
+      "(",
+      "6,5",
+      "%",
+      ")",
+      ",",
+      "rusai",
+      "(",
+      "5,0",
+      "%",
+      ")",
+      ",",
+      "baltarusiai",
+      "(",
+      "1,0",
+      "%",
+      ")",
+      ",",
+      "ukrainiečiai",
+      "(",
+      "0,5",
+      "%",
+      ")",
+      ",",
+      "žydai",
+      "(",
+      "0,1",
+      "%",
+      ")",
+      ".",
+      "Lietuva",
+      "yra",
+      "Jungtinių",
+      "Tautų",
+      ",",
+      "Europos",
+      "Sąjungos",
+      ",",
+      "Šengeno",
+      "erdvės",
+      ",",
+      "NATO",
+      ",",
+      "Europos",
+      "Tarybos",
+      ",",
+      "EBPO",
+      "ir",
+      "kitų",
+      "tarptautinių",
+      "organizacijų",
+      "narė",
+      ".",
+      "Lietuvos",
+      "istorija",
+      "prasideda",
+      "XI",
+      "a",
+      ".",
+      ",",
+      "kai",
+      "pirmą",
+      "kartą",
+      "paminėtas",
+      "Lietuvos",
+      "vardas",
+      ".",
+      "XIII",
+      "a",
+      ".",
+      "susikūrė",
+      "Lietuvos",
+      "Didžioji",
+      "Kunigaikštystė",
+      ",",
+      "kuri",
+      "XV",
+      "a",
+      ".",
+      "buvo",
+      "viena",
+      "didžiausių",
+      "valstybių",
+      "Europoje",
+      ".",
+      "XVI",
+      "a",
+      ".",
+      "Lietuva",
+      "ir",
+      "Lenkija",
+      "susijungė",
+      "į",
+      "Abiejų",
+      "Tautų",
+      "Respubliką",
+      ".",
+      "XVIII",
+      "a",
+      ".",
+      "pabaigoje",
+      "Lietuvą",
+      "okupavo",
+      "Rusijos",
+      "imperija",
+      ".",
+      "Nepriklausomybė",
+      "atkurta",
+      "1918",
+      "m",
+      ".",
+      "vasario",
+      "16",
+      "d",
+      ".",
+      "Po",
+      "Antrojo",
+      "pasaulinio",
+      "karo",
+      "Lietuvą",
+      "okupavo",
+      "Sovietų",
+      "Sąjunga",
+      ".",
+      "Nepriklausomybė",
+      "atkurta",
+      "1990",
+      "m",
+      ".",
+      "kovo",
+      "11",
+      "d",
+      "."
+    ],
+    "morphology": [
+      {
+        "token": "Lietuva",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "yra",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "valstybė",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "Europos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "rytuose",
+        "gender": "Masc",
+        "case": "Loc",
+        "number": "Plur"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Baltijos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "jūros",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "pietrytinėje",
+        "gender": "Fem",
+        "case": "Loc",
+        "number": "Sing"
+      },
+      {
+        "token": "pakrantėje",
+        "gender": "Fem",
+        "case": "Loc",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Valstybės",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "plotas",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "–",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "65",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "300",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "km²",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Šiaurėje",
+        "gender": "Fem",
+        "case": "Loc",
+        "number": "Sing"
+      },
+      {
+        "token": "ribojasi",
+        "gender": "",
+        "case": "",
+        "number": "Plur"
+      },
+      {
+        "token": "su",
+        "gender": "",
+        "case": "Ins",
+        "number": ""
+      },
+      {
+        "token": "Latvija",
+        "gender": "Fem",
+        "case": "Ins",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "rytuose",
+        "gender": "Masc",
+        "case": "Loc",
+        "number": "Plur"
+      },
+      {
+        "token": "ir",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "pietuose",
+        "gender": "Masc",
+        "case": "Loc",
+        "number": "Plur"
+      },
+      {
+        "token": "–",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "su",
+        "gender": "",
+        "case": "Ins",
+        "number": ""
+      },
+      {
+        "token": "Baltarusija",
+        "gender": "Fem",
+        "case": "Ins",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "pietvakariuose",
+        "gender": "Masc",
+        "case": "Loc",
+        "number": "Plur"
+      },
+      {
+        "token": "–",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "su",
+        "gender": "",
+        "case": "Ins",
+        "number": ""
+      },
+      {
+        "token": "Lenkija",
+        "gender": "Fem",
+        "case": "Ins",
+        "number": "Sing"
+      },
+      {
+        "token": "ir",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Rusija",
+        "gender": "Fem",
+        "case": "Ins",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Vakaruose",
+        "gender": "Masc",
+        "case": "Loc",
+        "number": "Plur"
+      },
+      {
+        "token": "turi",
+        "gender": "",
+        "case": "",
+        "number": "Plur"
+      },
+      {
+        "token": "apie",
+        "gender": "",
+        "case": "Acc",
+        "number": ""
+      },
+      {
+        "token": "90",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "km",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "ilgio",
+        "gender": "Masc",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "Baltijos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "jūros",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "pakrantę",
+        "gender": "Fem",
+        "case": "Acc",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "iš",
+        "gender": "",
+        "case": "Gen",
+        "number": ""
+      },
+      {
+        "token": "kurios",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Kuršių",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Plur"
+      },
+      {
+        "token": "nerijoje",
+        "gender": "Fem",
+        "case": "Loc",
+        "number": "Sing"
+      },
+      {
+        "token": "yra",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "apie",
+        "gender": "",
+        "case": "Acc",
+        "number": ""
+      },
+      {
+        "token": "50",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "km",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "o",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Lietuvos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "žemyninėje",
+        "gender": "Fem",
+        "case": "Loc",
+        "number": "Sing"
+      },
+      {
+        "token": "dalyje",
+        "gender": "Fem",
+        "case": "Loc",
+        "number": "Sing"
+      },
+      {
+        "token": "–",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "apie",
+        "gender": "",
+        "case": "Acc",
+        "number": ""
+      },
+      {
+        "token": "40",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "km",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Lietuvos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "sostinė",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "ir",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "didžiausias",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "miestas",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "–",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Vilnius",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Kiti",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Plur"
+      },
+      {
+        "token": "didieji",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Plur"
+      },
+      {
+        "token": "šalies",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "miestai",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Plur"
+      },
+      {
+        "token": "–",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Kaunas",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Klaipėda",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Šiauliai",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Panevėžys",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Lietuvos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "teritorija",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "administraciškai",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "skirstoma",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "į",
+        "gender": "",
+        "case": "Acc",
+        "number": ""
+      },
+      {
+        "token": "10",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "apskričių",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Plur"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "60",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "savivaldybių",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Plur"
+      },
+      {
+        "token": "ir",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "546",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "seniūnijas",
+        "gender": "Fem",
+        "case": "Acc",
+        "number": "Plur"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Pagrindinė",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "ir",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "valstybinė",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "kalba",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "–",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "lietuvių",
+        "gender": "Masc",
+        "case": "Gen",
+        "number": "Plur"
+      },
+      {
+        "token": "kalba",
+        "gender": "Fem",
+        "case": "Ins",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Lietuvos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "gyventojų",
+        "gender": "Masc",
+        "case": "Gen",
+        "number": "Plur"
+      },
+      {
+        "token": "skaičius",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "pagal",
+        "gender": "",
+        "case": "Acc",
+        "number": ""
+      },
+      {
+        "token": "2021",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "m",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "surašymą",
+        "gender": "Masc",
+        "case": "Acc",
+        "number": "Sing"
+      },
+      {
+        "token": "siekė",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "2",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "810",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "118",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Etninė",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "sudėtis",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ":",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "lietuviai",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Plur"
+      },
+      {
+        "token": "(",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "84,6",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "%",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ")",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "lenkai",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "(",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "6,5",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "%",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ")",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "rusai",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Plur"
+      },
+      {
+        "token": "(",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "5,0",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "%",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ")",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "baltarusiai",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Plur"
+      },
+      {
+        "token": "(",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "1,0",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "%",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ")",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "ukrainiečiai",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Plur"
+      },
+      {
+        "token": "(",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "0,5",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "%",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ")",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "žydai",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Plur"
+      },
+      {
+        "token": "(",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "0,1",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "%",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ")",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Lietuva",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "yra",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "Jungtinių",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Plur"
+      },
+      {
+        "token": "Tautų",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Plur"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Europos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "Sąjungos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Šengeno",
+        "gender": "Masc",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "erdvės",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "NATO",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Europos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "Tarybos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "EBPO",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "ir",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "kitų",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Plur"
+      },
+      {
+        "token": "tarptautinių",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Plur"
+      },
+      {
+        "token": "organizacijų",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Plur"
+      },
+      {
+        "token": "narė",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Lietuvos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "istorija",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "prasideda",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "XI",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "a",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "kai",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "pirmą",
+        "gender": "Masc",
+        "case": "Acc",
+        "number": "Sing"
+      },
+      {
+        "token": "kartą",
+        "gender": "Masc",
+        "case": "Acc",
+        "number": "Sing"
+      },
+      {
+        "token": "paminėtas",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "Lietuvos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "vardas",
+        "gender": "Masc",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "XIII",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "a",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "susikūrė",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "Lietuvos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "Didžioji",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "Kunigaikštystė",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ",",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "kuri",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "XV",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "a",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "buvo",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "viena",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "didžiausių",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Plur"
+      },
+      {
+        "token": "valstybių",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Plur"
+      },
+      {
+        "token": "Europoje",
+        "gender": "Fem",
+        "case": "Loc",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "XVI",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "a",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Lietuva",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "ir",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Lenkija",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "susijungė",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "į",
+        "gender": "",
+        "case": "Acc",
+        "number": ""
+      },
+      {
+        "token": "Abiejų",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": ""
+      },
+      {
+        "token": "Tautų",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Plur"
+      },
+      {
+        "token": "Respubliką",
+        "gender": "Fem",
+        "case": "Acc",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "XVIII",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "a",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "pabaigoje",
+        "gender": "Fem",
+        "case": "Loc",
+        "number": "Sing"
+      },
+      {
+        "token": "Lietuvą",
+        "gender": "Fem",
+        "case": "Acc",
+        "number": "Sing"
+      },
+      {
+        "token": "okupavo",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "Rusijos",
+        "gender": "Fem",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "imperija",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Nepriklausomybė",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "atkurta",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "1918",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "m",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "vasario",
+        "gender": "Masc",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "16",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "d",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Po",
+        "gender": "",
+        "case": "Gen",
+        "number": ""
+      },
+      {
+        "token": "Antrojo",
+        "gender": "Masc",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "pasaulinio",
+        "gender": "Masc",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "karo",
+        "gender": "Masc",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "Lietuvą",
+        "gender": "Fem",
+        "case": "Acc",
+        "number": "Sing"
+      },
+      {
+        "token": "okupavo",
+        "gender": "",
+        "case": "",
+        "number": "Sing"
+      },
+      {
+        "token": "Sovietų",
+        "gender": "Masc",
+        "case": "Gen",
+        "number": "Plur"
+      },
+      {
+        "token": "Sąjunga",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "Nepriklausomybė",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "atkurta",
+        "gender": "Fem",
+        "case": "Nom",
+        "number": "Sing"
+      },
+      {
+        "token": "1990",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "m",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "kovo",
+        "gender": "Masc",
+        "case": "Gen",
+        "number": "Sing"
+      },
+      {
+        "token": "11",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": "d",
+        "gender": "",
+        "case": "",
+        "number": ""
+      },
+      {
+        "token": ".",
+        "gender": "",
+        "case": "",
+        "number": ""
+      }
+    ],
+    "lemmas": [
+      "Lietuva",
+      "būti",
+      "valstybė",
+      "Europa",
+      "rytai",
+      ",",
+      "Baltija",
+      "jūra",
+      "pietrytinis",
+      "pakrantė",
+      ".",
+      "valstybė",
+      "plotas",
+      "–",
+      "65",
+      "300",
+      "km²",
+      ".",
+      "šiaurė",
+      "ribotis",
+      "su",
+      "Latvija",
+      ",",
+      "rytai",
+      "ir",
+      "pieta",
+      "–",
+      "su",
+      "Baltarusija",
+      ",",
+      "pietvakaris",
+      "–",
+      "su",
+      "Lenkija",
+      "ir",
+      "Rusija",
+      ".",
+      "vakarai",
+      "turėti",
+      "apie",
+      "90",
+      "km",
+      "ilgis",
+      "Baltija",
+      "jūra",
+      "pakrantė",
+      ",",
+      "iš",
+      "kuris",
+      "kuršė",
+      "nerija",
+      "būti",
+      "apie",
+      "50",
+      "km",
+      ",",
+      "o",
+      "Lietuva",
+      "žemyninis",
+      "dalis",
+      "–",
+      "apie",
+      "40",
+      "km",
+      ".",
+      "Lietuva",
+      "sostinė",
+      "ir",
+      "didis",
+      "miestas",
+      "–",
+      "Vilnius",
+      ".",
+      "kitas",
+      "didis",
+      "šalis",
+      "miestas",
+      "–",
+      "Kaunas",
+      ",",
+      "Klaipėda",
+      ",",
+      "Šiaulis",
+      ",",
+      "Panevėžys",
+      ".",
+      "Lietuva",
+      "teritorija",
+      "administraciškas",
+      "skirstyti",
+      "į",
+      "10",
+      "apskritis",
+      ",",
+      "60",
+      "savivaldybė",
+      "ir",
+      "546",
+      "seniūnija",
+      ".",
+      "pagrindinis",
+      "ir",
+      "valstybinis",
+      "kalba",
+      "–",
+      "lietuvis",
+      "kalba",
+      ".",
+      "Lietuva",
+      "gyventojas",
+      "skaičius",
+      "pagal",
+      "2021",
+      "m.",
+      ".",
+      "surašymas",
+      "siekti",
+      "2",
+      "810",
+      "118",
+      ".",
+      "etninis",
+      "sudėtis",
+      ":",
+      "lietuvis",
+      "(",
+      "84,6",
+      "%.",
+      ")",
+      ",",
+      "lenkas",
+      "(",
+      "6,5",
+      "%.",
+      ")",
+      ",",
+      "rusas",
+      "(",
+      "5,0",
+      "%.",
+      ")",
+      ",",
+      "baltarasis",
+      "(",
+      "1,0",
+      "%.",
+      ")",
+      ",",
+      "ukrainietis",
+      "(",
+      "0,5",
+      "%.",
+      ")",
+      ",",
+      "žydas",
+      "(",
+      "0,1",
+      "%.",
+      ")",
+      ".",
+      "Lietuva",
+      "būti",
+      "jungtinis",
+      "tauta",
+      ",",
+      "Europa",
+      "sąjunga",
+      ",",
+      "Šengenas",
+      "erdvė",
+      ",",
+      "NATO",
+      ",",
+      "Europa",
+      "taryba",
+      ",",
+      "EBPO",
+      "ir",
+      "kitas",
+      "tarptautinis",
+      "organizacija",
+      "narė",
+      ".",
+      "Lietuva",
+      "istorija",
+      "prasidėti",
+      "XI",
+      "a.",
+      ".",
+      ",",
+      "kai",
+      "pirmas",
+      "kartas",
+      "paminėti",
+      "Lietuva",
+      "vardas",
+      ".",
+      "XIII",
+      "a.",
+      ".",
+      "susikurti",
+      "Lietuva",
+      "didis",
+      "kunigaikštystė",
+      ",",
+      "kuris",
+      "XV",
+      "a.",
+      ".",
+      "būti",
+      "vienas",
+      "didis",
+      "valstybė",
+      "Europa",
+      ".",
+      "XVI",
+      "a.",
+      ".",
+      "Lietuva",
+      "ir",
+      "Lenkija",
+      "susijungti",
+      "į",
+      "abu",
+      "tauta",
+      "respublika",
+      ".",
+      "XVIII",
+      "a.",
+      ".",
+      "pabaiga",
+      "Lietuva",
+      "okupti",
+      "Rusija",
+      "imperija",
+      ".",
+      "nepriklausomybė",
+      "atkurti",
+      "1918",
+      "m.",
+      ".",
+      "vasaris",
+      "16",
+      "d.",
+      ".",
+      "po",
+      "antras",
+      "pasaulinis",
+      "karas",
+      "Lietuva",
+      "okupti",
+      "sovietas",
+      "sąjunga",
+      ".",
+      "nepriklausomybė",
+      "atkurti",
+      "1990",
+      "m.",
+      ".",
+      "kovas",
+      "11",
+      "d.",
+      "."
+    ],
+    "pos": [
+      "PROPN",
+      "AUX",
+      "NOUN",
+      "PROPN",
+      "NOUN",
+      "PUNCT",
+      "PROPN",
+      "NOUN",
+      "ADJ",
+      "NOUN",
+      "PUNCT",
+      "NOUN",
+      "NOUN",
+      "PUNCT",
+      "NUM",
+      "NUM",
+      "NOUN",
+      "PUNCT",
+      "NOUN",
+      "VERB",
+      "ADP",
+      "PROPN",
+      "PUNCT",
+      "NOUN",
+      "CCONJ",
+      "NOUN",
+      "PUNCT",
+      "ADP",
+      "PROPN",
+      "PUNCT",
+      "NOUN",
+      "PUNCT",
+      "ADP",
+      "PROPN",
+      "CCONJ",
+      "PROPN",
+      "PUNCT",
+      "NOUN",
+      "VERB",
+      "ADP",
+      "NUM",
+      "X",
+      "NOUN",
+      "PROPN",
+      "NOUN",
+      "NOUN",
+      "PUNCT",
+      "ADP",
+      "X",
+      "NOUN",
+      "NOUN",
+      "AUX",
+      "ADP",
+      "NUM",
+      "X",
+      "PUNCT",
+      "CCONJ",
+      "PROPN",
+      "ADJ",
+      "NOUN",
+      "PUNCT",
+      "ADP",
+      "NUM",
+      "X",
+      "PUNCT",
+      "PROPN",
+      "NOUN",
+      "CCONJ",
+      "ADJ",
+      "NOUN",
+      "PUNCT",
+      "PROPN",
+      "PUNCT",
+      "PRON",
+      "ADJ",
+      "NOUN",
+      "NOUN",
+      "PUNCT",
+      "PROPN",
+      "PUNCT",
+      "PROPN",
+      "PUNCT",
+      "PROPN",
+      "PUNCT",
+      "PROPN",
+      "PUNCT",
+      "PROPN",
+      "NOUN",
+      "NOUN",
+      "VERB",
+      "ADP",
+      "NUM",
+      "NOUN",
+      "PUNCT",
+      "NUM",
+      "NOUN",
+      "CCONJ",
+      "NUM",
+      "NOUN",
+      "PUNCT",
+      "ADJ",
+      "CCONJ",
+      "ADJ",
+      "NOUN",
+      "PUNCT",
+      "NOUN",
+      "NOUN",
+      "PUNCT",
+      "PROPN",
+      "NOUN",
+      "NOUN",
+      "ADP",
+      "NUM",
+      "NOUN",
+      "PUNCT",
+      "NOUN",
+      "VERB",
+      "NUM",
+      "NUM",
+      "NUM",
+      "PUNCT",
+      "ADJ",
+      "NOUN",
+      "PUNCT",
+      "NOUN",
+      "PUNCT",
+      "NUM",
+      "X",
+      "PUNCT",
+      "PUNCT",
+      "PROPN",
+      "PUNCT",
+      "NUM",
+      "X",
+      "PUNCT",
+      "PUNCT",
+      "NOUN",
+      "PUNCT",
+      "NUM",
+      "X",
+      "PUNCT",
+      "PUNCT",
+      "NOUN",
+      "PUNCT",
+      "NUM",
+      "X",
+      "PUNCT",
+      "PUNCT",
+      "NOUN",
+      "PUNCT",
+      "NUM",
+      "X",
+      "PUNCT",
+      "PUNCT",
+      "NOUN",
+      "PUNCT",
+      "NUM",
+      "X",
+      "PUNCT",
+      "PUNCT",
+      "PROPN",
+      "AUX",
+      "ADJ",
+      "NOUN",
+      "PUNCT",
+      "PROPN",
+      "NOUN",
+      "PUNCT",
+      "PROPN",
+      "NOUN",
+      "PUNCT",
+      "X",
+      "PUNCT",
+      "PROPN",
+      "NOUN",
+      "PUNCT",
+      "X",
+      "CCONJ",
+      "PRON",
+      "ADJ",
+      "NOUN",
+      "NOUN",
+      "PUNCT",
+      "PROPN",
+      "NOUN",
+      "VERB",
+      "NUM",
+      "X",
+      "PUNCT",
+      "PUNCT",
+      "SCONJ",
+      "NUM",
+      "NOUN",
+      "VERB",
+      "PROPN",
+      "NOUN",
+      "PUNCT",
+      "NUM",
+      "X",
+      "PUNCT",
+      "VERB",
+      "PROPN",
+      "ADJ",
+      "NOUN",
+      "PUNCT",
+      "DET",
+      "NUM",
+      "X",
+      "PUNCT",
+      "AUX",
+      "PRON",
+      "ADJ",
+      "NOUN",
+      "PROPN",
+      "PUNCT",
+      "NUM",
+      "X",
+      "PUNCT",
+      "PROPN",
+      "CCONJ",
+      "PROPN",
+      "VERB",
+      "ADP",
+      "NUM",
+      "NOUN",
+      "NOUN",
+      "PUNCT",
+      "NUM",
+      "X",
+      "PUNCT",
+      "NOUN",
+      "PROPN",
+      "VERB",
+      "PROPN",
+      "NOUN",
+      "PUNCT",
+      "NOUN",
+      "VERB",
+      "NUM",
+      "NOUN",
+      "PUNCT",
+      "NOUN",
+      "NUM",
+      "X",
+      "PUNCT",
+      "ADP",
+      "ADJ",
+      "ADJ",
+      "NOUN",
+      "PROPN",
+      "VERB",
+      "NOUN",
+      "NOUN",
+      "PUNCT",
+      "NOUN",
+      "VERB",
+      "NUM",
+      "NOUN",
+      "PUNCT",
+      "NOUN",
+      "NUM",
+      "X",
+      "PUNCT"
+    ],
+    "syntax": {
+      "root": "valstybė",
+      "edges": [
+        {
+          "head": "valstybė",
+          "dep": "Lietuva",
+          "relation": "nsubj"
+        },
+        {
+          "head": "valstybė",
+          "dep": "yra",
+          "relation": "cop"
+        },
+        {
+          "head": "rytuose",
+          "dep": "Europos",
+          "relation": "nmod"
+        },
+        {
+          "head": "valstybė",
+          "dep": "rytuose",
+          "relation": "obl"
+        },
+        {
+          "head": "pakrantėje",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "jūros",
+          "dep": "Baltijos",
+          "relation": "nmod"
+        },
+        {
+          "head": "pakrantėje",
+          "dep": "jūros",
+          "relation": "nmod"
+        },
+        {
+          "head": "pakrantėje",
+          "dep": "pietrytinėje",
+          "relation": "amod"
+        },
+        {
+          "head": "rytuose",
+          "dep": "pakrantėje",
+          "relation": "conj"
+        },
+        {
+          "head": "valstybė",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "plotas",
+          "dep": "Valstybės",
+          "relation": "nmod"
+        },
+        {
+          "head": "km²",
+          "dep": "–",
+          "relation": "punct"
+        },
+        {
+          "head": "km²",
+          "dep": "65",
+          "relation": "nummod"
+        },
+        {
+          "head": "65",
+          "dep": "300",
+          "relation": "nummod"
+        },
+        {
+          "head": "plotas",
+          "dep": "km²",
+          "relation": "appos"
+        },
+        {
+          "head": "plotas",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "ribojasi",
+          "dep": "Šiaurėje",
+          "relation": "obl"
+        },
+        {
+          "head": "Latvija",
+          "dep": "su",
+          "relation": "case"
+        },
+        {
+          "head": "ribojasi",
+          "dep": "Latvija",
+          "relation": "obl:arg"
+        },
+        {
+          "head": "rytuose",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "Latvija",
+          "dep": "rytuose",
+          "relation": "conj"
+        },
+        {
+          "head": "pietuose",
+          "dep": "ir",
+          "relation": "cc"
+        },
+        {
+          "head": "Latvija",
+          "dep": "pietuose",
+          "relation": "conj"
+        },
+        {
+          "head": "Baltarusija",
+          "dep": "–",
+          "relation": "punct"
+        },
+        {
+          "head": "Baltarusija",
+          "dep": "su",
+          "relation": "case"
+        },
+        {
+          "head": "ribojasi",
+          "dep": "Baltarusija",
+          "relation": "obl:arg"
+        },
+        {
+          "head": "pietvakariuose",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "Baltarusija",
+          "dep": "pietvakariuose",
+          "relation": "conj"
+        },
+        {
+          "head": "Lenkija",
+          "dep": "–",
+          "relation": "punct"
+        },
+        {
+          "head": "Lenkija",
+          "dep": "su",
+          "relation": "case"
+        },
+        {
+          "head": "pietvakariuose",
+          "dep": "Lenkija",
+          "relation": "obl:arg"
+        },
+        {
+          "head": "Rusija",
+          "dep": "ir",
+          "relation": "cc"
+        },
+        {
+          "head": "Lenkija",
+          "dep": "Rusija",
+          "relation": "conj"
+        },
+        {
+          "head": "ribojasi",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "turi",
+          "dep": "Vakaruose",
+          "relation": "obl"
+        },
+        {
+          "head": "90",
+          "dep": "apie",
+          "relation": "case"
+        },
+        {
+          "head": "turi",
+          "dep": "90",
+          "relation": "obl"
+        },
+        {
+          "head": "90",
+          "dep": "km",
+          "relation": "nmod"
+        },
+        {
+          "head": "90",
+          "dep": "ilgio",
+          "relation": "nmod"
+        },
+        {
+          "head": "jūros",
+          "dep": "Baltijos",
+          "relation": "nmod"
+        },
+        {
+          "head": "pakrantę",
+          "dep": "jūros",
+          "relation": "nmod"
+        },
+        {
+          "head": "90",
+          "dep": "pakrantę",
+          "relation": "nmod"
+        },
+        {
+          "head": "yra",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "nerijoje",
+          "dep": "iš",
+          "relation": "case"
+        },
+        {
+          "head": "iš",
+          "dep": "kurios",
+          "relation": "nmod"
+        },
+        {
+          "head": "nerijoje",
+          "dep": "Kuršių",
+          "relation": "nmod"
+        },
+        {
+          "head": "yra",
+          "dep": "nerijoje",
+          "relation": "obl"
+        },
+        {
+          "head": "turi",
+          "dep": "yra",
+          "relation": "parataxis"
+        },
+        {
+          "head": "50",
+          "dep": "apie",
+          "relation": "case"
+        },
+        {
+          "head": "yra",
+          "dep": "50",
+          "relation": "obl"
+        },
+        {
+          "head": "50",
+          "dep": "km",
+          "relation": "nmod"
+        },
+        {
+          "head": "dalyje",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "dalyje",
+          "dep": "o",
+          "relation": "cc"
+        },
+        {
+          "head": "dalyje",
+          "dep": "Lietuvos",
+          "relation": "nmod"
+        },
+        {
+          "head": "dalyje",
+          "dep": "žemyninėje",
+          "relation": "amod"
+        },
+        {
+          "head": "yra",
+          "dep": "dalyje",
+          "relation": "obl"
+        },
+        {
+          "head": "40",
+          "dep": "–",
+          "relation": "punct"
+        },
+        {
+          "head": "40",
+          "dep": "apie",
+          "relation": "case"
+        },
+        {
+          "head": "dalyje",
+          "dep": "40",
+          "relation": "appos"
+        },
+        {
+          "head": "40",
+          "dep": "km",
+          "relation": "nmod"
+        },
+        {
+          "head": "km",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "sostinė",
+          "dep": "Lietuvos",
+          "relation": "nmod"
+        },
+        {
+          "head": "dalyje",
+          "dep": "sostinė",
+          "relation": "flat"
+        },
+        {
+          "head": "miestas",
+          "dep": "ir",
+          "relation": "cc"
+        },
+        {
+          "head": "miestas",
+          "dep": "didžiausias",
+          "relation": "amod"
+        },
+        {
+          "head": "sostinė",
+          "dep": "miestas",
+          "relation": "conj"
+        },
+        {
+          "head": "Vilnius",
+          "dep": "–",
+          "relation": "punct"
+        },
+        {
+          "head": "sostinė",
+          "dep": "Vilnius",
+          "relation": "conj"
+        },
+        {
+          "head": "turi",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "miestai",
+          "dep": "Kiti",
+          "relation": "nmod"
+        },
+        {
+          "head": "miestai",
+          "dep": "didieji",
+          "relation": "amod"
+        },
+        {
+          "head": "miestai",
+          "dep": "šalies",
+          "relation": "nmod"
+        },
+        {
+          "head": "Kaunas",
+          "dep": "–",
+          "relation": "punct"
+        },
+        {
+          "head": "miestai",
+          "dep": "Kaunas",
+          "relation": "flat"
+        },
+        {
+          "head": "Klaipėda",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "Kaunas",
+          "dep": "Klaipėda",
+          "relation": "conj"
+        },
+        {
+          "head": "Šiauliai",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "Kaunas",
+          "dep": "Šiauliai",
+          "relation": "conj"
+        },
+        {
+          "head": "Panevėžys",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "Kaunas",
+          "dep": "Panevėžys",
+          "relation": "conj"
+        },
+        {
+          "head": "miestai",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "teritorija",
+          "dep": "Lietuvos",
+          "relation": "nmod"
+        },
+        {
+          "head": "skirstoma",
+          "dep": "teritorija",
+          "relation": "nsubj:pass"
+        },
+        {
+          "head": "skirstoma",
+          "dep": "administraciškai",
+          "relation": "nsubj:pass"
+        },
+        {
+          "head": "10",
+          "dep": "į",
+          "relation": "case"
+        },
+        {
+          "head": "skirstoma",
+          "dep": "10",
+          "relation": "obl"
+        },
+        {
+          "head": "10",
+          "dep": "apskričių",
+          "relation": "nmod"
+        },
+        {
+          "head": "60",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "10",
+          "dep": "60",
+          "relation": "conj"
+        },
+        {
+          "head": "60",
+          "dep": "savivaldybių",
+          "relation": "nmod"
+        },
+        {
+          "head": "seniūnijas",
+          "dep": "ir",
+          "relation": "cc"
+        },
+        {
+          "head": "seniūnijas",
+          "dep": "546",
+          "relation": "nummod"
+        },
+        {
+          "head": "60",
+          "dep": "seniūnijas",
+          "relation": "nmod"
+        },
+        {
+          "head": "skirstoma",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "kalba",
+          "dep": "Pagrindinė",
+          "relation": "amod"
+        },
+        {
+          "head": "valstybinė",
+          "dep": "ir",
+          "relation": "cc"
+        },
+        {
+          "head": "Pagrindinė",
+          "dep": "valstybinė",
+          "relation": "conj"
+        },
+        {
+          "head": "kalba",
+          "dep": "–",
+          "relation": "punct"
+        },
+        {
+          "head": "kalba",
+          "dep": "lietuvių",
+          "relation": "nmod"
+        },
+        {
+          "head": "kalba",
+          "dep": "kalba",
+          "relation": "appos"
+        },
+        {
+          "head": "kalba",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "gyventojų",
+          "dep": "Lietuvos",
+          "relation": "nmod"
+        },
+        {
+          "head": "skaičius",
+          "dep": "gyventojų",
+          "relation": "nmod"
+        },
+        {
+          "head": "siekė",
+          "dep": "skaičius",
+          "relation": "nsubj"
+        },
+        {
+          "head": "surašymą",
+          "dep": "pagal",
+          "relation": "case"
+        },
+        {
+          "head": "m",
+          "dep": "2021",
+          "relation": "nummod"
+        },
+        {
+          "head": "surašymą",
+          "dep": "m",
+          "relation": "obl"
+        },
+        {
+          "head": "m",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "siekė",
+          "dep": "surašymą",
+          "relation": "obl:arg"
+        },
+        {
+          "head": "810",
+          "dep": "2",
+          "relation": "nummod"
+        },
+        {
+          "head": "siekė",
+          "dep": "810",
+          "relation": "obl"
+        },
+        {
+          "head": "810",
+          "dep": "118",
+          "relation": "nmod"
+        },
+        {
+          "head": "siekė",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "sudėtis",
+          "dep": "Etninė",
+          "relation": "amod"
+        },
+        {
+          "head": "sudėtis",
+          "dep": ":",
+          "relation": "punct"
+        },
+        {
+          "head": "sudėtis",
+          "dep": "lietuviai",
+          "relation": "flat"
+        },
+        {
+          "head": "84,6",
+          "dep": "(",
+          "relation": "punct"
+        },
+        {
+          "head": "lietuviai",
+          "dep": "84,6",
+          "relation": "obl"
+        },
+        {
+          "head": "84,6",
+          "dep": "%",
+          "relation": "nmod"
+        },
+        {
+          "head": "84,6",
+          "dep": ")",
+          "relation": "punct"
+        },
+        {
+          "head": "lenkai",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "lietuviai",
+          "dep": "lenkai",
+          "relation": "conj"
+        },
+        {
+          "head": "%",
+          "dep": "(",
+          "relation": "punct"
+        },
+        {
+          "head": "%",
+          "dep": "6,5",
+          "relation": "nummod"
+        },
+        {
+          "head": "84,6",
+          "dep": "%",
+          "relation": "nmod"
+        },
+        {
+          "head": "%",
+          "dep": ")",
+          "relation": "punct"
+        },
+        {
+          "head": "rusai",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "lietuviai",
+          "dep": "rusai",
+          "relation": "conj"
+        },
+        {
+          "head": "5,0",
+          "dep": "(",
+          "relation": "punct"
+        },
+        {
+          "head": "rusai",
+          "dep": "5,0",
+          "relation": "obl"
+        },
+        {
+          "head": "5,0",
+          "dep": "%",
+          "relation": "nmod"
+        },
+        {
+          "head": "5,0",
+          "dep": ")",
+          "relation": "punct"
+        },
+        {
+          "head": "baltarusiai",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "lietuviai",
+          "dep": "baltarusiai",
+          "relation": "conj"
+        },
+        {
+          "head": "1,0",
+          "dep": "(",
+          "relation": "punct"
+        },
+        {
+          "head": "baltarusiai",
+          "dep": "1,0",
+          "relation": "obl"
+        },
+        {
+          "head": "1,0",
+          "dep": "%",
+          "relation": "nmod"
+        },
+        {
+          "head": "1,0",
+          "dep": ")",
+          "relation": "punct"
+        },
+        {
+          "head": "ukrainiečiai",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "lietuviai",
+          "dep": "ukrainiečiai",
+          "relation": "conj"
+        },
+        {
+          "head": "0,5",
+          "dep": "(",
+          "relation": "punct"
+        },
+        {
+          "head": "ukrainiečiai",
+          "dep": "0,5",
+          "relation": "obl"
+        },
+        {
+          "head": "0,5",
+          "dep": "%",
+          "relation": "nmod"
+        },
+        {
+          "head": "0,5",
+          "dep": ")",
+          "relation": "punct"
+        },
+        {
+          "head": "žydai",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "ukrainiečiai",
+          "dep": "žydai",
+          "relation": "conj"
+        },
+        {
+          "head": "0,1",
+          "dep": "(",
+          "relation": "punct"
+        },
+        {
+          "head": "žydai",
+          "dep": "0,1",
+          "relation": "parataxis"
+        },
+        {
+          "head": "0,1",
+          "dep": "%",
+          "relation": "nmod"
+        },
+        {
+          "head": "0,1",
+          "dep": ")",
+          "relation": "punct"
+        },
+        {
+          "head": "sudėtis",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "yra",
+          "dep": "Lietuva",
+          "relation": "nsubj"
+        },
+        {
+          "head": "Tautų",
+          "dep": "Jungtinių",
+          "relation": "amod"
+        },
+        {
+          "head": "narė",
+          "dep": "Tautų",
+          "relation": "nmod"
+        },
+        {
+          "head": "Sąjungos",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "Sąjungos",
+          "dep": "Europos",
+          "relation": "nmod"
+        },
+        {
+          "head": "Tautų",
+          "dep": "Sąjungos",
+          "relation": "conj"
+        },
+        {
+          "head": "erdvės",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "erdvės",
+          "dep": "Šengeno",
+          "relation": "nmod"
+        },
+        {
+          "head": "Tautų",
+          "dep": "erdvės",
+          "relation": "conj"
+        },
+        {
+          "head": "NATO",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "erdvės",
+          "dep": "NATO",
+          "relation": "nmod"
+        },
+        {
+          "head": "Tarybos",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "Tarybos",
+          "dep": "Europos",
+          "relation": "nmod"
+        },
+        {
+          "head": "NATO",
+          "dep": "Tarybos",
+          "relation": "conj"
+        },
+        {
+          "head": "EBPO",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "organizacijų",
+          "dep": "EBPO",
+          "relation": "nmod"
+        },
+        {
+          "head": "organizacijų",
+          "dep": "ir",
+          "relation": "cc"
+        },
+        {
+          "head": "EBPO",
+          "dep": "kitų",
+          "relation": "conj"
+        },
+        {
+          "head": "organizacijų",
+          "dep": "tarptautinių",
+          "relation": "amod"
+        },
+        {
+          "head": "Tautų",
+          "dep": "organizacijų",
+          "relation": "conj"
+        },
+        {
+          "head": "Lietuva",
+          "dep": "narė",
+          "relation": "appos"
+        },
+        {
+          "head": "yra",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "istorija",
+          "dep": "Lietuvos",
+          "relation": "nmod"
+        },
+        {
+          "head": "prasideda",
+          "dep": "istorija",
+          "relation": "nsubj"
+        },
+        {
+          "head": "a",
+          "dep": "XI",
+          "relation": "nummod"
+        },
+        {
+          "head": "prasideda",
+          "dep": "a",
+          "relation": "obl"
+        },
+        {
+          "head": "a",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "paminėtas",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "paminėtas",
+          "dep": "kai",
+          "relation": "mark"
+        },
+        {
+          "head": "kartą",
+          "dep": "pirmą",
+          "relation": "nummod"
+        },
+        {
+          "head": "paminėtas",
+          "dep": "kartą",
+          "relation": "obl"
+        },
+        {
+          "head": "prasideda",
+          "dep": "paminėtas",
+          "relation": "advcl"
+        },
+        {
+          "head": "vardas",
+          "dep": "Lietuvos",
+          "relation": "nmod"
+        },
+        {
+          "head": "paminėtas",
+          "dep": "vardas",
+          "relation": "nsubj:pass"
+        },
+        {
+          "head": "prasideda",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "a",
+          "dep": "XIII",
+          "relation": "nummod"
+        },
+        {
+          "head": "susikūrė",
+          "dep": "a",
+          "relation": "obl"
+        },
+        {
+          "head": "a",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "Kunigaikštystė",
+          "dep": "Lietuvos",
+          "relation": "nmod"
+        },
+        {
+          "head": "Kunigaikštystė",
+          "dep": "Didžioji",
+          "relation": "amod"
+        },
+        {
+          "head": "susikūrė",
+          "dep": "Kunigaikštystė",
+          "relation": "nsubj"
+        },
+        {
+          "head": "viena",
+          "dep": ",",
+          "relation": "punct"
+        },
+        {
+          "head": "viena",
+          "dep": "kuri",
+          "relation": "nsubj"
+        },
+        {
+          "head": "a",
+          "dep": "XV",
+          "relation": "nummod"
+        },
+        {
+          "head": "viena",
+          "dep": "a",
+          "relation": "obl"
+        },
+        {
+          "head": "a",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "viena",
+          "dep": "buvo",
+          "relation": "cop"
+        },
+        {
+          "head": "Kunigaikštystė",
+          "dep": "viena",
+          "relation": "acl:relcl"
+        },
+        {
+          "head": "valstybių",
+          "dep": "didžiausių",
+          "relation": "amod"
+        },
+        {
+          "head": "Europoje",
+          "dep": "valstybių",
+          "relation": "nmod"
+        },
+        {
+          "head": "viena",
+          "dep": "Europoje",
+          "relation": "obl"
+        },
+        {
+          "head": "susikūrė",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "a",
+          "dep": "XVI",
+          "relation": "nummod"
+        },
+        {
+          "head": "Lietuva",
+          "dep": "a",
+          "relation": "nmod"
+        },
+        {
+          "head": "a",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "susijungė",
+          "dep": "Lietuva",
+          "relation": "nsubj"
+        },
+        {
+          "head": "Lenkija",
+          "dep": "ir",
+          "relation": "cc"
+        },
+        {
+          "head": "Lietuva",
+          "dep": "Lenkija",
+          "relation": "conj"
+        },
+        {
+          "head": "Respubliką",
+          "dep": "į",
+          "relation": "case"
+        },
+        {
+          "head": "Tautų",
+          "dep": "Abiejų",
+          "relation": "nmod"
+        },
+        {
+          "head": "Respubliką",
+          "dep": "Tautų",
+          "relation": "nmod"
+        },
+        {
+          "head": "susijungė",
+          "dep": "Respubliką",
+          "relation": "obl:arg"
+        },
+        {
+          "head": "susijungė",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "a",
+          "dep": "XVIII",
+          "relation": "nummod"
+        },
+        {
+          "head": "pabaigoje",
+          "dep": "a",
+          "relation": "nmod"
+        },
+        {
+          "head": "a",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "okupavo",
+          "dep": "pabaigoje",
+          "relation": "obl"
+        },
+        {
+          "head": "okupavo",
+          "dep": "Lietuvą",
+          "relation": "obj"
+        },
+        {
+          "head": "imperija",
+          "dep": "Rusijos",
+          "relation": "nmod"
+        },
+        {
+          "head": "okupavo",
+          "dep": "imperija",
+          "relation": "nsubj"
+        },
+        {
+          "head": "okupavo",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "atkurta",
+          "dep": "Nepriklausomybė",
+          "relation": "nsubj:pass"
+        },
+        {
+          "head": "m",
+          "dep": "1918",
+          "relation": "nummod"
+        },
+        {
+          "head": "vasario",
+          "dep": "m",
+          "relation": "nmod"
+        },
+        {
+          "head": "m",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "d",
+          "dep": "vasario",
+          "relation": "nmod"
+        },
+        {
+          "head": "d",
+          "dep": "16",
+          "relation": "nummod"
+        },
+        {
+          "head": "okupavo",
+          "dep": "d",
+          "relation": "obl"
+        },
+        {
+          "head": "d",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "karo",
+          "dep": "Po",
+          "relation": "case"
+        },
+        {
+          "head": "karo",
+          "dep": "Antrojo",
+          "relation": "nummod"
+        },
+        {
+          "head": "karo",
+          "dep": "pasaulinio",
+          "relation": "amod"
+        },
+        {
+          "head": "okupavo",
+          "dep": "karo",
+          "relation": "obl"
+        },
+        {
+          "head": "okupavo",
+          "dep": "Lietuvą",
+          "relation": "obj"
+        },
+        {
+          "head": "atkurta",
+          "dep": "okupavo",
+          "relation": "conj"
+        },
+        {
+          "head": "Sąjunga",
+          "dep": "Sovietų",
+          "relation": "nmod"
+        },
+        {
+          "head": "okupavo",
+          "dep": "Sąjunga",
+          "relation": "nsubj"
+        },
+        {
+          "head": "okupavo",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "atkurta",
+          "dep": "Nepriklausomybė",
+          "relation": "nsubj:pass"
+        },
+        {
+          "head": "m",
+          "dep": "1990",
+          "relation": "nummod"
+        },
+        {
+          "head": "kovo",
+          "dep": "m",
+          "relation": "nmod"
+        },
+        {
+          "head": "m",
+          "dep": ".",
+          "relation": "punct"
+        },
+        {
+          "head": "d",
+          "dep": "kovo",
+          "relation": "nmod"
+        },
+        {
+          "head": "d",
+          "dep": "11",
+          "relation": "nummod"
+        },
+        {
+          "head": "atkurta",
+          "dep": "d",
+          "relation": "obl"
+        },
+        {
+          "head": "atkurta",
+          "dep": ".",
+          "relation": "punct"
+        }
+      ]
+    },
+    "spell_errors": []
+  }
+]
