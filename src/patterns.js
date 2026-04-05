@@ -69,11 +69,8 @@ function wordCount(text) {
  */
 function wordRegex(word) {
   const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  // For multi-word phrases, don't use word boundaries on internal spaces
-  if (word.includes(" ")) {
-    return new RegExp(`\\b${escaped}\\b`, "gi");
-  }
-  return new RegExp(`\\b${escaped}\\b`, "gi");
+  // Use Unicode-aware boundaries (\b is ASCII-only, fails for Lithuanian ą,č,ę,ė,į,š,ų,ū,ž)
+  return new RegExp(`(?<!\\p{L})${escaped}(?!\\p{L})`, "giu");
 }
 
 /**
@@ -258,10 +255,11 @@ const patterns = [
       const results = [];
 
       // Broadly match "yra/buvo/bus + participle ending in -ma, -tas, -na"
+      // Use \p{L} for Unicode letter matching; require 4+ letters before suffix to reduce false positives
       results.push(
         ...findMatches(
           text,
-          /\b(yra|buvo|bus)\s+\w+(ma|tas|na|ta|ti)\b/gi,
+          /\b(yra|buvo|bus)\s+[\p{L}]{4,}(ma|tas|na|ta|ti)(?!\p{L})/giu,
           "Consider using active voice or reflexive verbs instead of passive participles",
           "high",
         ),
@@ -582,18 +580,21 @@ const patterns = [
         const after = text.substring(m.index, m.index + 120);
         if (
           /\bkad\b[^.]{0,50}?\b(?:buvo|buvome)\b/.test(after) &&
-          !/\b\w+(?:ęs|ęs|usi|usios)\b/.test(
+          !/\b\w+(?:ęs|usi|usios)\b/.test(
             after.substring(
               0,
               after.indexOf("buvo") > -1 ? after.indexOf("buvo") : 40,
             ),
           )
         ) {
+          const textBefore = text.substring(0, m.index);
+          const lineNum = textBefore.split("\n").length;
+          const lastNl = textBefore.lastIndexOf("\n");
           results.push({
             match: m[0] + "...buvo",
             index: m.index,
-            line: 0,
-            column: 0,
+            line: lineNum,
+            column: m.index - lastNl,
             suggestion:
               'Naudok netiesioginę nuosaką: vietoj "kad jis buvo" sakyk "kad jis būtų buvęs"',
             confidence: "medium",
@@ -658,6 +659,9 @@ const patterns = [
                     : "perf.";
               results.push({
                 match: v,
+                index: 0,
+                line: 1,
+                column: 1,
                 suggestion:
                   'Aspektas: vietoj "' +
                   v +
@@ -698,12 +702,19 @@ const patterns = [
       "Prepositions (apie, d\u0117l, per, su) where case suffix alone would suffice.",
     weight: 2,
     detect(text) {
-      return findMatches(
-        text,
-        /\b(?:apie|d\u0117l|per|su)\s+\w+/gi,
-        "Ar prielinksnis b\u016btinas? Da\u017enai u\u017etinka linksnis.",
-        "low",
-      );
+      // Only flag when preposition density is abnormally high
+      const preps = text.match(/\b(?:apie|d\u0117l|per|su)\s/gi) || [];
+      const words = wordCount(text);
+      const ratio = words > 0 ? preps.length / (words / 100) : 0;
+      if (ratio > 5 && preps.length >= 4) {
+        return findMatches(
+          text,
+          /\b(?:apie|d\u0117l|per|su)\s+[\p{L}]+/giu,
+          "Ar prielinksnis b\u016btinas? Da\u017enai u\u017etinka linksnis.",
+          "low",
+        );
+      }
+      return [];
     },
   },
 
@@ -732,7 +743,7 @@ const patterns = [
             "jos",
           ].includes(fw[0]) &&
           fw[1] &&
-          /(ti|o|a|a|e|y)$/.test(fw[1])
+          /(ti|o|a|e|y)$/.test(fw[1])
         )
           svo++;
         if (
@@ -746,6 +757,9 @@ const patterns = [
         return [
           {
             match: "SVO standumas",
+            index: 0,
+            line: 1,
+            column: 1,
             suggestion:
               'Keisk \u017eod\u017ei\u0173 tvark\u0105: LT da\u017enai keliamos aplinkyb\u0117s ("Vakar a\u0161" vietoj "A\u0161 vakar")',
             confidence: "low",
@@ -785,6 +799,9 @@ const patterns = [
         if (formal && informal) {
           results.push({
             match: "registro mai\u0161ymas",
+            index: 0,
+            line: 1,
+            column: 1,
             suggestion:
               "Laikykit\u0117s vieno registro: formalas ARBA neformalus pastraipoje.",
             confidence: "low",

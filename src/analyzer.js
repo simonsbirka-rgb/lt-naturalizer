@@ -23,8 +23,6 @@ const CATEGORY_LABELS = {
   content: "Content patterns",
   language: "Language & grammar",
   style: "Style patterns",
-  communication: "Communication artifacts",
-  filler: "Filler & hedging",
 };
 
 // ─── Analysis Engine ─────────────────────────────────────
@@ -236,7 +234,7 @@ function buildSummary(finalScore, totalMatches, findings, words, stats) {
           ? "lightly AI-touched"
           : "mostly human-sounding";
 
-  const topPatterns = findings
+  const topPatterns = [...findings]
     .sort((a, b) => b.matchCount * b.weight - a.matchCount * a.weight)
     .slice(0, 3)
     .map((f) => f.patternName);

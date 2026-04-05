@@ -32,7 +32,7 @@ function splitSentences(text) {
     .replace(/\b(\d+)\./g, "$1\u2024"); // numbered lists
 
   const sentences = cleaned
-    .split(/(?<=[.!?])\s+(?=[A-Z"'\u201C])|(?<=[.!?])$/)
+    .split(/(?<=[.!?])\s+(?=[\p{Lu}"'\u201C])|(?<=[.!?])$/u)
     .map((s) => s.replace(/\u2024/g, ".").trim())
     .filter((s) => s.length > 0);
 
@@ -47,7 +47,7 @@ function splitSentences(text) {
 function tokenize(text) {
   return text
     .toLowerCase()
-    .replace(/[^\w\s'-]/g, " ")
+    .replace(/[^\p{L}\p{N}\s'-]/gu, " ")
     .split(/\s+/)
     .filter((w) => w.length > 0);
 }

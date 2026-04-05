@@ -248,17 +248,6 @@ function buildGuidance(analysis) {
       'Swap AI vocabulary for plainer words. "Delve" → "look at". "Tapestry" → (be specific). "Showcase" → "show".',
     );
   }
-  if (ids.has(8)) {
-    tips.push(
-      'Use "is" and "has" freely. "Serves as" and "boasts" are needlessly fancy.',
-    );
-  }
-  if (ids.has(9)) {
-    tips.push('Drop "not just X, it\'s Y" frames. Just say what the thing is.');
-  }
-  if (ids.has(10)) {
-    tips.push("Break up triads. You don't always need three of everything.");
-  }
   if (ids.has(13)) {
     tips.push(
       "Ease up on em dashes. Use commas, periods, or parentheses for variety.",
@@ -274,27 +263,6 @@ function buildGuidance(analysis) {
       "Remove emojis from professional text. They signal chatbot output.",
     );
   }
-  if (ids.has(19) || ids.has(21)) {
-    tips.push(
-      'Remove chatbot filler ("I hope this helps!", "Great question!"). Just deliver the content.',
-    );
-  }
-  if (ids.has(20)) {
-    tips.push(
-      "Delete knowledge-cutoff disclaimers. Either research it or leave it out.",
-    );
-  }
-  if (ids.has(22) || ids.has(23)) {
-    tips.push(
-      'Trim filler and hedging. "In order to" → "to". One qualifier per claim is enough.',
-    );
-  }
-  if (ids.has(24)) {
-    tips.push(
-      'Cut generic conclusions. End with a specific fact instead of "the future looks bright".',
-    );
-  }
-
   if (analysis.score >= 50) {
     tips.push(
       "Consider rewriting from scratch. When AI patterns are this dense, patching individual phrases isn't enough — the structure itself needs rethinking.",
