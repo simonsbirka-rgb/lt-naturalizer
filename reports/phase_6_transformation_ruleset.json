@@ -1,0 +1,373 @@
+{
+  "phase_6_transformation_ruleset": {
+    "grounded_transformation_rules": {
+      "lithuanian_specific_rules": {
+        "particle_rules": {
+          "rule_1": {
+            "id": "P001",
+            "description": "Add natural particles to replace AI's particle-free text",
+            "ai_pattern": "Text with no particles (juk, gi, vis dėlto, bene, turbūt)",
+            "human_pattern": "Text with natural particle usage",
+            "examples": [
+              {
+                "ai": "Svarbu paminėti, kad plėtra yra svarbi lietuvos ekonomikai",
+                "human": "Svarbu paminėti, kad plėtra yra svarbi lietuvos ekonomikai, juk visi tai supranta"
+              },
+              {
+                "ai": "Vyriausybė turi investuoti į švietimą",
+                "human": "Vyriausybė turi investuoti į švietimą, bene tai svarbiausia"
+              }
+            ],
+            "implementation": "Scan for AI texts with <0.1 particles per 100 words and suggest natural particle additions"
+          },
+          "rule_2": {
+            "id": "P002",
+            "description": "Replace AI's formal particles with natural conversational ones",
+            "ai_pattern": "Formal particles (beje, beje, verta paminėti)",
+            "human_pattern": "Natural conversational particles (gi, juk, vis dėlto)",
+            "examples": [
+              {
+                "ai": "Beje, tai yra svarbus dalykas",
+                "human": "Tai yra svarbus dalykas, gi visi tai supranta"
+              },
+              {
+                "ai": "Verta paminėti, kad klimato kaita yra problema",
+                "human": "Klimato kaita yra problema, turbūt labiausiai aktuali šiandien"
+              }
+            ],
+            "implementation": "Replace formal AI particles with natural conversational alternatives"
+          }
+        },
+        "case_system_rules": {
+          "rule_3": {
+            "id": "C001",
+            "description": "Convert AI's simple genitive chains to natural Lithuanian case usage",
+            "ai_pattern": "Simple genitive chains (kilmininkas) without case variation",
+            "human_pattern": "Natural case variation (kilmininkas, šauksmininkas, galininkas, nariamasis)"
+          },
+          "rule_4": {
+            "id": "C002",
+            "description": "Add natural Lithuanian case endings instead of English-style prepositions",
+            "ai_pattern": "Overuse of prepositions (apie, dėl, per, su)",
+            "human_pattern": "Natural case endings without prepositions",
+            "examples": [
+              {
+                "ai": "Kalbėjom apie ekonomikos plėtrą",
+                "human": "Kalbėjom ekonomikos plėtra"
+              },
+              {
+                "ai": "Dėl to mes turime spręsti",
+                "human": "Tam mes turime spręsti"
+              }
+            ],
+            "implementation": "Replace prepositions with appropriate case endings"
+          }
+        },
+        "verb_aspect_rules": {
+          "rule_5": {
+            "id": "A001",
+            "description": "Convert AI's imperfective verbs to perfective where appropriate",
+            "ai_pattern": "Imperfective verbs for completed actions",
+            "human_pattern": "Perfective verbs for completed actions",
+            "examples": [
+              {
+                "ai": "Vyriausybė daro daug darbų",
+                "human": "Vyriausybė padarė daug darbų"
+              },
+              {
+                "ai": "Mes skaitome visą knygą",
+                "human": "Mes perskaitėme visą knygą"
+              }
+            ],
+            "implementation": "Detect completed action contexts and suggest perfective alternatives"
+          },
+          "rule_6": {
+            "id": "A002",
+            "description": "Convert AI's perfective verbs to imperfective where appropriate",
+            "ai_pattern": "Perfective verbs for ongoing actions",
+            "human_pattern": "Imperfective verbs for ongoing actions",
+            "examples": [
+              {
+                "ai": "Mes parasėme ataskaitą",
+                "human": "Mes rašome ataskaitą"
+              },
+              {
+                "ai": "Jis padarė viską",
+                "human": "Jis daro viską"
+              }
+            ],
+            "implementation": "Detect ongoing action contexts and suggest imperfective alternatives"
+          }
+        },
+        "indirect_mood_rules": {
+          "rule_7": {
+            "id": "I001",
+            "description": "Convert AI's indicative mood to evidential (netiesioginė nuosaka)",
+            "ai_pattern": "Indicative mood after reporting verbs",
+            "human_pattern": "Evidential mood after reporting verbs",
+            "examples": [
+              {
+                "ai": "Jis sako, kad jis buvo ten",
+                "human": "Jis sako, kad jis būtų ten buvęs"
+              },
+              {
+                "ai": "Jie teigia, kad jie padarė tai",
+                "human": "Jie teigia, kad jie būtų tai padarė"
+              }
+            ],
+            "implementation": "Detect reporting verbs and convert to evidential mood"
+          }
+        }
+      },
+      "register_aware_rules": {
+        "news_interview_rules": {
+          "rule_8": {
+            "id": "R001",
+            "description": "Convert AI's formal interview responses to natural conversational style",
+            "ai_pattern": "Formal, structured interview responses",
+            "human_pattern": "Natural conversational interview responses",
+            "examples": [
+              {
+                "ai": "Aš manau, kad tai yra svarbus dalykas",
+                "human": "Manau, kad tai svarbus dalykas, gi visi tai supranta"
+              },
+              {
+                "ai": "Taip, aš sutinku su tuo",
+                "human": "Taip, tikrai sutinku, beje tai logiška"
+              }
+            ],
+            "implementation": "Add particles and conversational elements to interview responses"
+          }
+        },
+        "business_analysis_rules": {
+          "rule_9": {
+            "id": "R002",
+            "description": "Convert AI's generic business language to domain-specific terminology",
+            "ai_pattern": "Generic business phrases (plėtra, investicijos, strategija)",
+            "human_pattern": "Domain-specific business terminology",
+            "examples": [
+              {
+                "ai": "Investicijos į plėtrą yra svarbios",
+                "human": "Investicijos į R&D plėtrą yra svarbios šiam sektoriui"
+              },
+              {
+                "ai": "Strategija turi būti efektyvi",
+                "human": "Competitiveness strategy turi būti efektyvi"
+              }
+            ],
+            "implementation": "Replace generic business terms with specific industry terminology"
+          }
+        },
+        "opinion_editorial_rules": {
+          "rule_10": {
+            "id": "R003",
+            "description": "Convert AI's neutral opinion to expressive personal voice",
+            "ai_pattern": "Neutral, balanced opinions",
+            "human_pattern": "Expressive, personal opinions",
+            "examples": [
+              {
+                "ai": "Aš mano, kad tai yra problema",
+                "human": "Manau, kad tai yra didelė problema, turbūt labiausiai aktuali šiandien"
+              },
+              {
+                "ai": "Tai gali turėti neigiamų pasekmių",
+                "human": "Tai tikrai turės neigiamų pasekmių, be to tai labai pavojinga"
+              }
+            ],
+            "implementation": "Add expressive language and personal perspective"
+          }
+        },
+        "historical_academic_rules": {
+          "rule_11": {
+            "id": "R004",
+            "description": "Convert AI's simple historical narrative to academic analysis",
+            "ai_pattern": "Simple chronological narrative",
+            "human_pattern": "Academic historical analysis",
+            "examples": [
+              {
+                "ai": "Lietuva taps nepriklausoma šalybe",
+                "human": "Lietuva taps nepriklausoma šalybe, kuri taps svarbiausia šios regiono veiklos forma"
+              },
+              {
+                "ai": "Tai nutiko dėl klimato kaitos",
+                "human": "Tai nutiko dėl klimato kaitos, kuri turi daug pasekmių"
+              }
+            ],
+            "implementation": "Add academic analysis and contextual depth"
+          }
+        }
+      },
+      "style_transformation_rules": {
+        "word_order_rules": {
+          "rule_12": {
+            "id": "S001",
+            "description": "Convert AI's rigid SVO to natural Lithuanian word order",
+            "ai_pattern": "Strict Subject-Verb-Object order",
+            "human_pattern": "Natural word order with topicalization",
+            "examples": [
+              {
+                "ai": "Aš matau tai",
+                "human": "Tai aš matau"
+              },
+              {
+                "ai": "Mes turime spręsti",
+                "human": "Spręsti mes turime"
+              }
+            ],
+            "implementation": "Identify topicalization opportunities and restructure sentences"
+          }
+        },
+        "sentence_variation_rules": {
+          "rule_13": {
+            "id": "S002",
+            "description": "Convert AI's uniform sentence lengths to varied rhythm",
+            "ai_pattern": "Uniform sentence lengths (all similar length)",
+            "human_pattern": "Varied sentence lengths (mix short and long)",
+            "examples": [
+              {
+                "ai": "Tai yra svarbus dalykas. Mes turime spręsti. Tai gali turėti pasekmes.",
+                "human": "Tai yra svarbus dalykas. Mes turime spręsti, nes tai gali turėti daug pasekmių. Būtina suvokti"
+              },
+              {
+                "ai": "Ekonomika yra svarbi. Investicijos yra svarbios. Plėtra yra svarbi.",
+                "human": "Ekonomika yra svarbi, tikrai. Investicijos yra svarbios, beje. Plėtra yra svarbi, turbūt labiausiai"
+              }
+            ],
+            "implementation": "Analyze sentence lengths and suggest variations"
+          }
+        },
+        "vocabulary_enrichment_rules": {
+          "rule_14": {
+            "id": "S003",
+            "description": "Convert AI's generic vocabulary to domain-specific terms",
+            "ai_pattern": "Generic vocabulary (thing, stuff, important)",
+            "human_pattern": "Domain-specific vocabulary",
+            "examples": [
+              {
+                "ai": "Tai yra svarbus dalykas",
+                "human": "Tai yra kritinis momentas"
+              },
+              {
+                "ai": "Mes turime daryti daug darbų",
+                "human": "Mes turime imtis reikiamo veiksmo"
+              }
+            ],
+            "implementation": "Replace generic words with specific, context-appropriate terms"
+          }
+        }
+      },
+      "transformation_pipeline": {
+        "phase_1": "Corpus analysis and pattern extraction",
+        "phase_2": "Rule creation based on human vs AI patterns",
+        "phase_3": "Rule validation with human judges",
+        "phase_4": "Implementation in humanizer.js",
+        "phase_5": "Testing and refinement"
+      }
+    },
+    "transformation_library": {
+      "data_structure": {
+        "rules": [
+          {
+            "id": "string",
+            "description": "string",
+            "ai_pattern": "string",
+            "human_pattern": "string",
+            "examples": [
+              {
+                "ai": "string",
+                "human": "string"
+              }
+            ],
+            "weight": "number",
+            "category": "string",
+            "implementation": "function"
+          }
+        ],
+        "patterns": [
+          {
+            "pattern": "string",
+            "weight": "number",
+            "category": "string"
+          }
+        ]
+      },
+      "metadata": {
+        "version": "1.0",
+        "language": "Lithuanian",
+        "target": "Business writing",
+        "corpus_size": "300+ samples",
+        "pre_2022_only": "true"
+      }
+    },
+    "implementation_guide": {
+      "file_structure": {
+        "src/": {
+          "humanizer.js": "Main humanization engine",
+          "patterns.js": "Pattern registry and detection",
+          "vocabulary.js": "AI-specific vocabulary",
+          "rules.json": "Transformation rules library"
+        },
+        "data/": {
+          "rules/": "Transformation rules database",
+          "patterns/": "Pattern detection rules",
+          "vocabulary/": "AI-specific vocabulary lists"
+        }
+      },
+      "integration_points": [
+        "analyze() function in analyzer.js",
+        "humanize() function in humanizer.js",
+        "pattern registry in patterns.js",
+        "vocabulary lists in vocabulary.js"
+      ],
+      "testing_strategy": {
+        "unit_tests": "Individual rule validation",
+        "integration_tests": "End-to-end transformation testing",
+        "human_validation": "Human judges for quality assessment"
+      }
+    }
+  },
+  "grounded_transformation_examples": {
+    "ai_to_human_transformations": [
+      {
+        "input": "Svarbu paminėti, kad plėtra yra svarbi lietuvos ekonomikai",
+        "output": "Svarbu paminėti, kad plėtra yra svarbi lietuvos ekonomikai, juk visi tai supranta",
+        "rules_applied": ["P001", "P002"]
+      },
+      {
+        "input": "Vyriausybė turi investuoti į švietimą",
+        "output": "Vyriausybė turi investuoti į švietimą, bene tai svarbiausia",
+        "rules_applied": ["P001"]
+      },
+      {
+        "input": "Aš matau tai",
+        "output": "Tai aš matau",
+        "rules_applied": ["S001"]
+      },
+      {
+        "input": "Ekonomika yra svarbi",
+        "output": "Ekonomika yra svarbi, tikrai",
+        "rules_applied": ["P001"]
+      }
+    ],
+    "register_specific_transformations": [
+      {
+        "register": "news_interview",
+        "ai": "Aš manau, kad tai yra svarbus dalykas",
+        "human": "Manau, kad tai svarbus dalykas, gi visi tai supranta",
+        "rules": ["R001", "P001"]
+      },
+      {
+        "register": "business_analysis",
+        "ai": "Investicijos į plėtrą yra svarbios",
+        "human": "Investicijos į R&D plėtrą yra svarbios šiam sektoriui",
+        "rules": ["R002"]
+      },
+      {
+        "register": "opinion_editorial",
+        "ai": "Aš mano, kad tai yra problema",
+        "human": "Manau, kad tai yra didelė problema, turbūt labiausiai aktuali šiandien",
+        "rules": ["R003", "P001"]
+      }
+    ]
+  }
+}

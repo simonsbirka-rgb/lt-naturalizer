@@ -1,0 +1,253 @@
+{
+  "phase_4_register_profiling": {
+    "publication_types": {
+      "news_interview": {
+        "examples": [
+          "LRT.lt interview with Ukrainian President Volodymyr Zelensky (July 2021)",
+          "Verslo žinios business interviews (2019-2021)",
+          "15min.lt business articles (2020)"
+        ],
+        "linguistic_features": {
+          "particle_density": "medium (juk, gi, vis dėlto used naturally)",
+          "word_order": "flexible (topicalization common)",
+          "genitive_chains": "moderate (3-4 consecutive genitive nouns)",
+          "register": "mixed (formal questions + informal responses)"
+        },
+        "distinctive_patterns": [
+          "direct quotes with natural speech particles",
+          "contextual topic shifts",
+          "personal anecdotes and opinions"
+        ]
+      },
+      "business_analysis": {
+        "examples": [
+          "Verslo žinios market analysis articles (2019-2021)",
+          "Delfi verslas business reports (2020-2021)"
+        ],
+        "linguistic_features": {
+          "particle_density": "low-medium (professional tone)",
+          "word_order": "mostly SVO but with topicalization",
+          "genitive_chains": "high (bureaucratic business language)",
+          "register": "formal (industry-specific terminology)"
+        },
+        "distinctive_patterns": [
+          "statistical data presentation",
+          "market trend analysis",
+          "policy impact assessment"
+        ]
+      },
+      "opinion_editorial": {
+        "examples": [
+          "15min.lt opinion pieces (2020)",
+          "Verslo žinios editorials (2019-2021)"
+        ],
+        "linguistic_features": {
+          "particle_density": "high (expressive language)",
+          "word_order": "very flexible (emphasis through topicalization)",
+          "genitive_chains": "moderate (argumentative structure)",
+          "register": "mixed (formal arguments + informal expressions)"
+        },
+        "distinctive_patterns": [
+          "emotional appeals",
+          "rhetorical questions",
+          "personal experiences and examples"
+        ]
+      },
+      "historical_academic": {
+        "examples": [
+          "Wikipedia articles on Lithuanian history",
+          "Academic papers on Lithuanian linguistics"
+        ],
+        "linguistic_features": {
+          "particle_density": "low (formal academic tone)",
+          "word_order": "rigid SVO (academic writing conventions)",
+          "genitive_chains": "very high (historical/bureaucratic language)",
+          "register": "formal (scholarly terminology)"
+        },
+        "distinctive_patterns": [
+          "chronological narrative structure",
+          "source citations and references",
+          "technical historical terminology"
+        ]
+      }
+    },
+    "author_roles": {
+      "journalist": {
+        "linguistic_characteristics": {
+          "particle_usage": "moderate (natural reporting style)",
+          "sentence_structure": "varied (mix of simple and complex sentences)",
+          "vocabulary": "accessible (general audience)",
+          "tone": "neutral to slightly informal"
+        },
+        "typical_patterns": [
+          "direct quotes from interviewees",
+          "contextual background information",
+          "balanced presentation of facts"
+        ]
+      },
+      "business_analyst": {
+        "linguistic_characteristics": {
+          "particle_usage": "low (professional tone)",
+          "sentence_structure": "complex (data-heavy sentences)",
+          "vocabulary": "technical (industry-specific terms)",
+          "tone": "formal and objective"
+        },
+        "typical_patterns": [
+          "statistical analysis and data",
+          "market trend predictions",
+          "policy impact assessments"
+        ]
+      },
+      "columnist": {
+        "linguistic_characteristics": {
+          "particle_usage": "high (expressive and opinionated)",
+          "sentence_structure": "varied (rhetorical and persuasive)",
+          "vocabulary": "mixed (formal arguments + informal expressions)",
+          "tone": "opinionated and engaging"
+        },
+        "typical_patterns": [
+          "personal anecdotes and experiences",
+          "emotional appeals and rhetorical questions",
+          "strong opinions and calls to action"
+        ]
+      },
+      "academic": {
+        "linguistic_characteristics": {
+          "particle_usage": "very low (formal academic tone)",
+          "sentence_structure": "complex (theoretical and analytical)",
+          "vocabulary": "technical (scholarly terminology)",
+          "tone": "objective and analytical"
+        },
+        "typical_patterns": [
+          "theoretical frameworks and concepts",
+          "methodological descriptions",
+          "source citations and references"
+        ]
+      }
+    },
+    "topic_domains": {
+      "politics_government": {
+        "linguistic_features": {
+          "particle_density": "low-medium (formal political language)",
+          "word_order": "mostly SVO (official statements)",
+          "genitive_chains": "high (bureaucratic terminology)",
+          "vocabulary": "formal (political and governmental terms)"
+        },
+        "distinctive_patterns": [
+          "official statements and press releases",
+          "policy descriptions and implementations",
+          "political analysis and commentary"
+        ]
+      },
+      "economy_business": {
+        "linguistic_features": {
+          "particle_density": "low (professional business language)",
+          "word_order": "mostly SVO (business reporting)",
+          "genitive_chains": "moderate-high (business terminology)",
+          "vocabulary": "technical (economic and business terms)"
+        },
+        "distinctive_patterns": [
+          "market analysis and forecasts",
+          "company performance reports",
+          "economic policy impacts"
+        ]
+      },
+      "culture_society": {
+        "linguistic_features": {
+          "particle_density": "medium-high (expressive cultural writing)",
+          "word_order": "flexible (cultural commentary)",
+          "genitive_chains": "moderate (cultural references)",
+          "vocabulary": "mixed (cultural and social terms)"
+        },
+        "distinctive_patterns": [
+          "cultural event descriptions",
+          "social trend analysis",
+          "community and lifestyle articles"
+        ]
+      },
+      "technology_innovation": {
+        "linguistic_features": {
+          "particle_density": "low-medium (technical writing)",
+          "word_order": "mostly SVO (technical explanations)",
+          "genitive_chains": "moderate (technical terminology)",
+          "vocabulary": "technical (technological terms)"
+        },
+        "distinctive_patterns": [
+          "product descriptions and specifications",
+          "innovation and development reports",
+          "technical analysis and explanations"
+        ]
+      }
+    },
+    "register_transitions": {
+      "formal_to_informal": {
+        "examples": [
+          "Business analysis article that includes personal anecdotes",
+          "News interview that becomes conversational"
+        ],
+        "linguistic_markers": [
+          "shift from technical terms to everyday language",
+          "introduction of particles (juk, gi, turbūt)",
+          "change from complex to simpler sentence structures"
+        ]
+      },
+      "informal_to_formal": {
+        "examples": [
+          "Opinion piece that cites official statistics",
+          "Cultural article that references academic research"
+        ],
+        "linguistic_markers": [
+          "introduction of bureaucratic terminology",
+          "reduction in particle usage",
+          "increase in complex sentence structures"
+        ]
+      }
+    },
+    "register_mixing_patterns": {
+      "bureaucratic_with_colloquial": {
+        "example": "Official government statement that includes “juk” or “vis dėlto”",
+        "linguistic_features": {
+          "particle_density": "mixed (formal + informal particles)",
+          "vocabulary": "mixed (official terms + everyday language)",
+          "tone": "inconsistent (shifts between formal and informal)"
+        },
+        "human_vs_ai": {
+          "human": "Natural mixing based on context and audience",
+          "ai": "Mechanical insertion of particles without context"
+        }
+      },
+      "technical_with_expressive": {
+        "example": "Business analysis that includes emotional appeals",
+        "linguistic_features": {
+          "particle_density": "medium (technical + expressive particles)",
+          "vocabulary": "mixed (technical terms + expressive language)",
+          "tone": "shifting (objective to subjective)"
+        },
+        "human_vs_ai": {
+          "human": "Purposeful mixing for rhetorical effect",
+          "ai": "Random combination without rhetorical purpose"
+        }
+      }
+    }
+  },
+  "key_register_distinctions": {
+    "particle_usage_by_register": {
+      "news_interview": "medium (natural reporting style)",
+      "business_analysis": "low-medium (professional tone)",
+      "opinion_editorial": "high (expressive language)",
+      "historical_academic": "very low (formal academic tone)"
+    },
+    "word_order_flexibility_by_register": {
+      "news_interview": "high (topicalization common)",
+      "business_analysis": "medium (mostly SVO with topicalization)",
+      "opinion_editorial": "very high (emphasis through topicalization)",
+      "historical_academic": "low (rigid SVO conventions)"
+    },
+    "genitive_chain_frequency_by_register": {
+      "news_interview": "moderate (3-4 consecutive genitive nouns)",
+      "business_analysis": "high (bureaucratic business language)",
+      "opinion_editorial": "moderate (argumentative structure)",
+      "historical_academic": "very high (historical/bureaucratic language)"
+    }
+  }
+}

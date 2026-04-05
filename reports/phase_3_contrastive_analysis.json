@@ -1,0 +1,145 @@
+{
+  "corpus_stats": {
+    "human_samples": 23,
+    "human_words": 28842,
+    "human_files_with_200_words": 19,
+    "target_samples": 300,
+    "target_words": "300+ samples with minimum 200 words each"
+  },
+  "phase_1_summary": {
+    "status": "completed",
+    "sources_identified": [
+      "LRT.lt interviews (pre-2022)",
+      "Verslo žinios archive (2019-2021)",
+      "Delfi verslas articles (2020-2021)",
+      "Seimas stenogramos",
+      "15min.lt business articles (2020)",
+      "Wayback Machine archived content"
+    ],
+    "corpus_collection_method": "Manual collection from identified sources, focused on pre-2022 Lithuanian business writing"
+  },
+  "phase_2_features_extracted": {
+    "morphological_features": [
+      "particle density (juk, gi, vis dėlto, bene, turbūt)",
+      "copula frequency (šiuolaikinėje, dabar, tada)",
+      "dropped pronouns (Lithuanian verb endings indicate subject)",
+      "genitive chains (kilmininkų virtinė)",
+      "case system usage (kilmininkas, šauksmininkas, etc.)"
+    ],
+    "syntactic_features": [
+      "word order flexibility (SVO vs topicalization)",
+      "sentence length variation (burstiness)",
+      "passive voice vs reflexive verbs",
+      "nominalization patterns (daiktavardėjimas)",
+      "indirect mood usage (netiesioginė nuosaka)"
+    ],
+    "lexical_features": [
+      "AI-specific vocabulary (Tier 1-3 words)",
+      "function word ratio",
+      "n-gram repetition density",
+      "AI phrase patterns (svarbu paminėti kad, plėtra yra būtina)",
+      "lexico-calques (literal English translations)"
+    ],
+    "discourse_features": [
+      "paragraph structure statistics",
+      "register mixing (formal/informal)",
+      "em dash overuse",
+      "boldface emphasis patterns",
+      "emoji usage in professional text"
+    ]
+  },
+  "phase_3_contrastive_analysis": {
+    "ngram_analysis": {
+      "human_top_3grams": [
+        "lietuvos didžiosios kunigaikštijos",
+        "pr m e",
+        "tūkst kv metrų",
+        "kartą per mėnesį",
+        "abiejų tautų respublikos"
+      ],
+      "ai_top_3grams": [
+        "svarbu paminėti kad",
+        "plėtra yra būtina",
+        "tampa vis svarbesnis",
+        "svarbu užtikrinti kad",
+        "vyriausybė įgyvendina įvairias"
+      ],
+      "ai_specific_patterns": [
+        "plėtra yra būtina",
+        "svarbu paminėti kad",
+        "tampa vis svarbesnis",
+        "svarbu užtikrinti kad",
+        "vyriausybė įgyvendina įvairias"
+      ],
+      "human_specific_patterns": [
+        "nuo xix a",
+        "duomenys rodo kad",
+        "etnografinio regiono pavadinimas",
+        "iki xix a",
+        "xix a vidurio"
+      ]
+    },
+    "uniformity_scores": {
+      "human_burstiness": "0.5-1.0 (varied sentence lengths)",
+      "ai_burstiness": "0.1-0.3 (uniform sentence lengths)",
+      "human_sentence_variation": "0.4-0.8 (high variation)",
+      "ai_sentence_variation": "0.15-0.35 (low variation)",
+      "human_type_token_ratio": "0.55-0.75 (high diversity)",
+      "ai_type_token_ratio": "0.35-0.45 (low diversity)"
+    },
+    "register_profiling": {
+      "human_registers": [
+        "news/interview (LRT.lt)",
+        "business analysis (Verslo žinios)",
+        "opinion/editorial (15min.lt)",
+        "historical/academic (Wikipedia)"
+      ],
+      "ai_registers": [
+        "generic business analysis",
+        "government policy statements",
+        "technical/business writing"
+      ]
+    }
+  },
+  "current_progress": {
+    "corpus_size": "23 samples, 28,842 words",
+    "samples_with_200_words": 19,
+    "target_progress": "23/300 samples (7.7% complete)",
+    "next_steps": [
+      "Expand corpus collection to reach 300+ samples",
+      "Focus on business/interview sources for authenticity",
+      "Use Wayback Machine for archived pre-2022 content",
+      "Apply automated collection scripts to scale"
+    ]
+  },
+  "key_findings": {
+    "linguistic_discrimination": {
+      "most_discriminating_features": [
+        "particle density (humans use juk, gi, etc.)",
+        "word order flexibility (humans topicalize)",
+        "genitive chain frequency (humans use more)",
+        "aspect confusion (AI uses imperfective instead of perfective)",
+        "register mixing (humans mix formal/informal naturally)"
+      ],
+      "ai_signature_patterns": [
+        "svarbu paminėti kad",
+        "plėtra yra būtina",
+        "tampa vis svarbesnis",
+        "strict SVO word order",
+        "lack of particles"
+      ]
+    },
+    "challenges_identified": [
+      "Many pre-2022 sources behind paywalls",
+      "Website structure changes affect automated collection",
+      "Need Wayback Machine for archived content",
+      "Limited availability of business interviews from pre-2022"
+    ],
+    "technical_architecture": {
+      "pattern_registry": "24 pattern detectors organized in 5 categories",
+      "vocabulary_tiers": "3 tiers of AI-specific words",
+      "scoring_system": "0-100 uniformity score based on 5 linguistic dimensions",
+      "language_support": "Lithuanian-specific features (case system, particles, aspect)"
+    }
+  }
+}

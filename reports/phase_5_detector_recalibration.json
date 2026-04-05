@@ -1,0 +1,164 @@
+{
+  "phase_5_detector_recalibration": {
+    "scoring_architecture": {
+      "current_structure": {
+        "pattern_weight_system": "0-5 scale with 5 categories (critical, important, minor)",
+        "uniformity_score": "0-100 based on 5 linguistic dimensions",
+        "pattern_score": "Aggregate of pattern detection weights",
+        "total_score": "Composite of pattern + uniformity scores"
+      },
+      "recalibration_needs": {
+        "lithuanian_specific_features": "Add language-specific patterns (particles, case system, aspect)",
+        "register_aware_scoring": "Different weights for different publication types",
+        "author_role_adjustment": "Different thresholds for journalists vs analysts vs academics",
+        "topic_domain_weights": "Different patterns for politics, business, culture domains"
+      }
+    },
+    "lithuanian_specific_features": {
+      "particles": {
+        "human_density": "0.5-1.5 particles per 100 words",
+        "ai_density": "0-0.1 particles per 100 words",
+        "weight_adjustment": "Increase weight from 3 to 5 for particle detection"
+      },
+      "case_system": {
+        "genitive_chains": "3+ consecutive genitive nouns (kilmininkas)",
+        "human_frequency": "Moderate in business, high in academic writing",
+        "ai_frequency": "Very low (AI avoids complex case structures)",
+        "weight_adjustment": "Increase weight from 3 to 4 for genitive detection"
+      },
+      "verb_aspect": {
+        "perfective_vs_imperfective": "Human uses perfective for completed actions",
+        "ai_pattern": "Uses imperfective instead of perfective",
+        "weight_adjustment": "Add new pattern with weight 4"
+      },
+      "indirect_mood": {
+        "netiesioginė_nuosaka": "Human uses evidential mood after reporting verbs",
+        "ai_pattern": "Uses indicative instead of evidential",
+        "weight_adjustment": "Add new pattern with weight 4"
+      }
+    },
+    "register_aware_scoring": {
+      "publication_type_weights": {
+        "news_interview": {
+          "particle_weight": "4 (natural reporting style)",
+          "word_order_weight": "3 (flexible but professional)",
+          "genitive_weight": "2 (moderate usage)",
+          "overall_threshold": "60/100 for human"
+        },
+        "business_analysis": {
+          "particle_weight": "2 (professional tone)",
+          "word_order_weight": "3 (mostly SVO with topicalization)",
+          "genitive_weight": "4 (bureaucratic business language)",
+          "overall_threshold": "55/100 for human"
+        },
+        "opinion_editorial": {
+          "particle_weight": "5 (expressive language)",
+          "word_order_weight": "5 (emphasis through topicalization)",
+          "genitive_weight": "3 (argumentative structure)",
+          "overall_threshold": "65/100 for human"
+        },
+        "historical_academic": {
+          "particle_weight": "1 (formal academic tone)",
+          "word_order_weight": "2 (rigid SVO conventions)",
+          "genitive_weight": "5 (historical/bureaucratic language)",
+          "overall_threshold": "50/100 for human"
+        }
+      },
+      "author_role_adjustments": {
+        "journalist": {
+          "particle_tolerance": "Medium (natural reporting)",
+          "word_order_tolerance": "High (flexible style)",
+          "genitive_tolerance": "Medium (moderate usage)"
+        },
+        "business_analyst": {
+          "particle_tolerance": "Low (professional tone)",
+          "word_order_tolerance": "Medium (mostly SVO)",
+          "genitive_tolerance": "High (bureaucratic language)"
+        },
+        "columnist": {
+          "particle_tolerance": "High (expressive style)",
+          "word_order_tolerance": "Very High (rhetorical flexibility)",
+          "genitive_tolerance": "Medium (argumentative)"
+        },
+        "academic": {
+          "particle_tolerance": "Very Low (formal tone)",
+          "word_order_tolerance": "Low (rigid conventions)",
+          "genitive_tolerance": "Very High (technical language)"
+        }
+      },
+      "topic_domain_weights": {
+        "politics_government": {
+          "particle_weight": "2 (formal political language)",
+          "word_order_weight": "3 (official statements)",
+          "genitive_weight": "4 (bureaucratic terminology)"
+        },
+        "economy_business": {
+          "particle_weight": "2 (professional business language)",
+          "word_order_weight": "3 (business reporting)",
+          "genitive_weight": "4 (business terminology)"
+        },
+        "culture_society": {
+          "particle_weight": "4 (expressive cultural writing)",
+          "word_order_weight": "4 (cultural commentary)",
+          "genitive_weight": "3 (cultural references)"
+        },
+        "technology_innovation": {
+          "particle_weight": "2 (technical writing)",
+          "word_order_weight": "3 (technical explanations)",
+          "genitive_weight": "3 (technical terminology)"
+        }
+      }
+    },
+    "new_scoring_metrics": {
+      "register_consistency_score": {
+        "description": "Measures consistency within a single register",
+        "human_target": "80-100 (consistent within register)",
+        "ai_target": "40-60 (inconsistent mixing)"
+      },
+      "linguistic_richness_score": {
+        "description": "Measures use of Lithuanian-specific features",
+        "human_target": "70-100 (rich use of particles, cases, aspect)",
+        "ai_target": "30-50 (limited linguistic richness)"
+      },
+      "contextual_awareness_score": {
+        "description": "Measures appropriate register switching",
+        "human_target": "75-100 (purposeful transitions)",
+        "ai_target": "25-45 (mechanical transitions)"
+      }
+    },
+    "implementation_plan": {
+      "phase_1": "Update pattern weights based on Lithuanian research",
+      "phase_2": "Add register-aware scoring thresholds",
+      "phase_3": "Implement topic domain weighting system",
+      "phase_4": "Add new Lithuanian-specific patterns (aspect, indirect mood)",
+      "phase_5": "Create calibration dataset for Lithuanian texts"
+    }
+  },
+  "calibration_dataset": {
+    "human_texts": [
+      "LRT.lt interview with Zelensky (July 2021)",
+      "Verslo žinios business interviews (2019-2021)",
+      "15min.lt opinion pieces (2020)",
+      "Academic papers on Lithuanian history"
+    ],
+    "ai_texts": [
+      "AI-generated business analysis texts",
+      "AI-generated political commentary",
+      "AI-generated technical articles"
+    ],
+    "calibration_metrics": [
+      "particle density per 100 words",
+      "genitive chain frequency",
+      "verb aspect distribution",
+      "indirect mood usage",
+      "word order flexibility",
+      "register consistency"
+    ]
+  },
+  "expected_outcomes": {
+    "improved_accuracy": "Better discrimination between human and AI Lithuanian text",
+    "register_awareness": "Appropriate scoring for different publication types",
+    "linguistic_richness": "Recognition of Lithuanian-specific features",
+    "contextual_understanding": "Appropriate register switching detection"
+  }
+}
