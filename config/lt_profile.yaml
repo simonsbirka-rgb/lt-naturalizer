@@ -1,0 +1,349 @@
+# lt_profile.yaml
+# ---------------------------------------------------------------------------
+# Lithuanian naturalness profile — named editorial rules (R1–R26).
+#
+# Derived during the svprojects.lt "Paslaugos" rewrite (2026-06). These are
+# labeled signal for the meta-evaluator: a generated line can be checked against
+# a *named* rule rather than scored on vibes. Each rule carries a weight and a
+# `mode` describing how mechanizable it is.
+#
+# IMPORTANT: these are SOFT PRIORS, not hard filters (see R26 / `audience`).
+# Several rules carry explicit licensing exceptions (R7, R8, R12); the evaluator
+# must not flag a "technical"/"inflated"/"edgy" item when an upstream anchor,
+# downstream substantiation, or stated audience intent permits it.
+#
+# Field reference
+#   id          short stable identifier (R1..R26)
+#   name        rule name
+#   weight      1–5 — strength as an AI tell when VIOLATED (0 = guard/positive)
+#   mode        detector  : mechanizable as a regex/density check in patterns.js
+#               heuristic : needs a model/round-trip or scored judgment
+#               editorial : human/meta principle, evaluator advisory only
+#   signal      tell (default) | human-positive | guard
+#   principle   the rule, stated plainly
+#   triple      rejected -> accepted, with the governing rule id
+# ---------------------------------------------------------------------------
+
+meta:
+  source: svprojects.lt Paslaugos rewrite
+  derived: 2026-06
+  scope: LT marketing/landing copy, SMB-facing, anti-hype voice
+
+audience:
+  description: founder / native LT, SMB-facing, deliberately un-hyped, edgy-in-brand-direction
+  override: |
+    R26 — Founder/native judgment outranks the general heuristic. Treat every
+    rule below as a soft prior. Do NOT flag a "technical", "inflated", or "edgy"
+    item when an upstream anchor, downstream substantiation, or a stated audience
+    intent licenses it. This applies especially to R7 (inflation exception),
+    R8 (in-brand edge), and R12 (anchored-term complexity).
+
+rules:
+  - id: R1
+    name: Translatability is the tell
+    weight: 4
+    mode: heuristic
+    principle: >
+      A line that maps cleanly to EN/ES with low semantic drift is suspect; human
+      LT copy resists clean translation. Usable as a score: round-trip the
+      candidate through translation and back — low drift -> higher AI-likelihood.
+    human_markers:
+      - "kaip galima (analytical sense)"
+      - "aptarti (= discuss + go-over)"
+      - "galima / verta / būtina (the modal climb)"
+      - "DI savivalė"
+
+  - id: R2
+    name: The antithesis tic
+    weight: 5
+    mode: detector
+    principle: >
+      "Ne X, o Y" / "Be X, tik Y" / "Jokių X". One or two earn their place; a
+      DENSITY of them is the single strongest structural AI marker. Count per
+      page and flag over-frequency, not each instance. Break the weakest into
+      plain declaratives; keep only the strongest one or two.
+
+  - id: R3
+    name: Claim the mechanism, not the virtue
+    weight: 3
+    mode: heuristic
+    principle: >
+      A trust adjective with no stated mechanism is empty and translatable.
+      Replace it with the actual method — more credible and harder to translate.
+    triple:
+      rejected: "Sistemos, kuriomis galima pasikliauti"
+      accepted: "[state the hardcode-each-step method]"
+      rule: R3
+
+  - id: R4
+    name: Delete meta-statements about the page's own structure
+    weight: 4
+    mode: detector
+    principle: >
+      "Keturios pagrindinės kryptys", "trys žingsniai", "dvi priežastys" — the
+      layout already conveys the count; saying it aloud is filler and an AI tell.
+      Replace with substance.
+
+  - id: R5
+    name: Lead with the quantified benefit, not the category
+    weight: 2
+    mode: editorial
+    principle: >
+      Generic category headers + sequential labels ("Paslauga 01") bury the hook.
+      The strongest concrete number belongs in the heading slot. Honesty
+      qualifiers ("iki", "kai kuriose užduotyse") move to the tail — present for
+      integrity, not blunting the lead. Sequence: claim -> proof -> honest limit.
+
+  - id: R6
+    name: Headline register != builder register
+    weight: 3
+    mode: editorial
+    principle: >
+      Technically accurate words (modulinė, extensible, pipeline) describe the
+      thing to an engineer, not its value to a buyer. Architecture vocab -> body
+      or About. Headline claims authorship or benefit in plain words.
+    triple:
+      rejected: "Modulinė įrankių dėžė (H1)"
+      accepted: "Beribė įrankių dėžutė (H1)"
+      rule: R6
+
+  - id: R7
+    name: Inflation words — hype only when unsubstantiated (the "beribė" exception)
+    weight: 0
+    mode: editorial
+    signal: guard
+    principle: >
+      An inflation word ("beribė" = infinite) is a hype tell ONLY when it claims
+      inflated capability as a bare promise. When the body substantiates it as a
+      true property of the method (hardcode-everything has no natural ceiling ->
+      tools keep being added), it is accurate, not inflated. Test: does the body
+      substantiate the word as a mechanism, or just repeat it as a promise?
+      Mechanism -> keep. Promise -> cut. Downstream substantiation decides it,
+      not surface register.
+
+  - id: R8
+    name: Edginess must run in the brand's own direction
+    weight: 2
+    mode: editorial
+    principle: >
+      Edgy is good, but borrowing the competitor's register (maximalist /
+      "infinite possibilities") creates dissonance with the body. The strongest
+      edge names what rivals won't admit ("DI savivalė", "Ne viską įmanoma
+      užkoduoti") — curiosity-inciting AND exclusive to this brand.
+
+  - id: R9
+    name: A subhead must close the loop its headline opens
+    weight: 3
+    mode: editorial
+    principle: >
+      A headline that opens an intrigue loop ("beribė") requires its subhead to
+      close it with the mechanism, not merely state a related principle. Adjacent
+      != payoff. The bridge (constraint -> therefore growth) must be on the page,
+      not inferred.
+
+  - id: R10
+    name: '"mechaniškai" is the right client register for "deterministic/hardcoded"'
+    weight: 1
+    mode: editorial
+    principle: >
+      Concrete and understood by non-technical readers, where
+      "užkoduota/deterministic" is builder jargon. Same truth, audience-correct
+      word. (Cf. R6.)
+
+  - id: R11
+    name: Don't define a service by downward-scoping task adjectives
+    weight: 3
+    mode: heuristic
+    principle: >
+      "Pasikartojančias užduotis", "simple", "basic", "manual" self-sort the
+      offering into the commodity tier and can contradict broader claims. Define
+      by what is replaced (human/hand labour) or by decomposition ("užduotis
+      išskaidome į dalis", applies to any task), not by the narrowness of the
+      task. Category-by-replacement expands; category-by-task-nature shrinks.
+
+  - id: R12
+    name: A term's complexity cost depends on whether its concept is anchored
+    weight: 0
+    mode: editorial
+    signal: guard
+    principle: >
+      The same word ("modulis") is jargon when cold-opening (cf. R6 "modulinė")
+      but enriching texture once the theme is established. Synonym variation on an
+      anchored concept (tools -> modules) reads as register richness, not added
+      complexity. Judge accessibility relative to what the reader already holds in
+      context. Corollary: once anchored, don't re-explain — reference its effects.
+
+  - id: R13
+    name: Don't load the full mechanism into the subhead
+    weight: 2
+    mode: heuristic
+    principle: >
+      Subhead = open loop + gesture at payoff; body = full causal explanation.
+      3–4 sentences of mechanism is a signal it spans two slots, not one.
+
+  - id: R14
+    name: Bridge opposite-pointing claims explicitly
+    weight: 3
+    mode: editorial
+    principle: >
+      When a brand makes two claims that point opposite directions ("more tools"
+      + "less AI needed"), the bridging logic (more deterministic tools -> less AI
+      needed) must be explicit and given room. Adjacent placement without the
+      bridge reads as contradiction.
+
+  - id: R15
+    name: Verb-triads — order weakest -> strongest
+    weight: 2
+    mode: heuristic
+    principle: >
+      Land on the most defensible/vivid term. Pair abstract capability verbs with
+      a concrete "pavyzdžiui" set to escape the noun-pile; mirror the escalation
+      in the examples. ("galima / verta / būtina" is a real escalation, so the
+      tricolon is earned.) See R17 on which verb the human keeps.
+
+  - id: R16
+    name: Concretize abstract hooks; avoid the noun-pile
+    weight: 4
+    mode: detector
+    principle: >
+      After a deliberately abstract or scare-quoted hook ("intelekto"), the
+      follow-through must concretize it. A bare list of near-synonym abstractions
+      (judgment, analysis, comparison, research) is itself an AI tell (the
+      four-verb pile-up). Anchor each capability to a recognizable task or a real
+      client question. Concrete instances > abstract faculties.
+
+  - id: R17
+    name: Verb choice must respect the buyer's authority
+    weight: 3
+    mode: editorial
+    principle: >
+      For decision-maker audiences, AI must never be framed as performing the
+      buyer's prized act ("nuspręsti" — deciding); that reads as a threat/insult.
+      Reserve the high-authority verb for the human ("jums belieka pasirinkti
+      tinkamiausią sprendimą"); assign AI the preparatory verbs (palyginti,
+      įvertinti, paruošti, atrinkti, pateikti objektyviai apdorotus duomenis).
+      Same vocabulary — the power dynamic (who acts vs. who is served) decides
+      whether it sells or offends.
+
+  - id: R18
+    name: '"ribotas" vs "apribotas"'
+    weight: 2
+    mode: detector
+    principle: >
+      "Ribotas DI" = deficient/weak AI (describes capability). "Apribotas /
+      griežtai apribotas DI" = constrained AI (deliberate scoping by us). For a
+      restraint-brand, never let the inherent-limitation reading attach to the
+      product; use "apribotas" or sidestep to "tikslingai / be savivalės". The
+      constraint is a choice, not a weakness.
+    triple:
+      rejected: "ribotas DI"
+      accepted: "apribotas DI / tikslingai apribotas / be savivalės"
+      rule: R18
+
+  - id: R19
+    name: Confidence and defensibility are not opposites
+    weight: 3
+    mode: heuristic
+    principle: >
+      Vague hedges ("mažiname klaidų skaičių") sacrifice both. The strong move is
+      a categorical claim the system definitionally owns: "pašaliname žmogiškąsias
+      klaidas". Unfalsifiable not because it hedges but because the machine cannot
+      produce the named category (human error: fatigue, distraction, forgetting).
+      Beats both the vague hedge AND the literal absolute ("be klaidų", which one
+      counterexample bounces).
+    triple:
+      rejected: "mažiname klaidų skaičių"
+      accepted: "pašaliname žmogiškąsias klaidas"
+      rule: R19
+    tiering: >
+      categorical elimination (bold, for hooks) > comparative "tiksliau nei
+      žmogus" (maximally unfalsifiable, for supporting body) > vague quantity
+      hedge (avoid).
+
+  - id: R20
+    name: Self-virtue claims read fake; admitted limits read human
+    weight: 3
+    mode: heuristic
+    principle: >
+      "Be pardavinėjimo" (claiming virtue) vs "jei neapsimoka, pasakysim" /
+      "Ne viską įmanoma užkoduoti" (demonstrating it). A real person earns trust
+      by admitting a limit, not by swearing to their own virtue. Admitting the
+      boundary of the deterministic approach is itself the un-hype trust move and
+      makes the AI's role feel earned.
+
+  - id: R21
+    name: Frame a complement-service by its contrast, not as a standalone category
+    weight: 2
+    mode: editorial
+    principle: >
+      When a service is the conceptual complement of another (mechanical vs
+      judgment), lead it with the limit of the first ("Ne viską įmanoma
+      užkoduoti") so AI reads as purposeful residue, not the hyped centerpiece.
+
+  - id: R22
+    name: Scare-quotes as tone-marking are a human signal
+    weight: 0
+    mode: editorial
+    signal: human-positive
+    principle: >
+      "„intelekto“" lets the writer use a hyped word while signalling distance
+      from the hype — a move generators rarely deploy correctly. On-brand for
+      anti-hype voice. LT convention: „…“ quotes; terminal period OUTSIDE the
+      closing quote for a quoted word that isn't a full sentence.
+
+  - id: R23
+    name: Active subject gives copy life; mind pronoun repetition
+    weight: 2
+    mode: heuristic
+    principle: >
+      "Dirbtinis intelektas pateikia…" (active subject) > "tam pasitelkiame…
+      kuris pateikia" (limp passive). But watch pronoun repetition ("jums…
+      jums") — reserve the direct-address pronoun for the clause doing
+      authority-work (the human's decision), drop it from the mechanical clause.
+
+  - id: R24
+    name: Bullet lists impose a bounded frame and read as a template tell
+    weight: 4
+    mode: detector
+    principle: >
+      Enumerated features = "here are the N things we do" (bounded), and the
+      ✓-list look is an AI/landing-page tell. They contradict open-ended claims
+      ("beribė"). Convert to prose with open-ended framing ("Tai gali būti X, Y
+      ar Z …") so examples read as illustrations, not an exhaustive menu. Format
+      carries meaning: enumerated = bounded; prose-with-"for-instance" = open.
+      Apply page-wide for consistency, not per-section.
+
+  - id: R25
+    name: Echo the substantiated noun, not the abstract halo
+    weight: 3
+    mode: heuristic
+    principle: >
+      A callback to an earned claim should reconnect to the substantiated thing
+      (the toolbox), not generalize to a vague one ("Galimybės beribės" =
+      "possibilities are limitless", a vendor cliché). Echoing the abstract halo
+      degrades an earned word back into hype.
+
+  - id: R26
+    name: Audience override
+    weight: 0
+    mode: editorial
+    signal: guard
+    principle: >
+      Founder/native judgment outranks the general heuristic. Several rules above
+      (esp. R7, R8) carry explicit exceptions; treat them as soft priors, not hard
+      filters. Do not flag a "technical"/"inflated"/"edgy" item when an upstream
+      anchor, downstream substantiation, or stated audience intent licenses it.
+
+# Approved exemplars from the rewrite — positive anchors the evaluator should
+# NOT flag (they satisfy the rules above despite surface "tells").
+reference_exemplars:
+  - text: "Beribė įrankių dėžutė"
+    satisfies: [R6, R7, R8]
+  - text: "Kiekvienas įrankis suprojektuotas atskiram, smulkiam procesui. Stengiamės jų atrasti kuo daugiau, taip mažindami DI naudojimo būtinybę — todėl mūsų įrankių dėžutė nuolat auga."
+    satisfies: [R9, R14, R7]
+  - text: "Užduotis išskaidome į dalis ir kiekvienai pritaikome atitinkamą modulį — taip pašaliname žmogiškąsias klaidas."
+    satisfies: [R11, R12, R19]
+  - text: "Kai kurie procesai reikalauja „intelekto“"
+    satisfies: [R8, R16, R20, R21, R22]
+  - text: "Dirbtinis intelektas pateikia objektyviai apdorotus duomenis — jums belieka pasirinkti tinkamiausią sprendimą."
+    satisfies: [R17, R23]
